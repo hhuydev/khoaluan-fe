@@ -1,9 +1,9 @@
 import axios from 'axios';
-import jwt_decode from 'jwt-decode';
-import {BASE_URL, REFRESH_TOKEN} from './baseURL';
+import jwt_decode from 'jwt-decode'; 
+import { BASE_URL_API,REFRESH_TOKEN } from '../constants/ApiConstant';
 
-const AxiosClient = async () => {
-  const token = await localStorage.getItem('@ccessToken');
+const axiosClient = async () => {
+  const token = await localStorage.getItem('AccessToken');
   const checkToken = (token) => {
     let date = new Date().getTime() / 1000;
     let expToken = jwt_decode(token).exp;
@@ -14,7 +14,7 @@ const AxiosClient = async () => {
   };
 
   const axiosOption = axios.create({
-    baseURL: BASE_URL,
+    baseURL: BASE_URL_API,
     headers: {
       'content-type': 'application/json',
       Authorization: 'Bearer ' + token,
@@ -32,7 +32,7 @@ const AxiosClient = async () => {
           },
         })
           .then(async (response) => {
-            await localStorage.setItem('@AccessToken', response.data.token);
+            await localStorage.setItem('AccessToken', response.data.token);
             config.headers = {
               'content-type': 'application/json',
               Authorization: 'Bearer ' + response.data.token,
@@ -45,11 +45,11 @@ const AxiosClient = async () => {
         return config;
       }
       return config;
-    },
+    } ,
     (error) => {
       Promise.reject(error);
     },
   );
   return axiosOption;
 };
-export default AxiosClient;
+export default axiosClient;

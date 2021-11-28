@@ -1,13 +1,14 @@
-import axiosClient from './axiosClient';
-import axios from 'axios'; 
-
-const TaiKhoanApi = async (params) => {
-    return axios({
+// import axiosClient from './axiosClient';
+import axios from 'axios';   
+import {BASE_URL_API} from "./../constants/ApiConstant";
+const DangNhapApi =   (params) => {
+  console.log(params);
+  return axios({
       method: 'POST',
-      url: BASE_URL_API + "",
+      url:   BASE_URL_API+"api/solienlacdientu/v1/taikhoan/dangnhap",
       data: {
-        username: params.username,
-        password: params.password,
+        tenDangNhap: params.tenDangNhap,
+        matKhau: params.matKhau,
       },
     })
       .then((response) => {
@@ -20,5 +21,5 @@ const TaiKhoanApi = async (params) => {
 
 
 export {
-    signInApi,
+  DangNhapApi,
 }

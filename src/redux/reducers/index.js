@@ -1,8 +1,7 @@
 import { combineReducers } from "redux";
+import loadingReducer from "./Loading/LoadingReducer";
 const reducer = combineReducers({
-    
-  //literal object
-   
+  loadingReducer
 });
 
 export default reducer;
