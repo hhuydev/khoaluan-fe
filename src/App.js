@@ -1,10 +1,10 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import LoadingComponent from './component/GlobalSettings/LoadingComponent';
-import GiangVien from './pages/home/giangvien/GiangVien'
-import PhuHuynh from './pages/home/phuhuynh/PhuHuynh'
-import SinhVien from './pages/home/sinhvien/SinhVien'
-import Login from './pages/login/Login';
+import GiangVien from './containers/home/giangvien/GiangVien'
+import PhuHuynh from './containers/home/phuhuynh/PhuHuynh'
+import SinhVien from './containers/home/sinhvien/SinhVien'
+import Login from './containers/login/Login';
 
 export default function App() {
   return (

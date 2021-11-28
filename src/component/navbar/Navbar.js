@@ -13,12 +13,24 @@ export default function Navbar() {
       <ul className="navbar-nav ml-auto">
         <div className="hori-selector"><div className="left" /><div className="right" /></div>
         <li className="nav-item">
-          <NavLink  className="nav-item" to="/home">
-            HOME
-          </NavLink>
-          
+          <NavLink></NavLink>
+          <a className="nav-link" NavLink="/"><i className="fas fa-tachometer-alt" />Dashboard</a>
         </li>
-        
+        <li className="nav-item active">
+          <a className="nav-link" NavLink="#"><i className="far fa-address-book" />Address Book</a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link" NavLink="#"><i className="far fa-clone" />Components</a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link" NavLink="#"><i className="far fa-calendar-alt" />Calendar</a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link" NavLink="#"><i className="far fa-chart-bar" />Charts</a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link" NavLink="#"><i className="far fa-copy" />Documents</a>
+        </li>
       </ul>
     </div>
   </nav>
