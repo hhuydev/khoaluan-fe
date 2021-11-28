@@ -1,10 +1,10 @@
-import React from 'react'
-import Navbar from '../../../component/navbar/Navbar'
+import React from 'react' 
+import Navbar from '../../../component/navbar'
 
 export default function PhuHuynh() {
   return (
     <div>
-      <Navbar></Navbar>
+      <Navbar/> 
     </div>
   )
 }

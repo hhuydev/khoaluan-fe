@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from '../../../component/navbar/Navbar'
+import Navbar from '../../../component/navbar'
 
 export default function GiangVien() {
   return (

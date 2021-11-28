@@ -1,30 +1,38 @@
-import React from 'react'
-import { Route, Switch } from 'react-router';
-import Navbar from '../../../component/navbar/Navbar'
-import { SinhVienRoutes } from '../../../routers';
+import React from "react";
+import { Route, Switch } from "react-router";
+import Navbar from "../../../component/navbar";
+import { SinhVienRoutes } from "../../../routers";
+import XemThongTin from "./xemThongTin";
 
 export default function SinhVien(props) {
-  console.log(window.location.pathname);
+  // console.log(window.location.pathname);
+  const getRoute = () => {
+    return window.location.pathname !== "/sinhvien/maps";
+  };
+
   const switchRoutes = (
     <Switch>
-      {SinhVienRoutes.map((prop, key) => {
-        return (
-          <Route
-            path={prop.layout + prop.path}
-            component={prop.component}
-            key={key}
-          />
-        ); 
-      })}
+      <Route exact path="/xemthongtin" component={XemThongTin} />
     </Switch>
   );
 
-
+  const Cha = (props) => {
+    console.log(props.children);
+    return (
+      <>
+        <Navbar routers={SinhVienRoutes} />
+        {props.children}
+      </>
+    );
+  };
 
   return (
-    <>
-      <Navbar router = {SinhVienRoutes}/>
-      {switchRoutes}
-    </>
-  )
+    <Cha>
+    {
+       <Switch>
+          <Route exact path="/sinhvien/xemthongtin" component={XemThongTin} />
+       </Switch>
+    }
+  </Cha>
+  );
 }
