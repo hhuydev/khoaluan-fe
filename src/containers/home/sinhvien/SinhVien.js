@@ -29,7 +29,7 @@ export default function SinhVien(props) {
   };
 
   return (
-     <>
+ 
      <BrowserRouter>
      <Navbar routers = {SinhVienRoutes}/>
      <Switch>
@@ -37,6 +37,6 @@ export default function SinhVien(props) {
         <Route exact path="/sinhvien/xinnghihoc" component={XinNghiHoc} /> 
       </Switch>
      </BrowserRouter>
-     </>
+ 
   );
 }
