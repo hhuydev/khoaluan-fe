@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
 import './Navbar.css';
-export default function Navbar() {
+export default function Navbar(props) { 
   return (
    <div>
   <nav className="navbar navbar-expand-custom navbar-mainbg">
@@ -12,13 +12,16 @@ export default function Navbar() {
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav ml-auto">
         <div className="hori-selector"><div className="left" /><div className="right" /></div>
-        <li className="nav-item">
-          <NavLink  className="nav-item" to="/home">
-            HOME
-          </NavLink>
-          
-        </li>
-        
+        {props.routers.map((router,index)=>{
+            return(
+                <li className="nav-item" key = {index}>
+                <NavLink className="nav-link" to = {router.layout+router.path}>
+                    {router.name}
+                </NavLink>
+              </li>
+            )
+        })}
+     
       </ul>
     </div>
   </nav>
