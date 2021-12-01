@@ -1,3 +1,4 @@
+import BangDiem from "./containers/home/sinhvien/bangDiem";
 import XemThongTin from "./containers/home/sinhvien/xemThongTin";
 import XinNghiHoc from "./containers/home/sinhvien/xinNghiHoc";
 import Login from "./containers/login/Login";
@@ -26,6 +27,12 @@ import Login from "./containers/login/Login";
         name: "Xin nghỉ học",
       //   icon: Dashboard,
         component: XinNghiHoc,
+        layout: "/sinhvien",
+      }, {
+        path: "/bangdiem",
+        name: "Bảng điểm",
+      //   icon: Dashboard,
+        component: BangDiem,
         layout: "/sinhvien",
       },
   ]

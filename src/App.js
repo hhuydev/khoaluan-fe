@@ -15,12 +15,21 @@ export default function App() {
       <BrowserRouter>
         <LoadingComponent />
         <Switch>
+          {/* 
+            path = > layout trong routers
+          */}
           <Route exact path="/giangvien" component={GiangVien} />
           <Route exact path="/sinhvien" component={SinhVien} />
           <Route exact path="/phuhuynh" component={PhuHuynh} />
+<<<<<<< HEAD
           <Route exact path="/login" component={Login} />
           {/* <Redirect from="/" to="/login" /> */}
           <Route path="*" component={PageNotFound} />
+=======
+        
+          <Route exact path="/login" component={Login} />  
+          <Route   path="*" component={PageNotFound} />
+>>>>>>> 395ee3d511d58acfca32ab6f6f893b5a014a494b
         </Switch>
       </BrowserRouter>
     </div>
