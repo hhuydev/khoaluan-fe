@@ -15,7 +15,6 @@ export default function App() {
           <Route exact path="/phuhuynh" component={PhuHuynh} />
           <Route exact path="/login" component={Login} />
           <Route path="/" component={Login} />
-
         </Switch>
       </BrowserRouter>
     </div>
