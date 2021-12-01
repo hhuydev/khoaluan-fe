@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router";
 import { BrowserRouter } from "react-router-dom";
 import Navbar from "../../../component/navbar";
 import { SinhVienRoutes } from "../../../routers";
+import BangDiem from "./bangDiem";
 import XemThongTin from "./xemThongTin";
 import XinNghiHoc from "./xinNghiHoc";
 
@@ -33,8 +34,13 @@ export default function SinhVien(props) {
      <BrowserRouter>
      <Navbar routers = {SinhVienRoutes}/>
      <Switch>
-        <Route exact path="/sinhvien/xemthongtin" component={XemThongTin} /> 
-        <Route exact path="/sinhvien/xinnghihoc" component={XinNghiHoc} /> 
+       {
+         SinhVienRoutes.map(route=>{
+           return (
+            <Route exact path= {route.layout+route.path} component={route.component} /> 
+           )
+         })
+       }
       </Switch>
      </BrowserRouter>
  

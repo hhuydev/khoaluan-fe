@@ -33,7 +33,7 @@ export default function Login(props) {
           </div>
           <form onSubmit = {onSubmit}>
             <input type="text" id="login" className="fadeIn second" name="tenDangNhap" placeholder="Tên đăng nhập" onChange ={handleInputChange} />
-            <input type="text" id="password" className="fadeIn third" name="matKhau" placeholder="Mật khẩu" onChange ={handleInputChange} />
+            <input type="password" id="password" className="fadeIn third" name="matKhau" placeholder="Mật khẩu" onChange ={handleInputChange} />
             <input type="submit" className="fadeIn fourth" value="Đăng Nhập" />
           </form>
           <div id="formFooter">
