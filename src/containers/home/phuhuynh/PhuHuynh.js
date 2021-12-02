@@ -22,6 +22,17 @@ export default function PhuHuynh(props) {
           localStorage.removeItem("id");
           localStorage.removeItem("AccessToken");
         }
+        if(res.data.role==="SINH_VIEN"){
+          props.history.replace("/sinhvien");
+        }
+        if(res.data.role==="GIANG_VIEN"){
+          props.history.replace("/giangvien");
+        }
+        if(res.data.role==="PHU_HUYNH"){
+          props.history.replace("/phuhuynh");
+        }
+        
+        
       })
       .catch((err) => {
         props.history.replace("/");

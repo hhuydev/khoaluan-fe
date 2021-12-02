@@ -7,10 +7,8 @@ import Navbar from "../../../component/navbar";
 import { checkAuthAtc } from "../../../redux/actions/TaiKhoan";
 import { SinhVienRoutes } from "../../../routers";
 
-export default function SinhVien(props) {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    // dispatch(checkAuthAtc(localStorage.getItem("AccessToken"),localStorage.getItem("id"),props.history))
+export default function SinhVien(props) { 
+  useEffect(() => { 
     CheckAuthApi({
       token: localStorage.getItem("AccessToken"),
       id: localStorage.getItem("id"),
@@ -20,6 +18,15 @@ export default function SinhVien(props) {
           props.history.replace("/");
           localStorage.removeItem("id");
           localStorage.removeItem("AccessToken");
+        }
+        if(res.data.role==="SINH_VIEN"){
+          props.history.replace("/sinhvien");
+        }
+        if(res.data.role==="GIANG_VIEN"){
+          props.history.replace("/giangvien");
+        }
+        if(res.data.role==="PHU_HUYNH"){
+          props.history.replace("/phuhuynh");
         }
       })
       .catch((err) => {
