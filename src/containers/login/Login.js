@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { CheckAuthApi } from '../../api/TaiKhoanApi';
 import { atcDangNhap } from '../../redux/actions/TaiKhoan';
-import './style.css'
+import './style.css';
 export default function Login(props) {
   const [taiKhoan, setTaiKhoan] = useState({
    
@@ -20,7 +21,34 @@ export default function Login(props) {
     dispatch(atcDangNhap(taiKhoan,props.history));
 
     }
- 
+    useEffect(() => { 
+      CheckAuthApi({
+        token: localStorage.getItem("AccessToken"),
+        id: localStorage.getItem("id"),
+      })
+        .then((res) => { 
+          if (res.data.active === false) {
+            props.history.replace("/login");
+            localStorage.removeItem("id");
+            localStorage.removeItem("AccessToken");
+          }else{
+            if(res.data.role==="SINH_VIEN"){
+              props.history.replace("/sinhvien");
+            }
+            if(res.data.role==="GIANG_VIEN"){
+              props.history.replace("/giangvien");
+            }
+            if(res.data.role==="PHU_HUYNH"){
+              props.history.replace("/phuhuynh");
+            }
+          }
+        })
+        .catch((err) => {
+          props.history.replace("/");
+          localStorage.removeItem("id");
+          localStorage.removeItem("AccessToken");
+        });
+    }, []);
 
 
   return (
