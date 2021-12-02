@@ -19,7 +19,17 @@ const DangNhapApi =   (params) => {
       });
 };
 
-
+export const CheckAuthApi = (params) => { 
+  return axios({
+      method: 'POST',
+      url:   BASE_URL_API+"api/solienlacdientu/v1/taikhoan/checkauth",
+      data: {
+        token: params.token,
+        id: params.id,
+      },
+    })
+      
+};
 export {
   DangNhapApi,
 }
