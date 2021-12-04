@@ -4,7 +4,7 @@ import { Route, Switch } from "react-router";
 import { BrowserRouter } from "react-router-dom";
 import { CheckAuthApi } from "../../../api/TaiKhoanApi";
 import Navbar from "../../../component/navbar";
-import { atcXemThongTinSinhVien } from "../../../redux/actions/SinhVien";
+import { atcGetThongBao, atcXemThongTinSinhVien } from "../../../redux/actions/SinhVien";
 import { checkAuthAtc } from "../../../redux/actions/TaiKhoan";
 import { SinhVienRoutes } from "../../../routers";
 
@@ -34,6 +34,7 @@ export default function SinhVien(props) {
           props.history.replace("/phuhuynh");
         }
         dispatch(atcXemThongTinSinhVien());
+        dispatch(atcGetThongBao(0));
 
       })
       .catch((err) => {

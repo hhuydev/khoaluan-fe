@@ -4,7 +4,7 @@ import { atcXemThongTinSinhVien } from './../../../../redux/actions/SinhVien'
 export default function ThongTinSinhVien() {
   const { data } = useSelector(state => state.sinhVienReducer)
 
-
+  console.log(data);
 
   return (
 

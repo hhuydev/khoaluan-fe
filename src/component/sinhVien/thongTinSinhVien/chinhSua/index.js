@@ -12,8 +12,7 @@ export default function ChinhSuaThongTin(props) {
   })
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setThongTin({ ...thongTin, [name]: value });
-    // data = { ...data, [name]: value }
+    setThongTin({ ...thongTin, [name]: value }); 
     console.log(thongTin);
   }
   const handelChinhSuaThongTin = () => {

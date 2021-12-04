@@ -48,7 +48,7 @@ const SinhVienRoutes = [
   {
     path: "/thongbao",
     name: "",
-    icon: <i class="fas fa-bell"></i>,
+    icon: <i className="fas fa-bell"></i>,
     component: ThongBao,
     layout: "/sinhvien",
   },

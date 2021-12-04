@@ -5,6 +5,8 @@ const initialState = {
   err: null,
 };
 
+
+ 
 const sinhVienReducer = (state = initialState, { type, payload }) => {
   switch (type) {
 
@@ -20,9 +22,7 @@ const sinhVienReducer = (state = initialState, { type, payload }) => {
       state.data = { ...state.data, diaChi: payload.diaChi, soDT: payload.soDT, email: payload.email };
 
 
-
-      console.log("data old ", state.data);
-      console.log("data new ", payload);
+ 
       return { ...state };
 
     case CHINHSUATHONGTINSINHVIEN_FAILED:
