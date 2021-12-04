@@ -1,14 +1,13 @@
 import axios from 'axios';
 import { BASE_URL_API } from "./../constants/ApiConstant";
+import axiosClient from './axiosClient';
 
-const XemThongTinApi = () => {
-  return axios({
+const XemThongTinApi =async () => {
+  return (await axiosClient())({
     method: 'GET',
     url: BASE_URL_API + "api/solienlacdientu/v1/sinhvien/thongtin/" + localStorage.getItem("id"),
 
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem("AccessToken")}`,
-    },
+     
   })
     .then((response) => {
       return response;
@@ -18,14 +17,12 @@ const XemThongTinApi = () => {
     });
 };
 
-const chinhSuaThongTinApi = (data) => {
-  return axios({
+const chinhSuaThongTinApi =async (data) => {
+  return (await axiosClient())({
     method: 'PUT',
     url: `${BASE_URL_API}api/solienlacdientu/v1/sinhvien/thongtin/${localStorage.getItem("id")}`,
     data: data,
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem("AccessToken")}`,
-    },
+    
   })
     .then((response) => {
       return response;
@@ -35,7 +32,22 @@ const chinhSuaThongTinApi = (data) => {
     });
 };
 
+const getThongBaoSinhVienApi =async (page)=>{
+  return (await axiosClient())({
+    method: 'GET',
+    url: `${BASE_URL_API}api/solienlacdientu/v1/sinhvien/${localStorage.getItem("id")}/thongbaos`,
+    params:{page:page,size:5}
+  })
+    .then((response) => { 
+      return response;
+    })
+    .catch((error) => {
+      throw error;
+    });
+}
+
 export {
   XemThongTinApi,
-  chinhSuaThongTinApi
+  chinhSuaThongTinApi,
+  getThongBaoSinhVienApi
 }

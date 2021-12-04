@@ -23,7 +23,7 @@ export default function XemThongTin() {
                         <div className="col-md-6">
                             <div className="profile-head">
                                 <h3>
-                                    Nguyễn Thị Kiều Oanh
+                                    Thông Tin Sinh Viên
                                 </h3>
                                 <ul className="nav nav-tabs" id="myTab" role="tablist">
                                     <li className="nav-item">
