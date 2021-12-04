@@ -4,30 +4,37 @@ import { Route, Switch } from "react-router";
 import { BrowserRouter } from "react-router-dom";
 import { CheckAuthApi } from "../../../api/TaiKhoanApi";
 import Navbar from "../../../component/navbar";
+import { atcXemThongTinSinhVien } from "../../../redux/actions/SinhVien";
 import { checkAuthAtc } from "../../../redux/actions/TaiKhoan";
 import { SinhVienRoutes } from "../../../routers";
 
-export default function SinhVien(props) { 
-  useEffect(() => { 
+export default function SinhVien(props) {
+
+  const dispatch = useDispatch();
+
+
+  useEffect(() => {
     CheckAuthApi({
       token: localStorage.getItem("AccessToken"),
       id: localStorage.getItem("id"),
     })
-      .then((res) => { 
+      .then((res) => {
         if (res.data.active === false) {
           props.history.replace("/");
           localStorage.removeItem("id");
           localStorage.removeItem("AccessToken");
         }
-        if(res.data.role==="SINH_VIEN"){
+        if (res.data.role === "SINH_VIEN") {
           props.history.replace("/sinhvien");
         }
-        if(res.data.role==="GIANG_VIEN"){
+        if (res.data.role === "GIANG_VIEN") {
           props.history.replace("/giangvien");
         }
-        if(res.data.role==="PHU_HUYNH"){
+        if (res.data.role === "PHU_HUYNH") {
           props.history.replace("/phuhuynh");
         }
+        dispatch(atcXemThongTinSinhVien());
+
       })
       .catch((err) => {
         props.history.replace("/");
