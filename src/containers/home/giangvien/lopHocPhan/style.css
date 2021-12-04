@@ -1,0 +1,15 @@
+.lop-hoc-phan {
+  border: none;
+  width: 195%;
+  padding: 20%;
+  font-weight: 600;
+  color: black;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.lop-hoc-phan .table-bordered {
+  width: 50%;
+  margin-top: -10%;
+  margin-left: -5%;
+}
