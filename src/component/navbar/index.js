@@ -30,25 +30,29 @@ export default function Navbar(props) {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ml-auto">
-
-
-
             <div className="hori-selector">
               <div className="left" />
               <div className="right" />
             </div>
             {props.routers.map((router, index) => {
+
               return (
                 <li className="nav-item" key={index}>
                   <NavLink
-                    className="nav-link"
+                    className="nav-link active"
                     to={router.layout + router.path}
                   >
                     {router.name}
+                    {router.icon}
                   </NavLink>
+
                 </li>
               );
             })}
+            {
+
+            }
+
             <div className="dropdown">
               <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i className="fas fa-cog"></i>
