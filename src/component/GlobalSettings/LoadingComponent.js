@@ -1,15 +1,16 @@
 import React from "react";
-import style from "./LoadingComponent.module.css";
-import loading from "./../../assets/img/loading.gif";
 import { useSelector } from "react-redux";
+import loading from "./../../assets/img/loading.gif";
+import style from "./LoadingComponent.module.css";
 export default function LoadingComponent() {
-
-    const {isLoading} = useSelector(state => state.loadingReducer)
-
+  const { isLoading } = useSelector((state) => state.loadingReducer);
 
   return (
-    <div className={style.bgLoading} style={{display:isLoading?'flex':'none'}}>
+    <div
+      className={style.bgLoading}
+      style={{ display: isLoading ? "flex" : "none" }}
+    >
       <img src={loading} />
     </div>
   );
-}   
+}
