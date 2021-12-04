@@ -7,24 +7,24 @@ import Navbar from "../../../component/navbar";
 import { GiangVienRoutes, SinhVienRoutes } from "../../../routers";
 
 export default function GiangVien(props) {
-  useEffect(() => { 
+  useEffect(() => {
     CheckAuthApi({
       token: localStorage.getItem("AccessToken"),
       id: localStorage.getItem("id"),
     })
-      .then((res) => { 
+      .then((res) => {
         if (res.data.active === false) {
           props.history.replace("/");
           localStorage.removeItem("id");
           localStorage.removeItem("AccessToken");
         }
-        if(res.data.role==="SINH_VIEN"){
+        if (res.data.role === "SINH_VIEN") {
           props.history.replace("/sinhvien");
         }
-        if(res.data.role==="GIANG_VIEN"){
+        if (res.data.role === "GIANG_VIEN") {
           props.history.replace("/giangvien");
         }
-        if(res.data.role==="PHU_HUYNH"){
+        if (res.data.role === "PHU_HUYNH") {
           props.history.replace("/phuhuynh");
         }
       })
@@ -36,14 +36,14 @@ export default function GiangVien(props) {
   }, []);
   return (
     <BrowserRouter>
-      <Navbar routers={GiangVienRoutes}  history={props.history}/>
+      <Navbar routers={GiangVienRoutes} history={props.history} />
       <Suspense fallback={LoadingComponent}>
         <Switch>
-          {SinhVienRoutes.map((route) => {
+          {GiangVienRoutes.map((route) => {
             return (
               <Route
                 exact
-                key = {route.path}
+                key={route.path}
                 path={route.layout + route.path}
                 component={route.component}
               />

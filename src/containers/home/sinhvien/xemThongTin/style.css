@@ -1,6 +1,3 @@
-body {
-  background: -webkit-linear-gradient(left, #708090, #dcdcdc);
-}
 .emp-profile {
   padding: 3%;
   margin-top: 3%;
@@ -37,14 +34,15 @@ body {
 .profile-head h6 {
   color: #0062cc;
 }
-.profile-edit-btn {
+.emp-profile .profile-save-btn {
   border: none;
   border-radius: 1.5rem;
-  width: 70%;
-  padding: 2%;
+  width: 195%;
+  padding: 20%;
   font-weight: 600;
   color: #6c757d;
   cursor: pointer;
+  background-color: #dcdcde;
 }
 .proile-rating {
   font-size: 12px;
@@ -91,5 +89,5 @@ body {
 }
 .profile-tab p {
   font-weight: 600;
-  color: #00c6ff;
+  color: black;
 }
