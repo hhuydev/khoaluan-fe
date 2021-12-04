@@ -10,15 +10,15 @@ import PageNotFound from "./containers/pageNotFound";
 import { LayoutMain } from "./routers";
 
 export default function App() {
-  const renderRouters = () => {};
+  const renderRouters = () => { };
   return (
     <div>
       <BrowserRouter>
         <Suspense fallback={LoadingComponent}>
           <LoadingComponent />
-         
+
           <Switch>
-          <Route  exact path="/login" component={Login} />
+            <Route exact path="/login" component={Login} />
             {LayoutMain.map((layout, index) => {
               return (
                 <Route
