@@ -4,9 +4,10 @@ import ReactPaginate from 'react-paginate'
 export default function Pagination(props) {
     const {data} =props
     return (
-        <ReactPaginate 
-              previousLabel={"Trước"}
-              nextLabel={"Sau"}
+        <div className="pagination-foot">
+            <ReactPaginate 
+              previousLabel={"<<"}
+              nextLabel={">>"}
               breakLabel={"..."}
               pageCount={data.totalPage}
               marginPagesDisplayed={3}
@@ -24,5 +25,6 @@ export default function Pagination(props) {
               activeClassName={"active"}
               activeLinkClassName={"active"}
             />
+        </div>
     )
 }

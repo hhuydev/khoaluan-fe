@@ -6,7 +6,7 @@ import Pagination from "../../../../common/Pagination";
 import ModelChiTietThongBaoSinhVien from "../../../../component/sinhVien/thongBaoSinhVien/modelChiTietThongBaoSinhVien";
 import ThongBaoSinhVienItem from "../../../../component/sinhVien/thongBaoSinhVien/thongBaoItem";
 import { atcGetThongBao } from "../../../../redux/actions/SinhVien";
-import "./style.css";
+
 export default function ThongBao() {
   const { data } = useSelector((state) => state.thongBaoReducer);
   const dispatch = useDispatch();
@@ -45,8 +45,9 @@ export default function ThongBao() {
           </div>
         </div>
       </div>
-      <ModelChiTietThongBaoSinhVien data = {dataItem}/>
       
+      <ModelChiTietThongBaoSinhVien data = {dataItem}/>
     </div>
+   
   );
 }
