@@ -1,8 +1,6 @@
-import { lazy } from "react";
-// import LopHoc from "./containers/home/giangvien/lopHoc";
-// import LopHocPhan from "./containers/home/giangvien/lopHocPhan";
-import ThongBao from "./containers/home/sinhvien/thongBao";
-// const GiangVien = lazy(() => import('./containers/home/giangvien/GiangVien'));
+import { lazy } from "react";  
+import ThongBao from "./containers/home/sinhvien/thongBao"; 
+const ThongTinLopHoc = lazy(() => import('./containers/home/giangvien/lopHoc/thongTinLopHoc'));
 const LopHoc = lazy(() => import('./containers/home/giangvien/lopHoc'));
 const LopHocPhan = lazy(() => import('./containers/home/giangvien/lopHocPhan'));
 const GiangVien = lazy(() => import('./containers/home/giangvien/GiangVien'));
@@ -77,6 +75,13 @@ const GiangVienRoutes = [
     component: LopHoc,
     layout: "/giangvien",
   },
+  {
+    path: "/lophoc/:id",
+    name: "Thông tin lớp học",
+    icon: "",
+    component: ThongTinLopHoc,
+    layout: "/giangvien",
+  }
 ]
 const PhuHuynhRoutes = [
 

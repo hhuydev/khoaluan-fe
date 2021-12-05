@@ -38,7 +38,7 @@ export default function ThongBao() {
               return (
                 <ThongBaoSinhVienItem handleClickThongBao={handleClickThongBao} item={item} key ={item.id}/>
               );
-            }):"asdasdas"}
+            }):"....."}
           
             <Pagination data={{index:index,totalPage:totalPage,handelPageClick:handelPageClick}}/>
             
