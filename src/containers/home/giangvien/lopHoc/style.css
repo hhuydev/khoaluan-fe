@@ -1,0 +1,19 @@
+.lop-hoc {
+  border: none;
+  width: 100%;
+  padding: 10%;
+  font-weight: 600;
+  color: black;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.lop-hoc .table {
+  width: 100%;
+  margin-top: -10%;
+  margin-left: -5%;
+}
+.lop-hoc tfoot .pagination-foot{
+  margin-top: 2%;
+  margin-left: 60%;
+}

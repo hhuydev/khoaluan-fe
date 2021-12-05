@@ -2,23 +2,23 @@
 
 /* BASIC */
 
-html {
+/* html {
   background-color: #56baed;
-}
+} */
 
-body {
+.login-form {
   font-family: "Poppins", sans-serif;
   height: 100vh;
 }
 
-a {
+.login-form a {
   color: #92badd;
   display: inline-block;
   text-decoration: none;
   font-weight: 400;
 }
 
-h2 {
+.login-form h2 {
   text-align: center;
   font-size: 16px;
   font-weight: 600;
@@ -30,7 +30,7 @@ h2 {
 
 /* STRUCTURE */
 
-.wrapper {
+.login-form .wrapper {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -40,7 +40,7 @@ h2 {
   padding: 20px;
 }
 
-#formContent {
+.login-form #formContent {
   -webkit-border-radius: 10px 10px 10px 10px;
   border-radius: 10px 10px 10px 10px;
   background: #fff;
@@ -54,7 +54,7 @@ h2 {
   text-align: center;
 }
 
-#formFooter {
+.login-form #formFooter {
   background-color: #f6f6f6;
   border-top: 1px solid #dce8f1;
   padding: 25px;
@@ -65,20 +65,20 @@ h2 {
 
 /* TABS */
 
-h2.inactive {
+.login-form h2.inactive {
   color: #cccccc;
 }
 
-h2.active {
+.login-form h2.active {
   color: #0d0d0d;
   border-bottom: 2px solid #5fbae9;
 }
 
 /* FORM TYPOGRAPHY*/
 
-input[type="button"],
-input[type="submit"],
-input[type="reset"] {
+.login-form input[type="button"],
+.login-form input[type="submit"],
+.login-form input[type="reset"] {
   background-color: #56baed;
   border: none;
   color: white;
@@ -100,15 +100,15 @@ input[type="reset"] {
   transition: all 0.3s ease-in-out;
 }
 
-input[type="button"]:hover,
-input[type="submit"]:hover,
-input[type="reset"]:hover {
+.login-form input[type="button"]:hover,
+.login-form input[type="submit"]:hover,
+.login-form input[type="reset"]:hover {
   background-color: #39ace7;
 }
 
-input[type="button"]:active,
-input[type="submit"]:active,
-input[type="reset"]:active {
+.login-form input[type="button"]:active,
+.login-form input[type="submit"]:active,
+.login-form input[type="reset"]:active {
   -moz-transform: scale(0.95);
   -webkit-transform: scale(0.95);
   -o-transform: scale(0.95);
@@ -116,7 +116,8 @@ input[type="reset"]:active {
   transform: scale(0.95);
 }
 
-input[type="text"] {
+.login-form input[type="text"],
+.login-form input[type="password"] {
   background-color: #f6f6f6;
   border: none;
   color: #0d0d0d;
@@ -137,12 +138,14 @@ input[type="text"] {
   border-radius: 5px 5px 5px 5px;
 }
 
-input[type="text"]:focus {
+.login-form input[type="text"],
+.login-form input[type="password"] :focus {
   background-color: #fff;
   border-bottom: 2px solid #5fbae9;
 }
 
-input[type="text"]:placeholder {
+.login-form input[type="text"],
+.login-form input[type="password"] :placeholder {
   color: #cccccc;
 }
 
@@ -210,7 +213,7 @@ input[type="text"]:placeholder {
   }
 }
 
-.fadeIn {
+.login-form .fadeIn {
   opacity: 0;
   -webkit-animation: fadeIn ease-in 1;
   -moz-animation: fadeIn ease-in 1;
@@ -225,32 +228,32 @@ input[type="text"]:placeholder {
   animation-duration: 1s;
 }
 
-.fadeIn.first {
+.login-form .fadeIn.first {
   -webkit-animation-delay: 0.4s;
   -moz-animation-delay: 0.4s;
   animation-delay: 0.4s;
 }
 
-.fadeIn.second {
+.login-form .fadeIn.second {
   -webkit-animation-delay: 0.6s;
   -moz-animation-delay: 0.6s;
   animation-delay: 0.6s;
 }
 
-.fadeIn.third {
+.login-form .fadeIn.third {
   -webkit-animation-delay: 0.8s;
   -moz-animation-delay: 0.8s;
   animation-delay: 0.8s;
 }
 
-.fadeIn.fourth {
+.login-form .fadeIn.fourth {
   -webkit-animation-delay: 1s;
   -moz-animation-delay: 1s;
   animation-delay: 1s;
 }
 
 /* Simple CSS3 Fade-in Animation */
-.underlineHover:after {
+.login-form .underlineHover:after {
   display: block;
   left: 0;
   bottom: -10px;
@@ -261,21 +264,21 @@ input[type="text"]:placeholder {
   transition: width 0.2s;
 }
 
-.underlineHover:hover {
+.login-form .underlineHover:hover {
   color: #0d0d0d;
 }
 
-.underlineHover:hover:after {
+.login-form .underlineHover:hover:after {
   width: 100%;
 }
 
 /* OTHERS */
 
-*:focus {
+.login-form *:focus {
   outline: none;
 }
 
-#icon {
+.login-form #icon {
   width: 60%;
 }
 
