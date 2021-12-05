@@ -1,6 +1,6 @@
 import React from 'react'
 import { formatDateTime } from '../../../../utils/format/formatValues'
-import "./style.css"
+import "./style.css";
 export default function ThongBaoSinhVienItem(props) {
   const clickModal =()=>{
     props.handleClickThongBao(props.item)
@@ -30,11 +30,10 @@ export default function ThongBaoSinhVienItem(props) {
               </a>
             </h6>
             <p className="list-inline list-inline-dotted mb-3 mb-lg-2">
-              {`Ngày tạo thông báo: ${formatDateTime(props.item.ngayTao)}
-               Của giảng viên : ${props.item.tenGiangVien}`}
+              {`${formatDateTime(props.item.ngayTao)}`}
 
             </p>
-            <p className="mb-3">{props.item.noiDung}</p>
+            <p className="mb-3">{props.item.noiDung.slice(0,150)}....</p>
           </div>
         </div>
       </div>

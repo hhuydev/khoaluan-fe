@@ -1,12 +1,15 @@
 import React, { Suspense, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router";
 import { BrowserRouter } from "react-router-dom";
 import { CheckAuthApi } from "../../../api/TaiKhoanApi";
 import LoadingComponent from "../../../component/GlobalSettings/LoadingComponent";
 import Navbar from "../../../component/navbar";
+import { atcGetDanhSachLopHoc } from "../../../redux/actions/GiangVien";
 import { GiangVienRoutes, SinhVienRoutes } from "../../../routers";
 
 export default function GiangVien(props) {
+  const dispatch = useDispatch();
   useEffect(() => {
     CheckAuthApi({
       token: localStorage.getItem("AccessToken"),
@@ -27,6 +30,10 @@ export default function GiangVien(props) {
         if (res.data.role === "PHU_HUYNH") {
           props.history.replace("/phuhuynh");
         }
+
+
+        dispatch(atcGetDanhSachLopHoc(0));
+
       })
       .catch((err) => {
         props.history.replace("/");

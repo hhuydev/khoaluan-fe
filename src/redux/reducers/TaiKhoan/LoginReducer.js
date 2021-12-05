@@ -18,7 +18,7 @@ const taiKhoanReducer =(state = initialState, { type, payload }) => {
       return { ...state  };
 
     default:
-      return state;
+      return {...state};
   }
 };
 

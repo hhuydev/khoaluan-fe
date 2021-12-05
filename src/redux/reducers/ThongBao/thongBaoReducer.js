@@ -19,7 +19,7 @@ const initialState = {
      
   
       default:
-        return state;
+        return {...state};
     }
   };
   

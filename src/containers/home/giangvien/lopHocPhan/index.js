@@ -1,4 +1,5 @@
 import React from 'react'
+import Pagination from '../../../../common/Pagination';
 import './style.css';
 export default function LopHocPhan() {
   console.log("ádasdasdasd");
@@ -30,6 +31,9 @@ export default function LopHocPhan() {
           </tr>
 
         </tbody>
+        <tfoot>
+          <Pagination data={{index:1,totalPage:20,handelPageClick:null}}/>
+        </tfoot>
       </table>
     </div>
   )
