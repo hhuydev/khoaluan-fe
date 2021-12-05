@@ -1,5 +1,5 @@
-import { lazy } from "react";  
-import ThongBao from "./containers/home/sinhvien/thongBao"; 
+import { lazy } from "react";
+import ThongBao from "./containers/home/sinhvien/thongBao";
 const ThongTinLopHoc = lazy(() => import('./containers/home/giangvien/lopHoc/thongTinLopHoc'));
 const LopHoc = lazy(() => import('./containers/home/giangvien/lopHoc'));
 const LopHocPhan = lazy(() => import('./containers/home/giangvien/lopHocPhan'));
@@ -75,13 +75,7 @@ const GiangVienRoutes = [
     component: LopHoc,
     layout: "/giangvien",
   },
-  {
-    path: "/lophoc/:id",
-    name: "Thông tin lớp học",
-    icon: "",
-    component: ThongTinLopHoc,
-    layout: "/giangvien",
-  }
+
 ]
 const PhuHuynhRoutes = [
 
