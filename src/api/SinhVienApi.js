@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { BASE_URL_API } from "./../constants/ApiConstant";
-import axiosClient from './AxiosClient';
+import axiosClient from './axiosClient';
 
 const XemThongTinApi = async () => {
   return (await axiosClient())({

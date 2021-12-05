@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { BASE_URL_API } from "./../constants/ApiConstant";
-import axiosClient from "./AxiosClient"
+import axiosClient from "./axiosClient"
 
 const getLopHocApi = async (page) => {
   // http://localhost:8080/api/solienlacdientu/v1/giangvien/1/danhsachlophoc
