@@ -7,6 +7,7 @@ import LoadingComponent from "../../../component/GlobalSettings/LoadingComponent
 import Navbar from "../../../component/navbar";
 import { atcGetDanhSachLopHoc } from "../../../redux/actions/GiangVien";
 import { GiangVienRoutes, SinhVienRoutes } from "../../../routers";
+import ThongTinLopHoc from "./lopHoc/thongTinLopHoc";
 
 export default function GiangVien(props) {
   const dispatch = useDispatch();
@@ -56,6 +57,12 @@ export default function GiangVien(props) {
               />
             );
           })}
+          <Route
+            exact
+            path="/giangvien/lophoc/:id"
+            component={ThongTinLopHoc}
+
+          />
         </Switch>
       </Suspense>
     </BrowserRouter>
