@@ -32,8 +32,9 @@ export default function LopHocPhan() {
 
         </tbody>
         <tfoot>
-          <Pagination data={{index:1,totalPage:20,handelPageClick:null}}/>
+        
         </tfoot>
+        <Pagination data={{index:1,totalPage:20,handelPageClick:null}}/>
       </table>
     </div>
   )

@@ -1,6 +1,5 @@
 import { lazy } from "react";
 import ThongBao from "./containers/home/sinhvien/thongBao";
-const ThongTinLopHoc = lazy(() => import('./containers/home/giangvien/lopHoc/thongTinLopHoc'));
 const LopHoc = lazy(() => import('./containers/home/giangvien/lopHoc'));
 const LopHocPhan = lazy(() => import('./containers/home/giangvien/lopHocPhan'));
 const GiangVien = lazy(() => import('./containers/home/giangvien/GiangVien'));
@@ -103,3 +102,4 @@ const LayoutMain = [
 ]
 
 export { LayoutMain, SinhVienRoutes, LoginRoutes, GiangVienRoutes, PhuHuynhRoutes };
+

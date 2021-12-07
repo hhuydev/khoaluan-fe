@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import Pagination from "../../../../common/Pagination";
 import LopHocItem from "../../../../component/giangVien/lopHocItem";
 import { atcGetDanhSachLopHoc } from "../../../../redux/actions/GiangVien";
 import "./style.css";
 export default function LopHoc() {
-  const { data } = useSelector((state) => state.lopHocReducer);
+  const { data } = useSelector((state) => state.lopHocReducer,shallowEqual);
   const dispatch = useDispatch();
   const [items, setItems] = useState([]);
   const [totalPage, setTotalPage] = useState(10);
   const [index, setindex] = useState(0);
   const [dataItem, setDataItem] = useState();
-  const handleClickLopHoc = ()=>{
-    console.log("");
+  const handleClickLopHoc = ()=>{ 
   }
 
   
@@ -38,11 +37,12 @@ export default function LopHoc() {
           </tr>
         </thead>
         <tbody>
+          <tr></tr>
         {data.lopDtos? data.lopDtos.map((item,index) => {
               return (
                 <LopHocItem handleClickLopHoc={handleClickLopHoc} item={item} key ={item.id} stt={index}/>
               );
-            }):"....."}
+            }):<tr></tr>}
         </tbody>
       </table>
       <Pagination

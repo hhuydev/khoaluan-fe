@@ -4,9 +4,7 @@ import { CheckAuthApi } from '../../api/TaiKhoanApi';
 import { atcDangNhap } from '../../redux/actions/TaiKhoan';
 import './style.css';
 export default function Login(props) {
-  const [taiKhoan, setTaiKhoan] = useState({
-   
-  });
+  const [taiKhoan, setTaiKhoan] = useState({});
 
   const dispatch = useDispatch();
   const handleInputChange =(e)=>{

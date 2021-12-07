@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux';
-import ChinhSuaThongTin from '../../../../component/sinhVien/thongTinSinhVien/chinhSua'
-import ThongTinSinhVien from '../../../../component/sinhVien/thongTinSinhVien/thongTin'
-import { atcXemThongTinSinhVien } from '../../../../redux/actions/SinhVien';
+import React from 'react';
+import ChinhSuaThongTin from '../../../../component/sinhVien/thongTinSinhVien/chinhSua';
+import ThongTinSinhVien from '../../../../component/sinhVien/thongTinSinhVien/thongTin';
 import './style.css';
 export default function XemThongTin() {
     return (

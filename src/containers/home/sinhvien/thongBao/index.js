@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from "react";
-import ReactPaginate from "react-paginate";
-import { useDispatch, useSelector } from "react-redux";
-import { getThongBaoSinhVienApi } from "../../../../api/SinhVienApi";
+import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import Pagination from "../../../../common/Pagination";
 import ModelChiTietThongBaoSinhVien from "../../../../component/sinhVien/thongBaoSinhVien/modelChiTietThongBaoSinhVien";
 import ThongBaoSinhVienItem from "../../../../component/sinhVien/thongBaoSinhVien/thongBaoItem";
 import { atcGetThongBao } from "../../../../redux/actions/SinhVien";
 
 export default function ThongBao() {
-  const { data } = useSelector((state) => state.thongBaoReducer);
+  const { data } = useSelector((state) => state.thongBaoReducer,shallowEqual);
   const dispatch = useDispatch();
   const [items, setItems] = useState([]);
   const [totalPage,setTotalPage] = useState(10);

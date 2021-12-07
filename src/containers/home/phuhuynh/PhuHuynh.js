@@ -9,6 +9,7 @@ import {
   PhuHuynhRoutes,
   SinhVienRoutes,
 } from "../../../routers";
+import DoiMatKhau from "../../doiMatKhau";
 
 export default function PhuHuynh(props) {
   useEffect(() => { 
@@ -45,6 +46,7 @@ export default function PhuHuynh(props) {
       <Navbar routers={GiangVienRoutes} history={props.history} />
       <Suspense fallback={LoadingComponent}>
         <Switch>
+        <Route exact path="/phuhuynh/doimatkhau" component={DoiMatKhau} />
           {PhuHuynhRoutes.map((route) => {
             return (
               <Route
@@ -53,8 +55,10 @@ export default function PhuHuynh(props) {
                 path={route.layout + route.path}
                 component={route.component}
               />
+
             );
           })}
+          
         </Switch>
       </Suspense>
     </BrowserRouter>
