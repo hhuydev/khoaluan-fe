@@ -61,14 +61,14 @@ export default function Navbar(props) {
               </button>
               <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <li className="dropdown-item" onClick={handleLogout}>Đăng xuất</li>
-                <NavLink className="dropdown-item" to={`${pathname}/doimatkhau`}>Đổi mật khẩu</NavLink>
-               
+                <NavLink className="dropdown-item" activeClassName="dropdown-item" to={`${pathname}/doimatkhau`}>Đổi mật khẩu</NavLink>
               </div>
+  
             </div>
           </ul>
         </div>
       </nav>
-    </div>
+      </div>
 
   );
 }

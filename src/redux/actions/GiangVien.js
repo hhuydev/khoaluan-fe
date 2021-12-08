@@ -1,6 +1,7 @@
 import { addThongBaoLopHocApi, editDisplayThongBaoLopHocApi, editThongBaoLopHocApi, getListCanhBaoSinhVienApi, getLopHocApi, getSinhVienLopHocApi, getThongBaotSinhVienLopHocApi, guiCanhBaoSinhVienApi } from "../../api/GiangVienApi";
 import { ADDTHONGBAOSINHVIENS_LOPHOC_FAILED, ADDTHONGBAOSINHVIENS_LOPHOC_SUCCESS, CANHBAO_SINHVIEN_FAILED, CANHBAO_SINHVIEN_SUCCESS, EDITTHONGBAOSINHVIENS_LOPHOC_FAILED, EDITTHONGBAOSINHVIENS_LOPHOC_SUCCESS, GETDANHSACH_LOPHOC_FAILED, GETDANHSACH_LOPHOC_SUCCESS, GETSINHVIENS_LOPHOC_FAILED, GETSINHVIENS_LOPHOC_SUCCESS, GETTHONGBAOSINHVIENS_LOPHOC_FAILED, GETTHONGBAOSINHVIENS_LOPHOC_SUCCESS, GET_CANHBAO_SINHVIEN_FAILED, GET_CANHBAO_SINHVIEN_SUCCESS } from "../constants/GiangVienConstants";
 import { displayLoading, hideLoading } from "./Loading";
+import { displayNotify } from "./Notify";
 
 export const atcGetDanhSachLopHoc = (page) => {
     return (dispatch) => {
@@ -13,6 +14,8 @@ export const atcGetDanhSachLopHoc = (page) => {
         .catch((err) => {
           dispatch(getDanhSachLopHocFailed(err))
           dispatch(hideLoading());
+        dispatch(displayNotify({message:'Lấy dữ liệu thất bại! Xin hãy reload lại trang!',type:'warning'}))
+
         });
     };
   };
@@ -46,6 +49,8 @@ export const atcGetSinhViensLopHoc = (idLop,page) => {
       .catch((err) => {
         dispatch(getSinhViensLopHocFailed(err))
         dispatch(hideLoading());
+        dispatch(displayNotify({message:'Lấy dữ liệu thất bại! Xin hãy reload lại trang!',type:'warning'}))
+
       });
   };
 };
@@ -79,6 +84,8 @@ export const atcGetThongBaoSinhViensLopHoc = (idLop,page) => {
       .catch((err) => {
         dispatch(getThongBaoSinhViensLopHocFailed(err))
         dispatch(hideLoading());
+        dispatch(displayNotify({message:'Lấy dữ liệu thất bại! Xin hãy reload lại trang!',type:'warning'}))
+
       });
   };
 };
@@ -110,10 +117,14 @@ export const atcAddThongBaoSinhViensLopHoc = (idLop,data) => {
         dispatch(addThongBaoSinhViensLopHocSuccess(res));
         dispatch(atcGetThongBaoSinhViensLopHoc(idLop,0));
         dispatch(hideLoading());
+        dispatch(displayNotify({message:'Thêm thành công!',type:'success'}))
+
       })
       .catch((err) => {
         dispatch(addThongBaoSinhViensLopHocFailed(err))
         dispatch(hideLoading());
+        dispatch(displayNotify({message:'Thêm thất bại! Xin hãy thử lại',type:'warning'}))
+
       });
   };
 };
@@ -145,10 +156,14 @@ export const atcEditThongBaoSinhViensLopHoc = (idThongBao,idLop,data) => {
         dispatch(editThongBaoSinhViensLopHocSuccess(res));
         dispatch(atcGetThongBaoSinhViensLopHoc(idLop,0));
         dispatch(hideLoading());
+        dispatch(displayNotify({message:'Chỉnh sửa thành công!',type:'success'}))
+
       })
       .catch((err) => {
         dispatch(ediThongBaoSinhViensLopHocFailed(err))
         dispatch(hideLoading());
+        dispatch(displayNotify({message:'Chỉnh sửa thất bại!',type:'warning'}))
+
       });
   };
 };
@@ -180,10 +195,14 @@ export const atcEditDisplayThongBaoSinhViensLopHoc = (idThongBao,idLop) => {
         dispatch(editDisplayThongBaoSinhViensLopHocSuccess(res));
         dispatch(atcGetThongBaoSinhViensLopHoc(idLop,0));
         dispatch(hideLoading());
+        dispatch(displayNotify({message:'Chỉnh sửa thành công!',type:'success'}))
+
       })
       .catch((err) => {
         dispatch(editDisplayThongBaoSinhViensLopHocFailed(err))
         dispatch(hideLoading());
+        dispatch(displayNotify({message:'Chỉnh sửa thất bại!',type:'warning'}))
+
       });
   };
 };
@@ -208,16 +227,15 @@ const editDisplayThongBaoSinhViensLopHocFailed = (err) => {
 
   
 export const atcGetCanhBaoSinhViensLopHoc = (idSinhVien) => {
-  return (dispatch) => {
-    dispatch(displayLoading());
+  return (dispatch) => { 
     getListCanhBaoSinhVienApi(idSinhVien)
       .then((res) => { 
-        dispatch(getCanhBaoSinhVienOfGiangVienSuccess(res)); 
-        dispatch(hideLoading());
+        dispatch(getCanhBaoSinhVienOfGiangVienSuccess(res));  
       })
       .catch((err) => {
-        dispatch(getCanhBaoOfGiangVienFailed(err))
-        dispatch(hideLoading());
+        dispatch(getCanhBaoOfGiangVienFailed(err)) 
+        dispatch(displayNotify({message:'Lấy dữ liệu không thành công! xin load lại trang!',type:'warning'}))
+
       });
   };
 };
@@ -242,16 +260,17 @@ const getCanhBaoOfGiangVienFailed = (err) => {
 
 export const atcPostCanhBaoSinhViensLopHoc = (data) => {
   return (dispatch) => {
-    dispatch(displayLoading());
     guiCanhBaoSinhVienApi(data)
       .then((res) => { 
         dispatch(canhBaoSinhVienSuccess(res));
          dispatch(atcGetCanhBaoSinhViensLopHoc(data.idSinhVien))
-        dispatch(hideLoading());
+        dispatch(displayNotify({message:'Thêm thành công!',type:'success'}))
+
       })
       .catch((err) => {
         dispatch(canhBaoSinhVienFailed(err))
-        dispatch(hideLoading());
+        dispatch(displayNotify({message:'Thêm thất bại!',type:'warning'}))
+
       });
   };
 };

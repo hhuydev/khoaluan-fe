@@ -42,9 +42,11 @@ export default function Login(props) {
           }
         })
         .catch((err) => {
-          props.history.replace("/");
+          // props.history.replace("/");
           localStorage.removeItem("id");
           localStorage.removeItem("AccessToken");
+          // log
+          return;
         });
     }, []);
 

@@ -1,6 +1,7 @@
 import React, { Suspense } from "react";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import "./App.css";
+import CustomizedSnackbars from "./common/CustomizedSnackbars";
 import LoadingComponent from "./component/GlobalSettings/LoadingComponent";
 import DoiMatKhau from "./containers/doiMatKhau";
 import Login from "./containers/login/Login";
@@ -10,8 +11,9 @@ export default function App() {
   return (
     <div>
       <BrowserRouter>
+        <LoadingComponent />
         <Suspense fallback={LoadingComponent}>
-          <LoadingComponent />
+          <CustomizedSnackbars />
           {/* <Notify /> */}
           <Switch>
             <Route exact path="/login" component={Login} />
@@ -27,7 +29,6 @@ export default function App() {
             })}
             <Redirect from="/" to="/login" />
 
-            
             <Route path="*" component={PageNotFound} />
           </Switch>
         </Suspense>

@@ -2,10 +2,7 @@ import React, { useEffect } from 'react'
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { atcXemThongTinSinhVien } from './../../../../redux/actions/SinhVien'
 export default function ThongTinSinhVien() {
-  const { data } = useSelector(state => state.sinhVienReducer,shallowEqual)
-
-  console.log(data);
-
+  const { data } = useSelector(state => state.sinhVienReducer,shallowEqual);
   return (
 
     ///

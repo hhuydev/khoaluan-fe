@@ -1,20 +1,23 @@
 import { chinhSuaThongTinApi, getThongBaoSinhVienApi, XemThongTinApi } from "../../api/SinhVienApi";
 import { CHINHSUATHONGTINSINHVIEN_FAILED, CHINHSUATHONGTINSINHVIEN_SUCCESS, GETTHONGBAOSINHVIEN_FAILED, GETTHONGBAOSINHVIEN_SUCCESS, XEMTHONGTINSINHVIEN_FAILED, XEMTHONGTINSINHVIEN_SUCCESS } from "../constants/SinhVienConstants";
 import { displayLoading, hideLoading } from "./Loading";
+import { displayNotify } from "./Notify";
 
 //atcXemthong tin
 
 export const atcXemThongTinSinhVien = () => {
   return (dispatch) => {
-    dispatch(displayLoading());
+    // dispatch(displayLoading());
     XemThongTinApi()
       .then((res) => { 
         dispatch(xemThongTinSuccess(res))
-        dispatch(hideLoading());
+        // dispatch(hideLoading());
       })
       .catch((err) => {
         dispatch(xemThongTinFailed(err))
-        dispatch(hideLoading());
+        // dispatch(hideLoading());
+        dispatch(displayNotify({message:'Xin thử lại!',type:'warning'}));
+
       });
   };
 };
@@ -46,10 +49,14 @@ export const atcChinhSuaThongTinSinhVien = (data, histrory) => {
         dispatch(chinhSuaThongTinSuccess(data))
         dispatch(hideLoading());
         histrory.push("/sinhvien/xemthongtin")
+        dispatch(displayNotify({message:'Chỉnh sửa thành công!',type:'success'}));
+
       })
       .catch((err) => {
         dispatch(chinhSuaThongTinFailed(err))
         dispatch(hideLoading());
+        dispatch(displayNotify({message:'Chỉnh sửa thất bại!',type:'success'}));
+
       });
   };
 };
@@ -86,6 +93,8 @@ export const atcGetThongBao=(pageNumber)=>{
       .catch((err) => {
         dispatch(getThongBaoFailed(err))
         dispatch(hideLoading());
+        dispatch(displayNotify({message:'Lấy dữ liệu thất bại! Xin load lại trang!',type:'warning'}));
+
       });
   };
 }
