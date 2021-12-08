@@ -7,6 +7,7 @@ import thongBaoReducer from "./ThongBao/thongBaoReducer";
 import thongBaoSinhVienLopHocReducer from "./ThongBao/thongBaoSinhVienLopHocReducer";
 import canhBaoSinhVienOfGiangVienReducer from "./CanhBao/canhBaoSinhVienOfGiangVienReducer";
 import lopHocReducer from "./LopHoc/LopHocReducer";
+import NotifyReducer from "./notify/NotifyReducer";
 const reducer = combineReducers({
   loadingReducer,
   sinhVienReducer,
@@ -15,7 +16,8 @@ const reducer = combineReducers({
   lopHocReducer,
   sinhViensLopHocReducer,
   thongBaoSinhVienLopHocReducer,
-  canhBaoSinhVienOfGiangVienReducer
+  canhBaoSinhVienOfGiangVienReducer,
+  NotifyReducer,
 });
 
 export default reducer;

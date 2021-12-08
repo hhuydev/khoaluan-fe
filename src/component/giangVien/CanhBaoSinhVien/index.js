@@ -20,8 +20,7 @@ export default function CanhBaoSinhVien(props) {
 
   const onChangeCanhBao = (e)=>{
     const {name , value} = e.target;
-    setDataCanhBao({...dataCanhBao,[name]:value});
-    console.log(dataCanhBao);
+    setDataCanhBao({...dataCanhBao,[name]:value}); 
   }
 
   const postCanhBao = (e)=>{
