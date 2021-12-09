@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import { atcChinhSuaThongTinSinhVien } from '../../../../redux/actions/SinhVien';
 
 export default function ChinhSuaThongTin(props) {
-  const { data } = useSelector(state => state.sinhVienReducer)
+  const { data } = useSelector(state => state.sinhVienReducer,shallowEqual)
   const dispatch = useDispatch();
   const [thongTin, setThongTin] = useState({
     soDT: data.soDT,

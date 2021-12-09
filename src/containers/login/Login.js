@@ -4,9 +4,7 @@ import { CheckAuthApi } from '../../api/TaiKhoanApi';
 import { atcDangNhap } from '../../redux/actions/TaiKhoan';
 import './style.css';
 export default function Login(props) {
-  const [taiKhoan, setTaiKhoan] = useState({
-   
-  });
+  const [taiKhoan, setTaiKhoan] = useState({});
 
   const dispatch = useDispatch();
   const handleInputChange =(e)=>{
@@ -44,9 +42,11 @@ export default function Login(props) {
           }
         })
         .catch((err) => {
-          props.history.replace("/");
+          // props.history.replace("/");
           localStorage.removeItem("id");
           localStorage.removeItem("AccessToken");
+          // log
+          return;
         });
     }, []);
 

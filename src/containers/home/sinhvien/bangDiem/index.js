@@ -9,7 +9,7 @@ export default function BangDiem() {
           <tr style={{ backgroundColor: 1, textAlign: "center" }}>
             <th scope="col">STT</th>
             <th scope="col">Tên môn học</th>
-            <th scope="col" colspan="3">Điểm thường kỳ</th>
+            <th scope="col" colSpan="3">Điểm thường kỳ</th>
             <th scope="col">Điểm giữa kỳ</th>
             <th scope="col">Điểm cuối kỳ</th>
             <th scope="col">Điểm tổng kết</th>

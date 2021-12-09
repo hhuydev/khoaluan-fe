@@ -4,13 +4,15 @@ import { NavLink } from "react-router-dom";
 import "./style.css";
 
 export default function Navbar(props) {
+  const {pathname} = props.history.location;
   const handleLogout = () => {
     localStorage.removeItem("id");
     localStorage.removeItem("AccessToken");
     props.history.replace("/login");
   };
   const handleChangePassword = () => {
-
+    // props.history.push()
+    // console.log(`${pathname}/doimatkhau`);
   }
 
   return (
@@ -58,14 +60,15 @@ export default function Navbar(props) {
                 <i className="fas fa-cog"></i>
               </button>
               <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a className="dropdown-item" onClick={handleLogout}>Đăng xuất</a>
-                <a className="dropdown-item" onClick={handleChangePassword}>Đổi mật khẩu</a>
+                <li className="dropdown-item" onClick={handleLogout}>Đăng xuất</li>
+                <NavLink className="dropdown-item" activeClassName="dropdown-item" to={`${pathname}/doimatkhau`}>Đổi mật khẩu</NavLink>
               </div>
+  
             </div>
           </ul>
         </div>
       </nav>
-    </div>
+      </div>
 
   );
 }

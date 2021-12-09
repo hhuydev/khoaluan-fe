@@ -4,14 +4,16 @@ import { Route, Switch } from "react-router";
 import { BrowserRouter } from "react-router-dom";
 import { CheckAuthApi } from "../../../api/TaiKhoanApi";
 import Navbar from "../../../component/navbar";
-import { atcGetThongBao, atcXemThongTinSinhVien } from "../../../redux/actions/SinhVien";
+import {
+  atcGetThongBao,
+  atcXemThongTinSinhVien,
+} from "../../../redux/actions/SinhVien";
 import { checkAuthAtc } from "../../../redux/actions/TaiKhoan";
 import { SinhVienRoutes } from "../../../routers";
+import DoiMatKhau from "../../doiMatKhau";
 
 export default function SinhVien(props) {
-
   const dispatch = useDispatch();
-
 
   useEffect(() => {
     CheckAuthApi({
@@ -35,7 +37,6 @@ export default function SinhVien(props) {
         }
         dispatch(atcXemThongTinSinhVien());
         dispatch(atcGetThongBao(0));
-
       })
       .catch((err) => {
         props.history.replace("/");
@@ -47,6 +48,7 @@ export default function SinhVien(props) {
     <BrowserRouter>
       <Navbar routers={SinhVienRoutes} history={props.history} />
       <Switch>
+      <Route exact path="/sinhvien/doimatkhau" component={DoiMatKhau} />
         {SinhVienRoutes.map((route) => {
           return (
             <Route
@@ -57,6 +59,8 @@ export default function SinhVien(props) {
             />
           );
         })}
+
+      
       </Switch>
     </BrowserRouter>
   );

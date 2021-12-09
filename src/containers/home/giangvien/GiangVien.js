@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect } from "react";
+import React, { lazy, Suspense, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router";
 import { BrowserRouter } from "react-router-dom";
@@ -7,7 +7,8 @@ import LoadingComponent from "../../../component/GlobalSettings/LoadingComponent
 import Navbar from "../../../component/navbar";
 import { atcGetDanhSachLopHoc } from "../../../redux/actions/GiangVien";
 import { GiangVienRoutes, SinhVienRoutes } from "../../../routers";
-import ThongTinLopHoc from "./lopHoc/thongTinLopHoc";
+import DoiMatKhau from "../../doiMatKhau";
+const ThongTinLopHoc = lazy(() => import("./lopHoc/thongTinLopHoc"));
 
 export default function GiangVien(props) {
   const dispatch = useDispatch();
@@ -32,9 +33,7 @@ export default function GiangVien(props) {
           props.history.replace("/phuhuynh");
         }
 
-
         dispatch(atcGetDanhSachLopHoc(0));
-
       })
       .catch((err) => {
         props.history.replace("/");
@@ -47,6 +46,8 @@ export default function GiangVien(props) {
       <Navbar routers={GiangVienRoutes} history={props.history} />
       <Suspense fallback={LoadingComponent}>
         <Switch>
+        <Route exact path="/giangvien/doimatkhau" component={DoiMatKhau} />
+
           {GiangVienRoutes.map((route) => {
             return (
               <Route
@@ -61,8 +62,8 @@ export default function GiangVien(props) {
             exact
             path="/giangvien/lophoc/:id"
             component={ThongTinLopHoc}
-
           />
+
         </Switch>
       </Suspense>
     </BrowserRouter>
