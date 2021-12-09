@@ -11,19 +11,20 @@ export default function LopHoc() {
   const [totalPage, setTotalPage] = useState(10);
   const [index, setindex] = useState(0);
   const [dataItem, setDataItem] = useState();
-  const handleClickLopHoc = ()=>{
+  const handleClickLopHoc = () => {
     console.log("");
   }
 
-  
+
 
   const handelPageClick = (page) => {
-    dispatch(atcGetDanhSachLopHoc(page.selected));  
+    dispatch(atcGetDanhSachLopHoc(page.selected));
     setindex(data.paginationMeta.pageNumber)
   };
 
-  useEffect(() => { 
-    setTotalPage(data.paginationMeta.totalPage) 
+  useEffect(() => {
+    console.log(data);
+    setTotalPage(data.paginationMeta.totalPage)
   }, []);
 
   return (
@@ -38,11 +39,11 @@ export default function LopHoc() {
           </tr>
         </thead>
         <tbody>
-        {data.lopDtos? data.lopDtos.map((item,index) => {
-              return (
-                <LopHocItem handleClickLopHoc={handleClickLopHoc} item={item} key ={item.id} stt={index}/>
-              );
-            }):"....."}
+          {data.postDtoList ? data.postDtoList.map((item, index) => {
+            return (
+              <LopHocItem handleClickLopHoc={handleClickLopHoc} item={item} key={item.id} stt={index} />
+            );
+          }) : "....."}
         </tbody>
       </table>
       <Pagination
