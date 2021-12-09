@@ -5,31 +5,33 @@ import LopHocItem from "../../../../component/giangVien/lopHocItem";
 import { atcGetDanhSachLopHoc } from "../../../../redux/actions/GiangVien";
 import "./style.css";
 export default function LopHoc() {
-  const { data } = useSelector((state) => state.lopHocReducer,shallowEqual);
+  const { data } = useSelector((state) => state.lopHocReducer, shallowEqual);
   const dispatch = useDispatch();
   const [items, setItems] = useState([]);
   const [totalPage, setTotalPage] = useState(10);
   const [index, setindex] = useState(0);
   const [dataItem, setDataItem] = useState();
-  const handleClickLopHoc = ()=>{ 
+  const handleClickLopHoc = () => {
+    console.log("");
   }
 
-  
+
 
   const handelPageClick = (page) => {
-    dispatch(atcGetDanhSachLopHoc(page.selected));  
+    dispatch(atcGetDanhSachLopHoc(page.selected));
     setindex(data.paginationMeta.pageNumber)
   };
 
-  useEffect(() => { 
-    setTotalPage(data.paginationMeta.totalPage) 
+  useEffect(() => {
+    console.log(data);
+    setTotalPage(data.paginationMeta.totalPage)
   }, []);
 
   return (
     <div className="lop-hoc">
       <table className="table table-bordered">
         <thead>
-          <tr style={{ backgroundColor: "cyan", textAlign: "center" }}>
+          <tr style={{ backgroundColor: "rgb(179, 224, 255)", textAlign: "center" }}>
             <th scope="col">#</th>
             <th scope="col">Mã lớp</th>
             <th scope="col">Tên lớp</th>
@@ -38,11 +40,11 @@ export default function LopHoc() {
         </thead>
         <tbody>
           <tr></tr>
-        {data.lopDtos? data.lopDtos.map((item,index) => {
-              return (
-                <LopHocItem handleClickLopHoc={handleClickLopHoc} item={item} key ={item.id} stt={index}/>
-              );
-            }):<tr></tr>}
+          {data.lopDtos ? data.lopDtos.map((item, index) => {
+            return (
+              <LopHocItem handleClickLopHoc={handleClickLopHoc} item={item} key={item.id} stt={index} />
+            );
+          }) : <tr></tr>}
         </tbody>
       </table>
       <Pagination
