@@ -1,4 +1,4 @@
-import { DANGNHAP_FAILED, DANGNHAP_REQUEST, DANGNHAP_SUCCSESS } from "../../constants/taiKhoanConstants";
+import { DANGNHAP_FAILED, DANGNHAP_SUCCSESS } from "../../constants/taiKhoanConstants";
 
  
 const initialState = {

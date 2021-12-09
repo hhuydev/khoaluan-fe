@@ -1,9 +1,9 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { shallowEqual, useSelector } from "react-redux";
 import loading from "./../../assets/img/loading.gif";
 import style from "./LoadingComponent.module.css";
 export default function LoadingComponent() {
-  const { isLoading } = useSelector((state) => state.loadingReducer);
+  const { isLoading } = useSelector((state) => state.loadingReducer,shallowEqual);
 
   return (
     <div

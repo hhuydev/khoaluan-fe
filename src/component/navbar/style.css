@@ -163,7 +163,22 @@ i {
     left: -25px;
   }
 }
+
+
+.dropdown{
+  position: relative;
+  right: 10%;
+  }
 #dropdownMenuButton {
   margin-top: 10px;
   background-color: #5161ce;
+}
+
+.navbar-nav .dropdown-menu {
+    position: static;
+    top: 15%;
+    left: 88%;
+    float: none;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
 }
