@@ -7,15 +7,15 @@ body {
   margin: 0;
   padding: 0;
 }
-i {
+.nav-menu. i {
   margin-right: 10px;
 }
 /*----------bootstrap-navbar-css------------*/
-.navbar-logo {
+.nav-menu .navbar-logo {
   padding: 15px;
   color: #fff;
 }
-.navbar-mainbg {
+.nav-menu .navbar-mainbg {
   background-color: #5161ce;
   padding: 0px;
 }
@@ -78,22 +78,22 @@ i {
   border-top-right-radius: 15px;
   margin-top: 10px;
 }
-.hori-selector .right,
-.hori-selector .left {
+.nav-menu .hori-selector .right,
+.nav-menu .hori-selector .left {
   position: absolute;
   width: 25px;
   height: 25px;
   background-color: #fff;
   bottom: 10px;
 }
-.hori-selector .right {
+.nav-menu .hori-selector .right {
   right: -25px;
 }
-.hori-selector .left {
+.nav-menu.hori-selector .left {
   left: -25px;
 }
-.hori-selector .right:before,
-.hori-selector .left:before {
+.nav-menu .hori-selector .right:before,
+.nav-menu .hori-selector .left:before {
   content: "";
   position: absolute;
   width: 50px;
@@ -101,30 +101,30 @@ i {
   border-radius: 50%;
   background-color: #5161ce;
 }
-.hori-selector .right:before {
+.nav-menu .hori-selector .right:before {
   bottom: 0;
   right: -25px;
 }
-.hori-selector .left:before {
+.nav-menu .hori-selector .left:before {
   bottom: 0;
   left: -25px;
 }
 
 @media (min-width: 992px) {
-  .navbar-expand-custom {
+  .nav-menu .navbar-expand-custom {
     -ms-flex-flow: row nowrap;
     flex-flow: row nowrap;
     -ms-flex-pack: start;
     justify-content: flex-start;
   }
-  .navbar-expand-custom .navbar-nav {
+  .nav-menu .navbar-expand-custom .navbar-nav {
     -ms-flex-direction: row;
     flex-direction: row;
   }
-  .navbar-expand-custom .navbar-toggler {
+  .nav-menu .navbar-expand-custom .navbar-toggler {
     display: none;
   }
-  .navbar-expand-custom .navbar-collapse {
+  .nav-menu .navbar-expand-custom .navbar-collapse {
     display: -ms-flexbox !important;
     display: flex !important;
     -ms-flex-preferred-size: auto;
@@ -133,52 +133,51 @@ i {
 }
 
 @media (max-width: 991px) {
-  #navbarSupportedContent ul li a {
+  .nav-menu #navbarSupportedContent ul li a {
     padding: 12px 30px;
   }
-  .hori-selector {
+  .nav-menu .hori-selector {
     margin-top: 0px;
     margin-left: 10px;
     border-radius: 0;
     border-top-left-radius: 25px;
     border-bottom-left-radius: 25px;
   }
-  .hori-selector .left,
-  .hori-selector .right {
+  .nav-menu .hori-selector .left,
+  .nav-menu .hori-selector .right {
     right: 10px;
   }
-  .hori-selector .left {
+  .nav-menu .hori-selector .left {
     top: -25px;
     left: auto;
   }
-  .hori-selector .right {
+  .nav-menu .hori-selector .right {
     bottom: -25px;
   }
-  .hori-selector .left:before {
+  .nav-menu .hori-selector .left:before {
     left: -25px;
     top: -25px;
   }
-  .hori-selector .right:before {
+  .nav-menu .hori-selector .right:before {
     bottom: -25px;
     left: -25px;
   }
 }
 
-
-.dropdown{
+.nav-menu .dropdown {
   position: relative;
-  right: 10%;
-  }
+  right: 1%;
+}
 #dropdownMenuButton {
   margin-top: 10px;
   background-color: #5161ce;
 }
 
-.navbar-nav .dropdown-menu {
-    position: static;
-    top: 15%;
-    left: 88%;
-    float: none;
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+.nav-menu .navbar-nav .dropdown-menu {
+  position: static;
+  top: 7%;
+  left: 89%;
+  float: none;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
 }

@@ -5,18 +5,14 @@ import LopHocItem from "../../../../component/giangVien/lopHocItem";
 import { atcGetDanhSachLopHoc } from "../../../../redux/actions/GiangVien";
 import "./style.css";
 export default function LopHoc() {
-  const { data } = useSelector((state) => state.lopHocReducer,shallowEqual);
+  const { data } = useSelector((state) => state.lopHocReducer, shallowEqual);
   const dispatch = useDispatch();
   const [items, setItems] = useState([]);
   const [totalPage, setTotalPage] = useState(10);
   const [index, setindex] = useState(0);
   const [dataItem, setDataItem] = useState();
-<<<<<<< HEAD
   const handleClickLopHoc = () => {
     console.log("");
-=======
-  const handleClickLopHoc = ()=>{ 
->>>>>>> 390bc2e3b81a74407ec2bdde01ac3b13844eb354
   }
 
 
@@ -35,7 +31,7 @@ export default function LopHoc() {
     <div className="lop-hoc">
       <table className="table table-bordered">
         <thead>
-          <tr style={{ backgroundColor: "cyan", textAlign: "center" }}>
+          <tr style={{ backgroundColor: "rgb(179, 224, 255)", textAlign: "center" }}>
             <th scope="col">#</th>
             <th scope="col">Mã lớp</th>
             <th scope="col">Tên lớp</th>
@@ -43,20 +39,12 @@ export default function LopHoc() {
           </tr>
         </thead>
         <tbody>
-<<<<<<< HEAD
-          {data.postDtoList ? data.postDtoList.map((item, index) => {
+          <tr></tr>
+          {data.lopDtos ? data.lopDtos.map((item, index) => {
             return (
               <LopHocItem handleClickLopHoc={handleClickLopHoc} item={item} key={item.id} stt={index} />
             );
-          }) : "....."}
-=======
-          <tr></tr>
-        {data.lopDtos? data.lopDtos.map((item,index) => {
-              return (
-                <LopHocItem handleClickLopHoc={handleClickLopHoc} item={item} key ={item.id} stt={index}/>
-              );
-            }):<tr></tr>}
->>>>>>> 390bc2e3b81a74407ec2bdde01ac3b13844eb354
+          }) : <tr></tr>}
         </tbody>
       </table>
       <Pagination

@@ -20,10 +20,10 @@ export default function XemThongTin() {
   const handleHuy = () => {
     console.log("đấ");
     setIsSave(false);
-    setImg(data.imgUrl); 
+    setImg(data.imgUrl);
   };
 
-  
+
   const handleLuu = () => {
     if ((dataImgUrlApi === null, imgURl === null)) {
       return;
@@ -35,19 +35,8 @@ export default function XemThongTin() {
   }, []);
   return (
     <div className="profile">
-      <button
-        onClick={handleHuy}
-        style={{ display: isSave ? "block" : "none" }}
-      >
-        Huy
-      </button>
-      <button
-        onClick={handleLuu}
-        style={{ display: isSave ? "block" : "none" }}
-      >
-        Luu
-      </button>
       <div className="container emp-profile">
+
         <form method="post">
           <div className="row">
             <div className="col-md-4">
@@ -56,6 +45,20 @@ export default function XemThongTin() {
                 <div className="file btn btn-lg btn-primary">
                   Chỉnh sửa
                   <input type="file" name="file" onChange={onChange} />
+                </div>
+                <div className="btn_img">
+                  <button
+                    onClick={handleHuy}
+                    style={{ display: isSave ? "block" : "none" }}
+                  >
+                    Huy
+                  </button>
+                  <button
+                    onClick={handleLuu}
+                    style={{ display: isSave ? "block" : "none" }}
+                  >
+                    Luu
+                  </button>
                 </div>
               </div>
             </div>
