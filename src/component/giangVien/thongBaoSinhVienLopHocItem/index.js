@@ -6,8 +6,7 @@ import { formatDateTime } from "../../../utils/format/formatValues";
 import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
 
 export default function ThongBaoSinhVienLopHocItem(props) { 
-  const xemChiTiet = () => {
-    console.log("xem chi tiet");
+  const xemChiTiet = () => { 
   };
   const dispatch = useDispatch();
   const chinhSua = () => {

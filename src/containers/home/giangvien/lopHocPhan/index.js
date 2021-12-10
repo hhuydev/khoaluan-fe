@@ -1,8 +1,7 @@
 import React from 'react'
 import Pagination from '../../../../common/Pagination';
 import './style.css';
-export default function LopHocPhan() {
-  console.log("ádasdasdasd");
+export default function LopHocPhan() { 
   return (
     <div className="lop-hoc-phan">
       <table className="table table-bordered">

@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import "./style.css";
 
 export default function Navbar(props) {
-  const {pathname} = props.history.location;
+  const { pathname } = props.history.location;
   const handleLogout = () => {
     localStorage.removeItem("id");
     localStorage.removeItem("AccessToken");
@@ -16,7 +16,7 @@ export default function Navbar(props) {
   }
 
   return (
-    <div>
+    <div className="nav-menu">
       <nav className="navbar navbar-expand-custom navbar-mainbg">
         <a className="navbar-brand navbar-logo" href="#">
           ECO
@@ -61,9 +61,9 @@ export default function Navbar(props) {
               </button>
               <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <li className="dropdown-item" onClick={handleLogout}>Đăng xuất</li>
-                <NavLink className="dropdown-item" to={`${pathname}/doimatkhau`}>Đổi mật khẩu</NavLink>
-               
+                <NavLink className="dropdown-item" activeClassName="dropdown-item" to={`${pathname}/doimatkhau`}>Đổi mật khẩu</NavLink>
               </div>
+
             </div>
           </ul>
         </div>

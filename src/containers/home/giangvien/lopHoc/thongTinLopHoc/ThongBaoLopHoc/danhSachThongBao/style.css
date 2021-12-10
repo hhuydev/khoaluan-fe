@@ -128,8 +128,6 @@ body {
     -webkit-overflow-scrolling: touch;
 } */
 
- 
-
 .danh-sach-thong-bao .list-row .list-item {
   position: relative;
   display: -ms-flexbox;
@@ -151,35 +149,35 @@ body {
   width: 100%;
 } */
 
-.danh-sach-thong-bao  .list-row .list-item > * {
+.danh-sach-thong-bao .list-row .list-item > * {
   padding-left: 0.625rem;
   padding-right: 0.625rem;
 }
 
-.danh-sach-thong-bao  .dropdown {
+.danh-sach-thong-bao .dropdown {
   position: relative;
 }
 
-.danh-sach-thong-bao  a:focus,
-.danh-sach-thong-bao  a:hover {
+.danh-sach-thong-bao a:focus,
+.danh-sach-thong-bao a:hover {
   text-decoration: none;
 }
 
-.danh-sach-thong-bao  list-item {
+.danh-sach-thong-bao list-item {
   background: white;
 }
 
-.danh-sach-thong-bao  .justify-content-center{
+.danh-sach-thong-bao .justify-content-center {
   margin-left: -23%;
   width: 190%;
-    margin-top: -25%;
+  margin-top: -25%;
 }
 
-.danh-sach-thong-bao  .form-control:focus {
+.danh-sach-thong-bao .form-control:focus {
   box-shadow: none;
 }
 
-.danh-sach-thong-bao  .form-control-underlined {
+.danh-sach-thong-bao .form-control-underlined {
   border-width: 0;
   border-bottom-width: 1px;
   border-radius: 0;
@@ -190,30 +188,31 @@ body {
   color: #aaa;
   font-style: italic;
 }
-.danh-sach-thong-bao .search{
+.danh-sach-thong-bao .search {
   margin-top: -3%;
   margin-bottom: 4%;
 }
-.danh-sach-thong-bao  .input-group-append i{
-  margin-top: 37%;
+.danh-sach-thong-bao .input-group-append i {
+  margin-top: 95%;
+  margin-left: -28%;
 }
-.danh-sach-thong-bao  .input-group-append {
+.danh-sach-thong-bao .input-group-append {
   margin-left: 5px;
 }
-.danh-sach-thong-bao .p-1{
+.danh-sach-thong-bao .p-1 {
   width: 90%;
   border: 1px solid steelblue;
 }
 
-.danh-sach-thong-bao  .selected{
+.danh-sach-thong-bao .selected {
   margin-bottom: 5%;
   margin-left: 55%;
 }
 
-.danh-sach-thong-bao .form-select{
+.danh-sach-thong-bao .form-select {
   height: 30px;
-  border:solid 2px steelblue;
-  border-radius: 5px ;
+  border: solid 2px steelblue;
+  border-radius: 5px;
 }
 .danh-sach-thong-bao .card {
   width: 100%;

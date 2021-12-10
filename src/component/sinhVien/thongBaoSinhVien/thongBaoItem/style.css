@@ -24,7 +24,8 @@
   border: 2px solid steelblue;
   border-radius: 0.5rem;
   margin-bottom: 1%;
-  width: 112%;
+  width: 900px;
+  height: 164px;
   margin-left: -7%;
 }
 
@@ -38,18 +39,18 @@
   color: steelblue;
 }
 
-.thong-bao img{
+.thong-bao img {
   height: 10%;
 }
 
-.thong-bao .media-body{
+.thong-bao .media-body {
   width: 154%;
 }
 
-.thong-bao .media-title{
-  width: 73%;
+.thong-bao .media-title {
+  width: 90%;
 }
 
-.thong-bao .media-title a{
+.thong-bao .media-title a {
   text-transform: uppercase;
 }

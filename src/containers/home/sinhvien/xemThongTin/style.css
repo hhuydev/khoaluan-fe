@@ -7,6 +7,7 @@
 }
 .profile-img {
   text-align: center;
+  width: 80%;
 }
 .profile-img img {
   width: 70%;
@@ -27,6 +28,8 @@
   opacity: 0;
   right: 0;
   top: 0;
+  width: 100%;
+  height: 100%;
 }
 .profile-head h5 {
   color: #333;
@@ -90,4 +93,21 @@
 .profile-tab p {
   font-weight: 600;
   color: black;
+}
+.profile .tab-content > .active {
+  margin-top: -10%;
+  display: block;
+}
+
+.btn_img {
+  display: flex;
+  margin-left: 27%;
+}
+
+.btn_img button {
+  margin-right: 10%;
+  width: 50px;
+  background-color: steelblue;
+  border-radius: 1.5rem;
+  color: white;
 }
