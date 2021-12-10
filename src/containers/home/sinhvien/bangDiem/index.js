@@ -27,6 +27,46 @@ export default function BangDiem() {
             <td>7</td>
           </tr>
           <tr>
+            <th scope="row">1</th>
+            <td>Tóan A2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>7</td>
+          </tr>
+          <tr>
+            <th scope="row">1</th>
+            <td>Tóan A2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>7</td>
+          </tr>
+          <tr>
+            <th scope="row">1</th>
+            <td>Tóan A2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>7</td>
+          </tr>
+          <tr>
+            <th scope="row">1</th>
+            <td>Tóan A2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>7</td>
+          </tr>
+          <tr>
             <th scope="row">Điểm trung bình: </th>
             <td colSpan="8">1</td>
           </tr>

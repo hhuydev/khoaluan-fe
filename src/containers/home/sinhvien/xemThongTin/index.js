@@ -25,6 +25,7 @@ export default function XemThongTin() {
 
 
   const handleLuu = () => {
+    console.log("ádasd");
     if ((dataImgUrlApi === null, imgURl === null)) {
       return;
     }
@@ -48,16 +49,18 @@ export default function XemThongTin() {
                 </div>
                 <div className="btn_img">
                   <button
+                  type="button"
                     onClick={handleHuy}
                     style={{ display: isSave ? "block" : "none" }}
                   >
-                    Huy
+                    Hủy
                   </button>
                   <button
+                   type="button"
                     onClick={handleLuu}
                     style={{ display: isSave ? "block" : "none" }}
                   >
-                    Luu
+                    Lưu
                   </button>
                 </div>
               </div>
@@ -99,8 +102,7 @@ export default function XemThongTin() {
             </div>
           </div>
           <div className="row">
-            <div className="col-md-4">
-              <div className="profile-work"></div>
+            <div className="col-md-4"> 
             </div>
             <div className="col-md-8">
               <div className="tab-content profile-tab" id="myTabContent">
