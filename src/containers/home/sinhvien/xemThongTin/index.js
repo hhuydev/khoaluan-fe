@@ -3,6 +3,8 @@ import { shallowEqual, useSelector, useDispatch } from "react-redux";
 import ChinhSuaThongTin from "../../../../component/sinhVien/thongTinSinhVien/chinhSua";
 import ThongTinSinhVien from "../../../../component/sinhVien/thongTinSinhVien/thongTin";
 import { atcImgUrl } from "../../../../redux/actions/TaiKhoan";
+import { confirmAlert } from "react-confirm-alert";
+import "react-confirm-alert/src/react-confirm-alert.css";
 import "./style.css";
 export default function XemThongTin() {
   const [imgURl, setImgURl] = useState(null);
@@ -17,19 +19,39 @@ export default function XemThongTin() {
     setDataImgUrlApi(e.target.files[0]);
     setIsSave(true);
   };
-  const handleHuy = () => {
-    console.log("đấ");
+  const handleHuy = () => { 
     setIsSave(false);
     setImg(data.imgUrl);
   };
 
 
-  const handleLuu = () => {
-    console.log("ádasd");
-    if ((dataImgUrlApi === null, imgURl === null)) {
+  const handleLuu = () => { 
+    console.log(imgURl);
+    if (( dataImgUrlApi === null)) {
       return;
     }
-    dispatch(atcImgUrl(dataImgUrlApi));
+    confirmAlert({
+      title: "Lưu ý",
+      message:
+        "Bạn có muốn chỉnh sửa avatar! ",
+      buttons: [
+        {
+          label: "Có",
+          onClick: () => {
+            dispatch(atcImgUrl(dataImgUrlApi));
+          },
+          className: "btn btn-primary",
+        },
+        {
+          label: "Không",
+          onClick: () => {
+            return;
+          },
+          className: "btn btn-primary btn-sm",
+        },
+      ],
+    });
+   
   };
   useEffect(() => {
     setImg(data.imgUrl);
@@ -43,7 +65,7 @@ export default function XemThongTin() {
             <div className="col-md-4">
               <div className="profile-img">
                 <img src={img} className="img" alt="Cinque Terre" />
-                <div className="file btn btn-lg btn-primary">
+                <div className="file btn btn-lg btn-primary" style={{display:!localStorage.getItem("idsv")?'':'none'}}>
                   Chỉnh sửa
                   <input type="file" name="file" onChange={onChange} />
                 </div>
@@ -93,6 +115,7 @@ export default function XemThongTin() {
                       role="tab"
                       aria-controls="profile"
                       aria-selected="false"
+                      style={{display:!localStorage.getItem("idsv")?'block':'none'}}
                     >
                       Chỉnh sửa thông tin
                     </a>
