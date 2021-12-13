@@ -11,7 +11,7 @@ export default function Navbar(props) {
     localStorage.clear();
     props.history.replace("/login");
   };
-  const handleChangePassword = () => { 
+  const handleChangePassword = () => {
   };
   const getIndex = () => {
     return `/${pathname.split("/")[1]}/trangchu`;
@@ -38,48 +38,48 @@ export default function Navbar(props) {
               <div className="right" />
             </div>
 
-           {/* <div> */}
-             <div className="menu-item">
-             <li className="nav-item">
-              <NavLink
-               activeStyle={{
-                marginTop: "10px",
-                border: "2px solid gray",
-                borderRadius: "10px 10px 0px 0px",
-                borderBottom: "none",
-                fontSize: "20px",
-                color: "#b6ffff",
-              }}
-                className="nav-link active"
-                to={getIndex}
-              >
-                Trang chủ
-              </NavLink>
-            </li>
+            {/* <div> */}
+            <div className="menu-item">
+              <li className="nav-item">
+                <NavLink
+                  activeStyle={{
+                    marginTop: "10px",
+                    border: "2px solid #273c81",
+                    borderRadius: "10px 10px 0px 0px",
+                    borderBottom: "none",
+                    fontSize: "16px",
+                    color: "darkgray"
+                  }}
+                  className="nav-link active"
+                  to={getIndex}
+                >
+                  Trang chủ
+                </NavLink>
+              </li>
 
-            {props.routers.map((router, index) => {
-              return (
-                <li className="nav-item" key={index}>
-                  <NavLink
-                    activeStyle={{
-                      marginTop: "10px",
-                      border: "2px solid gray",
-                      borderRadius: "10px 10px 0px 0px",
-                      borderBottom: "none",
-                      fontSize: "20px",
-                      color: "#b6ffff",
-                    }}
-                    className="nav-link active"
-                    to={router.layout + router.path}
-                  >
-                    {router.name}
-                    {router.icon}
-                  </NavLink>
-                </li>
-              );
-            })}
-            {}
-             </div>
+              {props.routers.map((router, index) => {
+                return (
+                  <li className="nav-item" key={index}>
+                    <NavLink
+                      activeStyle={{
+                        marginTop: "10px",
+                        border: "2px solid #273c81",
+                        borderRadius: "10px 10px 0px 0px",
+                        borderBottom: "none",
+                        fontSize: "16px",
+                        color: "darkgray"
+                      }}
+                      className="nav-link active"
+                      to={router.layout + router.path}
+                    >
+                      {router.name}
+                      {router.icon}
+                    </NavLink>
+                  </li>
+                );
+              })}
+              { }
+            </div>
 
             <div className="dropdown">
               <button
@@ -99,7 +99,7 @@ export default function Navbar(props) {
                 <NavLink
                   className="dropdown-item"
                   activeClassName="dropdown-item"
-                  to={`${pathname}/doimatkhau` }
+                  to={`${pathname}/doimatkhau`}
                 >
                   Đổi mật khẩu
                 </NavLink>
