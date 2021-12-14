@@ -1,12 +1,14 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { atcGetNgayNghiSinhVien } from "../../../redux/actions/GiangVien";
+import { atcGetCanhBaoSinhViensLopHoc, atcGetNgayNghiSinhVien } from "../../../redux/actions/GiangVien";
 import ngayNghiSinhVienReducer from "../../../redux/reducers/ngayNghi/ngayNghiSinhVienReducer";
+import CanhBaoSinhVien from "../CanhBaoSinhVien";
 
 export default function SinhVienLopHocPhanItem(props) {
   const {
     diemSinhVienMonHocDto,
     hoTen,
+    maSV,
     id,
     soNgayNghiKhongPhep,
     soNgayNghiPhep,
@@ -28,14 +30,19 @@ export default function SinhVienLopHocPhanItem(props) {
     console.log("true");
     return true;
   }
+  const openModalCanhBao = () => { 
+    console.log("asdasd");
+    dispatch(atcGetCanhBaoSinhViensLopHoc(props.item.id));
+  };
   return (
+    <>
     <tr
       style={{
         backgroundColor:!setColorWarning()? "#e2f1f8":''
       }}
     >
       <td>{props.index + 1}</td>
-      <td>{id}</td>
+      <td>{maSV}</td>
       <td>{hoTen}</td>
       <td>
         {diemSinhVienMonHocDto.tk1 > 0 ? diemSinhVienMonHocDto.tk1 : "-"}
@@ -59,6 +66,9 @@ export default function SinhVienLopHocPhanItem(props) {
       <td style={{ textAlign: "left" }}>
         <button
           className="btn btn-link"
+          onClick={openModalCanhBao}
+          data-toggle="modal"
+          data-target="#modelId"
           style={{ color: "red", height: "20px" }}
         >
           Cảnh báo
@@ -86,5 +96,7 @@ export default function SinhVienLopHocPhanItem(props) {
         </button>
       </td>
     </tr>
+         <CanhBaoSinhVien data = {props.item}/>
+         </>
   );
 }

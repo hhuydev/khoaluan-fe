@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { atcGetSinhViensLopHocPhan } from '../../../../../redux/actions/GiangVien'
+import { atcGetSinhViensLopHocPhan, atcGetThongBaoSinhViensLopHocPhan } from '../../../../../redux/actions/GiangVien'
 import DanhSachSinhVienLopHocPhan from './danhDachSinhVienLopHocPhan'
 import DonNghiHoc from './donNghiHoc'
 import ThongBaoLopHocPhan from './thongBaoLopHocPhan'
@@ -20,7 +20,7 @@ export default function ThongTinLopHocPhan(props) {
   useEffect(() => {
     dispatch(atcGetSinhViensLopHocPhan(id, 0));
 
-    // dispatch(atcGetThongBaoSinhViensLopHoc(id, 0));
+    dispatch(atcGetThongBaoSinhViensLopHocPhan(id, 0));
   }, []);
     return (
         <div className="thong-tin-lop-hoc-phan">
@@ -77,7 +77,7 @@ export default function ThongTinLopHocPhan(props) {
             <div className="col-md-12">
               <div className="tab-content profile-tab" id="myTabContent">
                 <ThongTinChiTietLopHocPhan thongTin ={getThongTinLopHoc()} />
-                <ThongBaoLopHocPhan  />
+                <ThongBaoLopHocPhan  id={id}/>
                 <DonNghiHoc/>
               </div>
             </div>

@@ -5,9 +5,11 @@ import sinhViensLopHocReducer from "./SinhVien/SinhVienLopHocReducer";
 import taiKhoanReducer from "./TaiKhoan/LoginReducer";
 import thongBaoReducer from "./ThongBao/thongBaoReducer";
 import thongBaoSinhVienLopHocReducer from "./ThongBao/thongBaoSinhVienLopHocReducer";
+import thongBaoSinhVienLopHocPhanReducer from "./ThongBao/thongBaoSinhVienLopHocPhanReducer";
 import canhBaoSinhVienOfGiangVienReducer from "./CanhBao/canhBaoSinhVienOfGiangVienReducer";
 import lopHocReducer from "./LopHoc/LopHocReducer";
 import lopHocPhanReducer from "./LopHocPhan/lopHocPhanReducer";
+import lopHocPhanSinhVienReducer from "./LopHocPhan/lopHocPhanSinhVienReducer";
 import NotifyReducer from "./notify/NotifyReducer";
 import sinhViensLopHocPhanReducer from "./SinhVien/sinhVienLopHocPhanReducer";
 import diemReducer from "./DiemReducer/DiemReducer";
@@ -26,7 +28,9 @@ const reducer = combineReducers({
   lopHocPhanReducer,
   sinhViensLopHocPhanReducer,
   diemReducer,
-  ngayNghiSinhVienReducer
+  ngayNghiSinhVienReducer,
+  lopHocPhanSinhVienReducer,
+  thongBaoSinhVienLopHocPhanReducer
 });
 
 export default reducer;

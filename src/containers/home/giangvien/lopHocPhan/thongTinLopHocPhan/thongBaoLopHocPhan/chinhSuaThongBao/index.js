@@ -1,8 +1,89 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+
+import { confirmAlert } from "react-confirm-alert";
+import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
+import { useDispatch } from 'react-redux';
+import { atcAddThongBaoSinhViensLopHocPhan, atcEditThongBaoSinhViensLopHocPhan } from '../../../../../../../redux/actions/GiangVien';
 import './style.css'
-export default function ChinhSuaThongBaoLopHocPhan() {
-    return (
-        <>
+export default function ChinhSuaThongBaoLopHocPhan(props) {
+  const dispatch = useDispatch();
+  const { itemEdit, id } = props;
+
+  const [dataThongBao, setDataThongBao] = useState({});
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setDataThongBao({ ...dataThongBao, [name]: value });
+    // console.log(dataThongBao);
+  };
+  const [isEdit, setIsEdit] = useState(false);
+
+  const handleChinhSua = () => {
+    confirmAlert({
+      title: "Lưu ý",
+      message:
+        "Bạn có muốn chỉnh sửa, thông báo này sẽ gởi cho tất cả sinh viên trong lớp học này! ",
+      buttons: [
+        {
+          label: "Có",
+          onClick: () => {
+            dispatch(
+              atcEditThongBaoSinhViensLopHocPhan(
+                itemEdit.id,
+                props.id,
+                dataThongBao
+              )
+            );
+          },
+          className: "btn btn-primary",
+        },
+        {
+          label: "Không",
+          onClick: () => {
+            return;
+          },
+          className: "btn btn-primary btn-sm",
+        },
+      ],
+    });
+  };
+
+  const handleLamMoi = () => {
+    setDataThongBao({ tieuDe: "", noiDung: "" });
+  };
+  useEffect(() => {
+    if (itemEdit) {
+      setIsEdit(true);
+      console.log(itemEdit);
+      setDataThongBao(itemEdit);
+    }
+  }, [itemEdit]);
+
+  const themThongBao = () => {
+    confirmAlert({
+      title: "Lưu ý",
+      message:
+        "Bạn có muốn lưu, thông báo này sẽ gởi cho tất cả sinh viên trong lớp học này! ",
+      buttons: [
+        {
+          label: "Có",
+          onClick: () => {  
+            dispatch(atcAddThongBaoSinhViensLopHocPhan(props.id, dataThongBao));
+          },
+          className: "btn btn-primary",
+        },
+        {
+          label: "Không",
+          onClick: () => {
+            return;
+          },
+          className: "btn btn-primary btn-sm",
+        },
+      ],
+    });
+  };
+  return (
+    <>
       <div className="form-card">
         <div className="row justify-content-between text-left">
           <div className="form-group col-sm-12 flex-column d-flex">
@@ -13,6 +94,8 @@ export default function ChinhSuaThongBaoLopHocPhan() {
               id="lname"
               name="tieuDe"
               placeholder="Nhập tiêu đề"
+              value={dataThongBao.tieuDe}
+              onChange={handleInputChange}
             />
           </div>
           <div className="form-group col-sm-12 flex-column d-flex">
@@ -24,13 +107,17 @@ export default function ChinhSuaThongBaoLopHocPhan() {
               name="noiDung"
               placeholder="Nhập nội dung"
               rows="5"
+              value={dataThongBao.noiDung}
+              onChange={handleInputChange}
             />
           </div>
         </div>
         <div className="footer-thongbao">
           <button
             type="button"
-            className="btn btn-primary btn-sm" 
+            className="btn btn-primary btn-sm"
+            onClick={themThongBao}
+            style={{ display: isEdit ? "none" : "block" }}
           >
             Thêm thông báo
           </button>
@@ -38,6 +125,8 @@ export default function ChinhSuaThongBaoLopHocPhan() {
           <button
             type="button"
             className="btn btn-primary btn-sm"
+            style={{ display: isEdit ? "none" : "block" }}
+            onClick={handleLamMoi}
           >
             Làm mới
           </button>
@@ -45,6 +134,8 @@ export default function ChinhSuaThongBaoLopHocPhan() {
           <button
             type="button"
             className="btn btn-primary btn-sm"
+            style={{ display: isEdit ? "block" : "none" }}
+            onClick={handleChinhSua}
           >
             Lưu
           </button>
@@ -52,11 +143,16 @@ export default function ChinhSuaThongBaoLopHocPhan() {
           <button
             type="button"
             className="btn btn-primary btn-sm"
+            style={{ display: isEdit ? "block" : "none" }}
+            onClick={() => {
+              setIsEdit(false);
+              handleLamMoi();
+            }}
           >
             Hủy bỏ
           </button>
         </div>
       </div>
     </>
-    )
+  );
 }

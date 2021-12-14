@@ -1,14 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import Pagination from "../../../../../../../common/Pagination";
 import ThongBaoSinhVienLopHocItem from "../../../../../../../component/giangVien/thongBaoSinhVienLopHocItem";
 import { atcGetThongBaoSinhViensLopHoc } from "../../../../../../../redux/actions/GiangVien";
-import {
-  SELECT_0,
-  SELECT_1,
-  SELECT_2,
-  SELECT_3,
-} from "../../../../../../../redux/constants/GiangVienConstants";
 import "./style.css";
 export default function DanhSachThongBao(props) {
   const { data } = props;

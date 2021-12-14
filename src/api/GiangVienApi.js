@@ -81,6 +81,20 @@ const addThongBaoLopHocApi = async (idLopHoc,data)=>{
       throw error;
     });
 }
+const addThongBaoLopHocPhanApi = async (idLopHocPhan,data)=>{
+  return (await axiosClient())({
+    method: 'POST',
+    url: BASE_URL_API + `api/solienlacdientu/v1/giangvien/${localStorage.getItem("id")}/${idLopHocPhan}/thongbaolophocphan`, 
+    data:data
+
+  })
+    .then((response) => {
+      return response;
+    })
+    .catch((error) => {
+      throw error;
+    });
+}
 
 
 const editThongBaoLopHocApi = async (idThongBao,data)=>{
@@ -97,6 +111,23 @@ const editThongBaoLopHocApi = async (idThongBao,data)=>{
       throw error;
     });
 }
+
+
+const getThongBaotSinhVienLopHocPhanApi = async (idLopHoc,page) => { 
+  return (await axiosClient(page))({
+    method: 'GET',
+    url: BASE_URL_API + `api/solienlacdientu/v1/giangvien/${localStorage.getItem("id")}/${idLopHoc}/thongbaolophocphan`,
+    params: { page: page, size: 8 }
+
+  })
+    .then((response) => {
+      return response;
+    })
+    .catch((error) => {
+      throw error;
+    });
+};
+
 
 
 
@@ -231,5 +262,7 @@ export {
   putBangDiemSinhVienMonHocApi,
   diemDanhApi,
   getNgayNghiSinhVienApi,
-  xoaNgayNghiSinhVienApi
+  xoaNgayNghiSinhVienApi,
+  getThongBaotSinhVienLopHocPhanApi,
+  addThongBaoLopHocPhanApi
 }

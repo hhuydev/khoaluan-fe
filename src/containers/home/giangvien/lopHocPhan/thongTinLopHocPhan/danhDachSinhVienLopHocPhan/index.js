@@ -6,32 +6,37 @@ import { atcGetSinhViensLopHocPhan } from "../../../../../../redux/actions/Giang
 import DiemDanh from "./diemDanh";
 import NhapDiem from "./nhapDiem";
 import "./style.css";
-export default function DanhSachSinhVienLopHocPhan(props) { 
+export default function DanhSachSinhVienLopHocPhan(props) {
   const [items, setItems] = useState();
   const [totalPage, setTotalPage] = useState(10);
   const [index, setindex] = useState(0);
   const [dataItem, setDataItem] = useState();
   const [idLhp, setIdLhp] = useState();
+
   const { data } = useSelector(
     (state) => state.sinhViensLopHocPhanReducer,
     shallowEqual
-  ); 
+  );
   const [select, setSelect] = useState(0);
 
   const [search, setSearch] = useState("");
-  const dispatch = useDispatch(); 
+  const dispatch = useDispatch();
   const getItem = (id) => {
     return data.sinhVienLopHocPhanDtos.filter((item) => {
       return item.id == id;
     })[0];
   };
+  const onChangeSelect = (e) => {
+    const { value, name } = e.target; 
+    setSelect(value)
+  };
   const getIdItem = (id) => {
     setDataItem(getItem(id));
   };
-  
-  const getIdSvLhp=(id)=>{
+
+  const getIdSvLhp = (id) => {
     setIdLhp(id);
-  }
+  };
 
   const handelPageClick = (page) => {
     dispatch(atcGetSinhViensLopHocPhan(props.id, page.selected));
@@ -42,6 +47,32 @@ export default function DanhSachSinhVienLopHocPhan(props) {
       setTotalPage(data.paginationMeta.totalPage);
     }
   }, [data]);
+  const onSearch = (e) => {
+    const { value, name } = e.target;
+    setSearch(value);
+  };
+  const handleSearch = (data) => {
+    if (select == 1) {
+      data = data.filter((item) => {
+        return !item.trangThai;
+      });
+    }
+    if (select == 2) {
+      data = data.filter((item) => {
+        return item.trangThai;
+      });
+    }
+    if (search === "") {
+      return data;
+    }
+    return data.filter((item) => {
+      return (
+        item.hoTen.toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
+        item.email.toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
+        item.maSV.toLowerCase().indexOf(search.toLowerCase()) !== -1
+      );
+    });
+  };
   return (
     <>
       <div className="danh-sach-sinh-vien">
@@ -53,6 +84,7 @@ export default function DanhSachSinhVienLopHocPhan(props) {
             <div className="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
               <div className="input-group">
                 <input
+                  onChange={onSearch}
                   type="search"
                   placeholder="Nhập từ khóa cần tìm..."
                   aria-describedby="button-addon1"
@@ -74,10 +106,14 @@ export default function DanhSachSinhVienLopHocPhan(props) {
               className="form-select form-select-sm"
               aria-label=".form-select-sm example"
               defaultValue={0}
+              onChange = {onChangeSelect}
             >
               <option value={0}>Tất cả sinh viên</option>
               <option value={1}>
-                Những sinh viên có tình trạng bị cảnh báo
+                Những sinh viên bị cấm thi
+              </option>
+              <option value={2}>
+                Những sinh viên được dự thi
               </option>
             </select>
           </div>
@@ -111,18 +147,19 @@ export default function DanhSachSinhVienLopHocPhan(props) {
           </thead>
           <tbody>
             {data ? (
-              data.sinhVienLopHocPhanDtos.map((sinhvien, index) => {
-                return (
-                  
-                  <SinhVienLopHocPhanItem
-                    key={sinhvien.id}
-                    item={sinhvien}
-                    index={index}
-                    getIdItem={getIdItem}
-                    getIdSvLhp={getIdSvLhp}
-                  />
-                );
-              })
+              handleSearch(data.sinhVienLopHocPhanDtos).map(
+                (sinhvien, index) => {
+                  return (
+                    <SinhVienLopHocPhanItem
+                      key={sinhvien.id}
+                      item={sinhvien}
+                      index={index}
+                      getIdItem={getIdItem}
+                      getIdSvLhp={getIdSvLhp}
+                    />
+                  );
+                }
+              )
             ) : (
               <tr></tr>
             )}
@@ -131,17 +168,20 @@ export default function DanhSachSinhVienLopHocPhan(props) {
       </div>
       {useMemo(
         () => (
-          <NhapDiem dataItem={dataItem} idLopHocPhan = {props.id}/>
+          <NhapDiem dataItem={dataItem} idLopHocPhan={props.id} />
         ),
         [dataItem]
       )}
-       {useMemo(
+      {useMemo(
         () => (
-          <DiemDanh idLopHocPhan = {props.id} dataItem={dataItem} idSvLhp = {idLhp} />
+          <DiemDanh
+            idLopHocPhan={props.id}
+            dataItem={dataItem}
+            idSvLhp={idLhp}
+          />
         ),
         [dataItem]
       )}
-    
 
       <Pagination
         data={{
