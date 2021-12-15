@@ -6,6 +6,7 @@ import { CheckAuthApi } from "../../../api/TaiKhoanApi";
 import Navbar from "../../../component/navbar";
 import {
   atcGetDiem,
+  atcGetLopHocPhanSinhVien,
   atcGetThongBao,
   atcXemThongTinSinhVien,
 } from "../../../redux/actions/SinhVien";
@@ -42,6 +43,7 @@ export default function SinhVien(props) {
         
         dispatch(atcGetThongBao(localStorage.getItem("id"),0));
         dispatch(atcGetDiem(localStorage.getItem("id")));
+        dispatch(atcGetLopHocPhanSinhVien(localStorage.getItem("id")));
       })
       .catch((err) => {
         props.history.replace("/login");

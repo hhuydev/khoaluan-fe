@@ -60,10 +60,43 @@ const getDiemSinhVienSinhVienApi = async (id) => {
     });
 }
 
+
+
+const getLopHocPhanSinhVienApi = async (id) => {
+  return (await axiosClient())({
+    method: 'GET',
+    url: `${BASE_URL_API}api/solienlacdientu/v1/sinhvien/${id}/lophocphan`
+  })
+    .then((response) => { 
+      return response;
+    })
+    .catch((error) => {
+      throw error;
+    });
+}
+
+
+const postSinhVienXinNghiHocApi = async (data) => {
+  return (await axiosClient())({
+    method: 'POST',
+    url: `${BASE_URL_API}api/solienlacdientu/v1/sinhvien/donxinnghihoc`,
+    data:data
+  })
+    .then((response) => { 
+      return response;
+    })
+    .catch((error) => {
+      throw error;
+    });
+}
+
+
 export {
   XemThongTinApi,
   chinhSuaThongTinApi,
   getThongBaoSinhVienApi,
-  getDiemSinhVienSinhVienApi
+  getDiemSinhVienSinhVienApi,
+  getLopHocPhanSinhVienApi,
+  postSinhVienXinNghiHocApi
 }
 // localhost:8082/api/solienlacdientu/v1/sinhvien/2/diem
