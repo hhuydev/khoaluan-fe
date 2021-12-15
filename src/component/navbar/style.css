@@ -184,9 +184,9 @@ body {
 .nav-menu .menu-item a:hover {
   /* background-color: cornflowerblue !important; */
   margin-top: 10px;
-  border: 2px solid #273c81;
+  border: 2px solid darkgrey;
   border-radius: 10px 10px 0px 0px;
   border-bottom: none;
   font-size: 16px !important;
-  color: darkgrey !important;
+  color: darkturquoise !important;
 }

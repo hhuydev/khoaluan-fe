@@ -44,11 +44,11 @@ export default function Navbar(props) {
                 <NavLink
                   activeStyle={{
                     marginTop: "10px",
-                    border: "2px solid #273c81",
+                    border: "2px solid darkgray",
                     borderRadius: "10px 10px 0px 0px",
                     borderBottom: "none",
                     fontSize: "16px",
-                    color: "darkgray"
+                    color: "darkturquoise"
                   }}
                   className="nav-link active"
                   to={getIndex}
@@ -63,11 +63,11 @@ export default function Navbar(props) {
                     <NavLink
                       activeStyle={{
                         marginTop: "10px",
-                        border: "2px solid #273c81",
+                        border: "2px solid darkgray",
                         borderRadius: "10px 10px 0px 0px",
                         borderBottom: "none",
                         fontSize: "16px",
-                        color: "darkgray"
+                        color: "darkturquoise"
                       }}
                       className="nav-link active"
                       to={router.layout + router.path}
