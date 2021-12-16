@@ -169,16 +169,17 @@ body {
   right: 1%;
 }
 #dropdownMenuButton {
-  margin-top: 10px;
+  border: none;
+  margin-top: 12px;
+  margin-right: 10px;
   background-color: #5161ce;
 }
 
 .nav-menu .navbar-nav .dropdown-menu {
-  top: 10%;
-  left: 90%;
-  float: none;
+  top: 8%;
+  left: 89%;
   position: fixed;
-  z-index: 1; /* Sit on top */
+  z-index: 1;
 }
 
 .nav-menu .menu-item a:hover {

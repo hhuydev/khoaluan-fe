@@ -53,8 +53,8 @@ export default function NhapDiem(props) {
     }
     setTbc(tbccc);
   };
-  const getDiem = (diem)=>{
-    return diem>=0?diem:'';
+  const getDiem = (diem) => {
+    return diem >= 0 ? diem : '';
   }
   const handleLuu = () => {
     if (!window.confirm("Bạn đã chắc chắn?")) {
@@ -95,7 +95,7 @@ export default function NhapDiem(props) {
               <label>Điểm thường kỳ 1</label>
               <input
                 name="tk1"
-                type="text"
+                type="number"
                 className="form-control"
                 placeholder="Nhập điểm thường kì 1"
                 onChange={onChange}
@@ -106,7 +106,7 @@ export default function NhapDiem(props) {
               <label>Điểm thường kỳ 2</label>
               <input
                 name="tk2"
-                type="text"
+                type="number"
                 className="form-control"
                 placeholder="Nhập điểm thường kì 2"
                 onChange={onChange}
@@ -117,7 +117,7 @@ export default function NhapDiem(props) {
               <label>Điểm thường kỳ 3</label>
               <input
                 name="tk3"
-                type="text"
+                type="number"
                 className="form-control"
                 placeholder="Nhập điểm thường kì 3"
                 onChange={onChange}
@@ -128,7 +128,7 @@ export default function NhapDiem(props) {
               <label>Điểm giữa kỳ</label>
               <input
                 name="gk"
-                type="text"
+                type="number"
                 className="form-control"
                 placeholder="Nhập điểm giữa kì"
                 onChange={onChange}
@@ -139,7 +139,7 @@ export default function NhapDiem(props) {
               <label>Điểm cuối kỳ</label>
               <input
                 name="ck"
-                type="text"
+                type="number"
                 className="form-control"
                 placeholder="Nhập điểm cuối kì"
                 onChange={onChange}

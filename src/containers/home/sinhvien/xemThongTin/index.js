@@ -19,15 +19,15 @@ export default function XemThongTin() {
     setDataImgUrlApi(e.target.files[0]);
     setIsSave(true);
   };
-  const handleHuy = () => { 
+  const handleHuy = () => {
     setIsSave(false);
     setImg(data.imgUrl);
   };
 
 
-  const handleLuu = () => { 
+  const handleLuu = () => {
     console.log(imgURl);
-    if (( dataImgUrlApi === null)) {
+    if ((dataImgUrlApi === null)) {
       return;
     }
     confirmAlert({
@@ -51,7 +51,7 @@ export default function XemThongTin() {
         },
       ],
     });
-   
+
   };
   useEffect(() => {
     setImg(data.imgUrl);
@@ -65,20 +65,20 @@ export default function XemThongTin() {
             <div className="col-md-4">
               <div className="profile-img">
                 <img src={img} className="img" alt="Cinque Terre" />
-                <div className="file btn btn-lg btn-primary" style={{display:!localStorage.getItem("idsv")?'':'none'}}>
+                <div className="file btn btn-lg btn-primary" style={{ display: !localStorage.getItem("idsv") ? '' : 'none' }}>
                   Chỉnh sửa
                   <input type="file" name="file" onChange={onChange} />
                 </div>
                 <div className="btn_img">
                   <button
-                  type="button"
+                    type="button"
                     onClick={handleHuy}
                     style={{ display: isSave ? "block" : "none" }}
                   >
                     Hủy
                   </button>
                   <button
-                   type="button"
+                    type="button"
                     onClick={handleLuu}
                     style={{ display: isSave ? "block" : "none" }}
                   >
@@ -91,7 +91,7 @@ export default function XemThongTin() {
             {/* <input type="file" name="file" onChange={onchange} /> */}
             <div className="col-md-6">
               <div className="profile-head">
-                <h3>Thông Tin Sinh Viên</h3>
+                <h4>THÔNG TIN SINH VIÊN</h4>
                 <ul className="nav nav-tabs" id="myTab" role="tablist">
                   <li className="nav-item">
                     <a
@@ -115,7 +115,7 @@ export default function XemThongTin() {
                       role="tab"
                       aria-controls="profile"
                       aria-selected="false"
-                      style={{display:!localStorage.getItem("idsv")?'block':'none'}}
+                      style={{ display: !localStorage.getItem("idsv") ? 'block' : 'none' }}
                     >
                       Chỉnh sửa thông tin
                     </a>
@@ -125,7 +125,7 @@ export default function XemThongTin() {
             </div>
           </div>
           <div className="row">
-            <div className="col-md-4"> 
+            <div className="col-md-4">
             </div>
             <div className="col-md-8">
               <div className="tab-content profile-tab" id="myTabContent">

@@ -5,6 +5,7 @@
   border-radius: 0.5rem;
   background: #fff;
   /* color: black; */
+  height: 600px;
 }
 .profile-img {
   text-align: center;
@@ -39,14 +40,15 @@
   color: #0062cc;
 }
 .emp-profile .profile-save-btn {
+  margin-top: 8%;
   border: none;
-  border-radius: 1.5rem;
-  width: 195%;
-  padding: 20%;
+  border-radius: 1.5 rem;
+  width: 40%;
   font-weight: 600;
   color: white;
   cursor: pointer;
-  background-color: #0062cc;
+  background-color: #398feb;
+  margin-left: 60%;
 }
 .proile-rating {
   font-size: 12px;
@@ -113,9 +115,9 @@
   color: white;
 }
 
-.profile .nav-link.active{
+.profile .nav-link.active {
   color: #0062cc;
 }
-.profile .nav-link{
+.profile .nav-link {
   color: black;
 }
