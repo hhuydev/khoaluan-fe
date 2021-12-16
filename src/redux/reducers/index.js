@@ -14,6 +14,7 @@ import NotifyReducer from "./notify/NotifyReducer";
 import sinhViensLopHocPhanReducer from "./SinhVien/sinhVienLopHocPhanReducer";
 import diemReducer from "./DiemReducer/DiemReducer";
 import ngayNghiSinhVienReducer from "./ngayNghi/ngayNghiSinhVienReducer";
+import donXinNghiHocReducer from "./ngayNghi/donXinNghiHocReducer";
  
 const reducer = combineReducers({
   loadingReducer,
@@ -30,7 +31,8 @@ const reducer = combineReducers({
   diemReducer,
   ngayNghiSinhVienReducer,
   lopHocPhanSinhVienReducer,
-  thongBaoSinhVienLopHocPhanReducer
+  thongBaoSinhVienLopHocPhanReducer,
+  donXinNghiHocReducer
 });
 
 export default reducer;
