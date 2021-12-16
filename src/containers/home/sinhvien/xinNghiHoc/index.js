@@ -62,20 +62,6 @@ export default function XinNghiHoc() {
                 <div className="row justify-content-between text-left">
                   <div className="col-md-6">
                     <div className="form-group flex-column d-flex">
-<<<<<<< HEAD
-                      {" "}
-                      <label className="form-control-label px-3">
-                        Lớp học phần <span className="text-danger"> *</span>
-                      </label>{" "}
-                      <input type="text" id="fname" name="fname" />{" "}
-                    </div>
-                    <div className="form-group flex-column d-flex">
-                      {" "}
-                      <label className="form-control-label px-3">
-                        Ngày nghỉ học <span className="text-danger"> *</span>
-                      </label>{" "}
-                      <input type="date" id="fname" name="fname" />{" "}
-=======
                       <label className="form-control-label px-3">
                         Lớp học phần <span className="text-danger"> *</span>
                       </label>
@@ -112,36 +98,24 @@ export default function XinNghiHoc() {
                       <label className="form-control-label px-3">
                         Ngày nghỉ học <span className="text-danger"> *</span>
                       </label>
-                      <input name='ngayNghi' onChange={onChange} type="date" id="fname"  />
->>>>>>> 6f33136c335cb4837d281447e6cf508845f8493e
+                      <input name='ngayNghi' onChange={onChange} type="date" id="fname"  /> 
                     </div>
                   </div>
                   <div className="form-group col-md-6 flex-column d-flex">
                     <label className="form-control-label px-3">
                       Lý do<span className="text-danger"> *</span>
-<<<<<<< HEAD
-                    </label>{" "}
-                    <textarea id="ans" name="ans" rows={5} />{" "}
-=======
                     </label>
                     <textarea name='lyDo' onChange={onChange} id="ans"  rows={5} />
->>>>>>> 6f33136c335cb4837d281447e6cf508845f8493e
                   </div>
                 </div>
 
                 <div className="row justify-content-end">
-<<<<<<< HEAD
-                  <div className="form-group col-md-12" >
-                    {" "}
-                    <button type="submit" className="btn-block btn-primary" style={{ width: '30%', marginLeft: '70%' }}>
-=======
                   <div className="form-group col-md-12">
                     <button
                       type="submit"
                       className="btn-block btn-primary"
-                      style={{ width: "30%", marginLeft: "30%" }}
+                      style={{ width: "30%", marginLeft: "70%" }}
                     >
->>>>>>> 6f33136c335cb4837d281447e6cf508845f8493e
                       Gửi đơn
                     </button>
                   </div>
@@ -154,7 +128,8 @@ export default function XinNghiHoc() {
 
       <div className="danh-sach-dơn-nghi-hoc-sinh-vien">
         <h5 style={{ textAlign: "center" }}>DANH SÁCH ĐƠN NGHỈ HỌC</h5><br></br><br></br>
-        <table className="table">
+        <div className="table-wrapper-scroll-y my-custom-scrollbar">
+        <table className="table table table-bordered table-striped mb-0">
           <thead style={{ backgroundColor: "skyblue" }}>
             <tr>
               <th>STT</th>
@@ -172,9 +147,95 @@ export default function XinNghiHoc() {
               <td>Bị ốm</td>
               <td>Chấp nhận</td>
             </tr>
+            <tr>
+              <td>1</td>
+              <td>HP1</td>
+              <td>20-10-2021</td>
+              <td>Bị ốm</td>
+              <td>Chấp nhận</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>HP1</td>
+              <td>20-10-2021</td>
+              <td>Bị ốm</td>
+              <td>Chấp nhận</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>HP1</td>
+              <td>20-10-2021</td>
+              <td>Bị ốm</td>
+              <td>Chấp nhận</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>HP1</td>
+              <td>20-10-2021</td>
+              <td>Bị ốm</td>
+              <td>Chấp nhận</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>HP1</td>
+              <td>20-10-2021</td>
+              <td>Bị ốm</td>
+              <td>Chấp nhận</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>HP1</td>
+              <td>20-10-2021</td>
+              <td>Bị ốm</td>
+              <td>Chấp nhận</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>HP1</td>
+              <td>20-10-2021</td>
+              <td>Bị ốm</td>
+              <td>Chấp nhận</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>HP1</td>
+              <td>20-10-2021</td>
+              <td>Bị ốm</td>
+              <td>Chấp nhận</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>HP1</td>
+              <td>20-10-2021</td>
+              <td>Bị ốm</td>
+              <td>Chấp nhận</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>HP1</td>
+              <td>20-10-2021</td>
+              <td>Bị ốm</td>
+              <td>Chấp nhận</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>HP1</td>
+              <td>20-10-2021</td>
+              <td>Bị ốm</td>
+              <td>Chấp nhận</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>HP1</td>
+              <td>20-10-2021</td>
+              <td>Bị ốm</td>
+              <td>Chấp nhận</td>
+            </tr>
+
           </tbody>
         </table>
 
+        </div>
       </div>
     </div>
   );

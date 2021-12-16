@@ -78,15 +78,10 @@ export default function ThongTinLopHocPhan(props) {
           <div className="row">
             <div className="col-md-12">
               <div className="tab-content profile-tab" id="myTabContent">
-<<<<<<< HEAD
-                <ThongTinChiTietLopHocPhan thongTin={getThongTinLopHoc()} />
-                <ThongBaoLopHocPhan />
-                <DonNghiHoc />
-=======
+ 
                 <ThongTinChiTietLopHocPhan thongTin ={getThongTinLopHoc()} />
                 <ThongBaoLopHocPhan  id={id}/>
-                <DonNghiHoc id={id}/>
->>>>>>> 6f33136c335cb4837d281447e6cf508845f8493e
+                <DonNghiHoc id={id}/> 
               </div>
             </div>
           </div>
