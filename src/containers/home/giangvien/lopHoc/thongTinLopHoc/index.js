@@ -9,6 +9,7 @@ import "./style.css";
 import ThongBaoLopHoc from "./ThongBaoLopHoc";
 import ThongTinchiTietLopHoc from "./ThongTinChiTietLopHoc";
 export default function ThongTinLopHoc(props) {
+  document.title = "Thông tin lớp học "
   const { id } = props.match.params;
 
   const dispatch = useDispatch();
