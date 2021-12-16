@@ -8,9 +8,9 @@ import ThongTinChiTietLopHocPhan from './thongTinChiTietLopHocPhan'
 import './style.css'
 import { shallowEqual } from 'react-redux'
 export default function ThongTinLopHocPhan(props) {
-  const { id } = props.match.params; 
+  const { id } = props.match.params;
   const dispatch = useDispatch();
-  const { data } = useSelector((state) => state.lopHocPhanReducer,shallowEqual);
+  const { data } = useSelector((state) => state.lopHocPhanReducer, shallowEqual);
   const getThongTinLopHoc = () => {
     return data.lopHocPhanDtos.filter((lop) => {
       return lop.id == id;
@@ -24,8 +24,8 @@ export default function ThongTinLopHocPhan(props) {
     dispatch(atcGetDonXinNghiHoc(localStorage.getItem("id"),id, 0));
 
   }, []);
-    return (
-        <div className="thong-tin-lop-hoc-phan">
+  return (
+    <div className="thong-tin-lop-hoc-phan">
       <div className="container-fluid emp-profile">
         <form method="post">
           <div className="row">
@@ -78,17 +78,23 @@ export default function ThongTinLopHocPhan(props) {
           <div className="row">
             <div className="col-md-12">
               <div className="tab-content profile-tab" id="myTabContent">
+<<<<<<< HEAD
+                <ThongTinChiTietLopHocPhan thongTin={getThongTinLopHoc()} />
+                <ThongBaoLopHocPhan />
+                <DonNghiHoc />
+=======
                 <ThongTinChiTietLopHocPhan thongTin ={getThongTinLopHoc()} />
                 <ThongBaoLopHocPhan  id={id}/>
                 <DonNghiHoc id={id}/>
+>>>>>>> 6f33136c335cb4837d281447e6cf508845f8493e
               </div>
             </div>
           </div>
         </form>
-        <div className="container-fluid emp-profile danhsach" style={{marginTop:'120px'}}>
+        <div className="container-fluid emp-profile danhsach">
           <DanhSachSinhVienLopHocPhan id={id} />
         </div>
       </div>
     </div>
-    )
+  )
 }
