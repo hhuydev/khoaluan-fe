@@ -248,6 +248,34 @@ const xoaNgayNghiSinhVienApi = async (id)=>{
     });
 }
 
+
+const getDonXinNghiHocApi = async (idGiangVien,idLopHocPhan,page)=>{
+  return (await axiosClient())({
+    method: 'GET',
+    url: BASE_URL_API + `api/solienlacdientu/v1/giangvien/${idGiangVien}/${idLopHocPhan}/list-donxinnghihoc`,
+    params: { page: page, size: 10 }
+  })
+    .then((response) => {
+      return response;
+    })
+    .catch((error) => {
+      throw error;
+    });
+}
+
+const chapNhanDonXinNghiHocApi = async (idGiangVien,idDonNghiHoc)=>{
+  return (await axiosClient())({
+    method: 'PUT',
+    url: BASE_URL_API + `api/solienlacdientu/v1/giangvien/donnghihoc/${idGiangVien}/${idDonNghiHoc}`, 
+  })
+    .then((response) => {
+      return response;
+    })
+    .catch((error) => {
+      throw error;
+    });
+}
+
 export {
   getLopHocApi,
   getSinhVienLopHocApi,
@@ -264,5 +292,7 @@ export {
   getNgayNghiSinhVienApi,
   xoaNgayNghiSinhVienApi,
   getThongBaotSinhVienLopHocPhanApi,
-  addThongBaoLopHocPhanApi
+  addThongBaoLopHocPhanApi,
+  getDonXinNghiHocApi,
+  chapNhanDonXinNghiHocApi
 }
