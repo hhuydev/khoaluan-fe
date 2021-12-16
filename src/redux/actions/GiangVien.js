@@ -1,8 +1,11 @@
 import {
   addThongBaoLopHocApi,
+  addThongBaoLopHocPhanApi,
+  chapNhanDonXinNghiHocApi,
   diemDanhApi,
   editDisplayThongBaoLopHocApi,
   editThongBaoLopHocApi,
+  getDonXinNghiHocApi,
   getListCanhBaoSinhVienApi,
   getLopHocApi,
   getLopHocPhanApi,
@@ -10,27 +13,36 @@ import {
   getSinhVienLopHocApi,
   getSinhVienLopHocPhanApi,
   getThongBaotSinhVienLopHocApi,
+  getThongBaotSinhVienLopHocPhanApi,
   guiCanhBaoSinhVienApi,
   putBangDiemSinhVienMonHocApi,
   xoaNgayNghiSinhVienApi,
 } from "../../api/GiangVienApi";
 import {
+  ADDTHONGBAOSINHVIENS_LOPHOCPHAN_FAILED,
+  ADDTHONGBAOSINHVIENS_LOPHOCPHAN_SUCCESS,
   ADDTHONGBAOSINHVIENS_LOPHOC_FAILED,
   ADDTHONGBAOSINHVIENS_LOPHOC_SUCCESS,
   CANHBAO_SINHVIEN_FAILED,
   CANHBAO_SINHVIEN_SUCCESS,
+  EDITTHONGBAOSINHVIENS_LOPHOCPHAN_FAILED,
+  EDITTHONGBAOSINHVIENS_LOPHOCPHAN_SUCCESS,
   EDITTHONGBAOSINHVIENS_LOPHOC_FAILED,
   EDITTHONGBAOSINHVIENS_LOPHOC_SUCCESS,
   GETDANHSACH_LOPHOCPHAN_FAILED,
   GETDANHSACH_LOPHOCPHAN_SUCCESS,
   GETDANHSACH_LOPHOC_FAILED,
   GETDANHSACH_LOPHOC_SUCCESS,
+  GETDONXINNGHIHOC_FAILED,
+  GETDONXINNGHIHOC_SUCCESS,
   GETNGAYNGHI_SINHVIEN_FAILED,
   GETNGAYNGHI_SINHVIEN_SUCCESS,
   GETSINHVIENS_LOPHOCPHAN_FAILED,
   GETSINHVIENS_LOPHOCPHAN_SUCCESS,
   GETSINHVIENS_LOPHOC_FAILED,
   GETSINHVIENS_LOPHOC_SUCCESS,
+  GETTHONGBAOSINHVIENS_LOPHOCPHAN_FAILED,
+  GETTHONGBAOSINHVIENS_LOPHOCPHAN_SUCCESS,
   GETTHONGBAOSINHVIENS_LOPHOC_FAILED,
   GETTHONGBAOSINHVIENS_LOPHOC_SUCCESS,
   GET_CANHBAO_SINHVIEN_FAILED,
@@ -419,7 +431,7 @@ export const atcDiemDanh = (idSinhVien, idLopHocPhan, data, idSvLhp) => {
     diemDanhApi(idSinhVien, idLopHocPhan, data)
       .then((res) => {
         dispatch(displayLoading());
-        dispatch(atcGetSinhViensLopHocPhan(idLopHocPhan,0));
+        dispatch(atcGetSinhViensLopHocPhan(idLopHocPhan, 0));
         dispatch(atcGetNgayNghiSinhVien(idSvLhp));
         dispatch(hideLoading());
         dispatch(
@@ -462,18 +474,243 @@ const getNgayNghiSinhVienFailed = (err) => {
   };
 };
 
-
-export const atcXoaNgayNghiSinhVien = (id,idLopHocPhan,idSinhVienLopHocPhan) => {
+export const atcXoaNgayNghiSinhVien = (
+  id,
+  idLopHocPhan,
+  idSinhVienLopHocPhan
+) => {
   return (dispatch) => {
     dispatch(displayLoading());
     xoaNgayNghiSinhVienApi(id)
       .then((res) => {
-        dispatch(atcGetSinhViensLopHocPhan(idLopHocPhan, 0))
-        dispatch(atcGetNgayNghiSinhVien(idSinhVienLopHocPhan))
+        dispatch(atcGetSinhViensLopHocPhan(idLopHocPhan, 0));
+        dispatch(atcGetNgayNghiSinhVien(idSinhVienLopHocPhan));
         dispatch(hideLoading());
       })
       .catch((err) => {
         dispatch(hideLoading());
+      });
+  };
+};
+
+export const atcGetThongBaoSinhViensLopHocPhan = (idLopHocPhan, page) => {
+  return (dispatch) => {
+    dispatch(displayLoading());
+    getThongBaotSinhVienLopHocPhanApi(idLopHocPhan, page)
+      .then((res) => {
+        dispatch(getThongBaoSinhViensLopHocPhanSuccess(res));
+        dispatch(hideLoading());
+      })
+      .catch((err) => {
+        dispatch(getThongBaoSinhViensLopHocPhanFailed(err));
+        dispatch(hideLoading());
+        dispatch(
+          displayNotify({
+            message: "Lấy dữ liệu thất bại! Xin hãy reload lại trang!",
+            type: "warning",
+          })
+        );
+      });
+  };
+};
+
+const getThongBaoSinhViensLopHocPhanSuccess = (res) => {
+  return {
+    type: GETTHONGBAOSINHVIENS_LOPHOCPHAN_SUCCESS,
+    payload: res.data,
+  };
+};
+
+const getThongBaoSinhViensLopHocPhanFailed = (err) => {
+  return {
+    type: GETTHONGBAOSINHVIENS_LOPHOCPHAN_FAILED,
+    payload: err,
+  };
+};
+
+///////////////////////thong bao sinh vien lop hoc phan
+
+export const atcAddThongBaoSinhViensLopHocPhan = (idLopHocPhan, data) => {
+  return (dispatch) => {
+    dispatch(displayLoading());
+    addThongBaoLopHocPhanApi(idLopHocPhan, data)
+      .then((res) => {
+        dispatch(addThongBaoSinhViensLopHocPhanSuccess(res));
+        dispatch(atcGetThongBaoSinhViensLopHocPhan(idLopHocPhan, 0));
+        dispatch(hideLoading());
+        dispatch(
+          displayNotify({ message: "Thêm thành công!", type: "success" })
+        );
+      })
+      .catch((err) => {
+        dispatch(addThongBaoSinhViensLopHocPhanFailed(err));
+        dispatch(hideLoading());
+        dispatch(
+          displayNotify({
+            message: "Thêm thất bại! Xin hãy thử lại",
+            type: "warning",
+          })
+        );
+      });
+  };
+};
+
+const addThongBaoSinhViensLopHocPhanSuccess = (res) => {
+  return {
+    type: ADDTHONGBAOSINHVIENS_LOPHOCPHAN_SUCCESS,
+    payload: res.data,
+  };
+};
+
+const addThongBaoSinhViensLopHocPhanFailed = (err) => {
+  return {
+    type: ADDTHONGBAOSINHVIENS_LOPHOCPHAN_FAILED,
+    payload: err,
+  };
+};
+
+export const atcEditThongBaoSinhViensLopHocPhan = (
+  idThongBao,
+  idLopHocPhan,
+  data
+) => {
+  return (dispatch) => {
+    dispatch(displayLoading());
+    editThongBaoLopHocApi(idThongBao, data)
+      .then((res) => {
+        dispatch(editThongBaoSinhViensLopHocPhanSuccess(res));
+        dispatch(atcGetThongBaoSinhViensLopHocPhan(idLopHocPhan, 0));
+        dispatch(hideLoading());
+        dispatch(
+          displayNotify({ message: "Chỉnh sửa thành công!", type: "success" })
+        );
+      })
+      .catch((err) => {
+        dispatch(ediThongBaoSinhViensLopHocPhanFailed(err));
+        dispatch(hideLoading());
+        dispatch(
+          displayNotify({ message: "Chỉnh sửa thất bại!", type: "warning" })
+        );
+      });
+  };
+};
+
+const editThongBaoSinhViensLopHocPhanSuccess = (res) => {
+  return {
+    type: EDITTHONGBAOSINHVIENS_LOPHOCPHAN_SUCCESS,
+    payload: res.data,
+  };
+};
+
+const ediThongBaoSinhViensLopHocPhanFailed = (err) => {
+  return {
+    type: EDITTHONGBAOSINHVIENS_LOPHOCPHAN_FAILED,
+    payload: err,
+  };
+};
+
+export const atcEditDisplayThongBaoSinhViensLopHocPhan = (
+  idThongBao,
+  idLopHocPhan
+) => {
+  return (dispatch) => {
+    dispatch(displayLoading());
+    editDisplayThongBaoLopHocApi(idThongBao)
+      .then((res) => {
+        dispatch(editDisplayThongBaoSinhViensLopHocPhanSuccess(res));
+        dispatch(atcGetThongBaoSinhViensLopHocPhan(idLopHocPhan, 0));
+        dispatch(hideLoading());
+        dispatch(
+          displayNotify({ message: "Chỉnh sửa thành công!", type: "success" })
+        );
+      })
+      .catch((err) => {
+        dispatch(editDisplayThongBaoSinhViensLopHocPhanFailed(err));
+        dispatch(hideLoading());
+        dispatch(
+          displayNotify({ message: "Chỉnh sửa thất bại!", type: "warning" })
+        );
+      });
+  };
+};
+
+const editDisplayThongBaoSinhViensLopHocPhanSuccess = (res) => {
+  return {
+    type: EDITTHONGBAOSINHVIENS_LOPHOCPHAN_SUCCESS,
+    payload: res.data,
+  };
+};
+
+const editDisplayThongBaoSinhViensLopHocPhanFailed = (err) => {
+  return {
+    type: EDITTHONGBAOSINHVIENS_LOPHOCPHAN_FAILED,
+    payload: err,
+  };
+};
+
+export const atcGetDonXinNghiHoc = (idGiangVien, idLopHocPhan, page) => {
+  return (dispatch) => {
+    dispatch(displayLoading());
+    getDonXinNghiHocApi(idGiangVien, idLopHocPhan, page)
+      .then((res) => {
+        dispatch(getDonXinNghiHocSuccess(res));
+        dispatch(hideLoading());
+      })
+      .catch((err) => {
+        dispatch(getDonXinNghiHocFailed(err));
+        dispatch(hideLoading());
+        dispatch(
+          displayNotify({
+            message: "Lấy dữ liệu thất bại! Xin hãy reload lại trang!",
+            type: "warning",
+          })
+        );
+      });
+  };
+};
+
+const getDonXinNghiHocSuccess = (res) => {
+  return {
+    type: GETDONXINNGHIHOC_SUCCESS,
+    payload: res.data,
+  };
+};
+
+const getDonXinNghiHocFailed = (err) => {
+  return {
+    type: GETDONXINNGHIHOC_FAILED,
+    payload: err,
+  };
+};
+
+export const atcChapNhanDonXinNghiHoc = (
+  idGiangVien,
+  idDonXinNghiHoc,
+  idLopHocPhan
+) => {
+  return (dispatch) => {
+    dispatch(displayLoading());
+    chapNhanDonXinNghiHocApi(idGiangVien, idDonXinNghiHoc)
+      .then((res) => {
+        dispatch(atcGetDonXinNghiHoc(idGiangVien, idLopHocPhan, 0));
+        dispatch(atcGetSinhViensLopHocPhan(idLopHocPhan, 0));
+
+        dispatch(hideLoading());
+        dispatch(
+          displayNotify({
+            message: "Thành công!",
+            type: "success",
+          })
+        );
+      })
+      .catch((err) => {
+        dispatch(hideLoading());
+        dispatch(
+          displayNotify({
+            message: "Thất bại!",
+            type: "warning",
+          })
+        );
       });
   };
 };

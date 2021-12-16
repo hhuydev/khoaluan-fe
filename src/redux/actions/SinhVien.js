@@ -1,5 +1,5 @@
-import { chinhSuaThongTinApi, getDiemSinhVienSinhVienApi, getThongBaoSinhVienApi, XemThongTinApi } from "../../api/SinhVienApi";
-import { CHINHSUATHONGTINSINHVIEN_FAILED, CHINHSUATHONGTINSINHVIEN_SUCCESS, GETDIEMSINHVIEN_FAILED, GETDIEMSINHVIEN_SUCCESS, GETTHONGBAOSINHVIEN_FAILED, GETTHONGBAOSINHVIEN_SUCCESS, XEMTHONGTINSINHVIEN_FAILED, XEMTHONGTINSINHVIEN_SUCCESS } from "../constants/SinhVienConstants";
+import { chinhSuaThongTinApi, getDiemSinhVienSinhVienApi, getLopHocPhanSinhVienApi, getThongBaoSinhVienApi, postSinhVienXinNghiHocApi, XemThongTinApi } from "../../api/SinhVienApi";
+import { CHINHSUATHONGTINSINHVIEN_FAILED, CHINHSUATHONGTINSINHVIEN_SUCCESS, GETDIEMSINHVIEN_FAILED, GETDIEMSINHVIEN_SUCCESS, GETLOPHOCPHANSINHVIEN_FAILED, GETLOPHOCPHANSINHVIEN_SUCCESS, GETTHONGBAOSINHVIEN_FAILED, GETTHONGBAOSINHVIEN_SUCCESS, XEMTHONGTINSINHVIEN_FAILED, XEMTHONGTINSINHVIEN_SUCCESS } from "../constants/SinhVienConstants";
 import { displayLoading, hideLoading } from "./Loading";
 import { displayNotify } from "./Notify";
 
@@ -156,4 +156,62 @@ const getDiemFailed = (err) => {
     type: GETDIEMSINHVIEN_FAILED,
     payload: err
   }
+}
+
+
+
+
+
+export const atcGetLopHocPhanSinhVien=(id)=>{
+  return (dispatch) => {
+    dispatch(displayLoading());
+    getLopHocPhanSinhVienApi(id)
+      .then((res) => {
+        dispatch(getLopHocPhanSinhVienSuccess(res))
+        dispatch(hideLoading());
+      })
+      .catch((err) => {
+        dispatch(getLopHocPhanSinhVienFailed(err))
+        dispatch(hideLoading());
+        dispatch(displayNotify({message:'Lấy dữ liệu thất bại! Xin load lại trang!',type:'warning'}));
+
+      });
+  };
+}
+
+const getLopHocPhanSinhVienSuccess = (res) => {
+  return {
+    type: GETLOPHOCPHANSINHVIEN_SUCCESS,
+    payload: res.data
+  }
+}
+
+
+const getLopHocPhanSinhVienFailed = (err) => {
+  return {
+    type: GETLOPHOCPHANSINHVIEN_FAILED,
+    payload: err
+  }
+}
+
+
+
+
+
+export const atcSinhVienXinNghiHoc=(data)=>{
+  return (dispatch) => {
+    dispatch(displayLoading());
+    postSinhVienXinNghiHocApi(data)
+      .then((res) => {
+        dispatch(displayNotify({message:'Xin thành công!',type:'success'}));
+        dispatch(atcGetLopHocPhanSinhVien(localStorage.getItem("id")))
+        dispatch(hideLoading());
+      })
+      .catch((err) => {
+        dispatch(getLopHocPhanSinhVienFailed(err))
+        dispatch(hideLoading());
+        dispatch(displayNotify({message:'Xin không thành công!',type:'warning'}));
+
+      });
+  };
 }

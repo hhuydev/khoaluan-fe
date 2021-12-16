@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { atcGetSinhViensLopHocPhan } from '../../../../../redux/actions/GiangVien'
+import { atcGetDonXinNghiHoc, atcGetSinhViensLopHocPhan, atcGetThongBaoSinhViensLopHocPhan } from '../../../../../redux/actions/GiangVien'
 import DanhSachSinhVienLopHocPhan from './danhDachSinhVienLopHocPhan'
 import DonNghiHoc from './donNghiHoc'
 import ThongBaoLopHocPhan from './thongBaoLopHocPhan'
@@ -20,7 +20,9 @@ export default function ThongTinLopHocPhan(props) {
   useEffect(() => {
     dispatch(atcGetSinhViensLopHocPhan(id, 0));
 
-    // dispatch(atcGetThongBaoSinhViensLopHoc(id, 0));
+    dispatch(atcGetThongBaoSinhViensLopHocPhan(id, 0));
+    dispatch(atcGetDonXinNghiHoc(localStorage.getItem("id"),id, 0));
+
   }, []);
   return (
     <div className="thong-tin-lop-hoc-phan">
@@ -76,9 +78,15 @@ export default function ThongTinLopHocPhan(props) {
           <div className="row">
             <div className="col-md-12">
               <div className="tab-content profile-tab" id="myTabContent">
+<<<<<<< HEAD
                 <ThongTinChiTietLopHocPhan thongTin={getThongTinLopHoc()} />
                 <ThongBaoLopHocPhan />
                 <DonNghiHoc />
+=======
+                <ThongTinChiTietLopHocPhan thongTin ={getThongTinLopHoc()} />
+                <ThongBaoLopHocPhan  id={id}/>
+                <DonNghiHoc id={id}/>
+>>>>>>> 6f33136c335cb4837d281447e6cf508845f8493e
               </div>
             </div>
           </div>

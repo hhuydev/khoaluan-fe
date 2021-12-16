@@ -23,12 +23,12 @@ export const atcDangNhap = (taiKhoan, history) => {
 
         if (role === "PHU_HUYNH") {
           history.replace("/phuhuynh"); 
-          const {thongTin} =res.data;
+          const {thongTin} =res.data; 
           localStorage.setItem("idsv", thongTin.idSv);
         }
 
         dispatch(hideLoading());
-        dispatch(displayNotify({message:'Đăng nhập thành công! Chào mừng '+res.data.name+' đến với trang web',type:'success'}))
+        dispatch(displayNotify({message:'Đăng nhập thành công! Chào mừng '+thongTin.hoTen+' đến với trang web',type:'success'}))
       })
       .catch((err) => {
         console.log(err);

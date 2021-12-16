@@ -5,7 +5,7 @@ import { BrowserRouter } from "react-router-dom";
 import { CheckAuthApi } from "../../../api/TaiKhoanApi";
 import LoadingComponent from "../../../component/GlobalSettings/LoadingComponent";
 import Navbar from "../../../component/navbar";
-import { atcGetThongBao, atcXemThongTinSinhVien } from "../../../redux/actions/SinhVien";
+import { atcGetDiem, atcGetLopHocPhanSinhVien, atcGetThongBao, atcXemThongTinSinhVien } from "../../../redux/actions/SinhVien";
 import {
   GiangVienRoutes,
   PhuHuynhRoutes,
@@ -39,6 +39,9 @@ export default function PhuHuynh(props) {
         // dispatch(atcXemThongTinSinhVien(localStorage.getItem("id")));
         dispatch(atcXemThongTinSinhVien(localStorage.getItem("idsv")));
         dispatch(atcGetThongBao(localStorage.getItem("idsv"),0));
+        dispatch(atcGetDiem(localStorage.getItem("idsv")));
+
+
         
       })
       .catch((err) => {
