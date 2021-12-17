@@ -25,8 +25,7 @@ export default function DonNghiHoc(props) {
     if (data) {
       setTotalPage(data.paginationMeta.totalPage);
     }
-  }, [data]);
-  console.log(data);
+  }, [data]); 
 
   return (
     <div
@@ -36,35 +35,6 @@ export default function DonNghiHoc(props) {
       aria-labelledby="donnghihoc-tab"
     >
       <div className="danh-sach-don-nghi-hoc">
-        <div className="search-custem">
-          <div className="search">
-            <div className="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
-              <div className="input-group">
-                <input
-                  type="search"
-                  name="search"
-                  placeholder="Nhập từ khóa cần tìm"
-                  aria-describedby="button-addon1"
-                  className="form-control border-0 bg-light"
-                />
-                <div className="input-group-append">
-                  <i className="fa fa-search"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="selected">
-            <select
-              className="form-select form-select-sm"
-              aria-label=".form-select-sm example"
-            >
-              <option value={0}>Tất cả thông báo</option>
-              <option value={1}>Thông báo bị ẩn</option>
-              <option value={2}>Thông báo hiển thị</option>
-              <option value={3}>Thông báo bị xóa</option>
-            </select>
-          </div>
-        </div>
         <div className="page-content page-container" id="page-content">
           <div className="padding">
             <div className="row">
@@ -77,7 +47,7 @@ export default function DonNghiHoc(props) {
                 >
                   {data
                     ? data.listDonXinNghiHoc.map((item) => {
-                        return <DonXinNghiHocItem key={item.id} item={item} id={props.id} />;
+                        return <DonXinNghiHocItem key={item.idDonXinNghiHoc} item={item} id={props.id} />;
                       })
                     : ""}
                 </div>

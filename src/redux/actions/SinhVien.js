@@ -1,5 +1,5 @@
-import { chinhSuaThongTinApi, getDiemSinhVienSinhVienApi, getLopHocPhanSinhVienApi, getThongBaoSinhVienApi, postSinhVienXinNghiHocApi, XemThongTinApi } from "../../api/SinhVienApi";
-import { CHINHSUATHONGTINSINHVIEN_FAILED, CHINHSUATHONGTINSINHVIEN_SUCCESS, GETDIEMSINHVIEN_FAILED, GETDIEMSINHVIEN_SUCCESS, GETLOPHOCPHANSINHVIEN_FAILED, GETLOPHOCPHANSINHVIEN_SUCCESS, GETTHONGBAOSINHVIEN_FAILED, GETTHONGBAOSINHVIEN_SUCCESS, XEMTHONGTINSINHVIEN_FAILED, XEMTHONGTINSINHVIEN_SUCCESS } from "../constants/SinhVienConstants";
+import { chinhSuaThongTinApi, getDiemSinhVienSinhVienApi, getDonXinNghiHocApi, getLopHocPhanSinhVienApi, getThongBaoSinhVienApi, postSinhVienXinNghiHocApi, XemThongTinApi } from "../../api/SinhVienApi";
+import { CHINHSUATHONGTINSINHVIEN_FAILED, CHINHSUATHONGTINSINHVIEN_SUCCESS, GETDIEMSINHVIEN_FAILED, GETDIEMSINHVIEN_SUCCESS, GETDONXINNGHIHOC_OFSINHVIEN_FAILED, GETDONXINNGHIHOC_OFSINHVIEN_SUCCESS, GETLOPHOCPHANSINHVIEN_FAILED, GETLOPHOCPHANSINHVIEN_SUCCESS, GETTHONGBAOSINHVIEN_FAILED, GETTHONGBAOSINHVIEN_SUCCESS, XEMTHONGTINSINHVIEN_FAILED, XEMTHONGTINSINHVIEN_SUCCESS } from "../constants/SinhVienConstants";
 import { displayLoading, hideLoading } from "./Loading";
 import { displayNotify } from "./Notify";
 
@@ -205,6 +205,7 @@ export const atcSinhVienXinNghiHoc=(data)=>{
       .then((res) => {
         dispatch(displayNotify({message:'Xin thành công!',type:'success'}));
         dispatch(atcGetLopHocPhanSinhVien(localStorage.getItem("id")))
+        dispatch(atcGetDonXinNghiHoc(localStorage.getItem("id")))
         dispatch(hideLoading());
       })
       .catch((err) => {
@@ -214,4 +215,40 @@ export const atcSinhVienXinNghiHoc=(data)=>{
 
       });
   };
+}
+
+
+
+
+
+export const atcGetDonXinNghiHoc=(id,pageNumber)=>{
+  return (dispatch) => {
+    dispatch(displayLoading());
+    getDonXinNghiHocApi(id,pageNumber)
+      .then((res) => { 
+        dispatch(getDonXinNghiHocSuccess(res))
+        dispatch(hideLoading());
+      })
+      .catch((err) => { 
+        dispatch(hideLoading());
+        dispatch(getDonXinNghiHocFailed(err));
+        dispatch(displayNotify({message:'Lấy dữ liệu thất bại! Xin load lại trang!',type:'warning'}));
+
+      });
+  };
+}
+
+const getDonXinNghiHocSuccess = (res) => {
+  return {
+    type: GETDONXINNGHIHOC_OFSINHVIEN_SUCCESS,
+    payload: res.data
+  }
+}
+
+
+const getDonXinNghiHocFailed = (err) => {
+  return {
+    type: GETDONXINNGHIHOC_OFSINHVIEN_FAILED,
+    payload: err
+  }
 }

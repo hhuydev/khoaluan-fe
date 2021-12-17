@@ -20,8 +20,7 @@ export default function PhuHuynh(props) {
       token: localStorage.getItem("AccessToken"),
       id: localStorage.getItem("id"),
     })
-      .then((res) => { 
-        // console.log(res.data);
+      .then((res) => {  
         if (res.data.active === false) {
           localStorage.removeItem("id");
           localStorage.removeItem("AccessToken");

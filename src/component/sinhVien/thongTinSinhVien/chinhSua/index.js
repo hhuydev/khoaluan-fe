@@ -3,6 +3,7 @@ import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import { atcChinhSuaThongTinSinhVien } from '../../../../redux/actions/SinhVien';
 import { atcImgUrl } from "../../../../redux/actions/TaiKhoan";
 import { confirmAlert } from "react-confirm-alert";
+import { displayNotify } from '../../../../redux/actions/Notify';
 export default function ChinhSuaThongTin(props) {
   const { data } = useSelector(state => state.sinhVienReducer, shallowEqual)
   const dispatch = useDispatch();
@@ -13,8 +14,12 @@ export default function ChinhSuaThongTin(props) {
   })
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+<<<<<<< HEAD
     setThongTin({ ...thongTin, [name]: value });
     console.log(thongTin);
+=======
+    setThongTin({ ...thongTin, [name]: value });  
+>>>>>>> 4922b06c77c4c7897559ba384167b8f904ba61f8
   }
   const handelChinhSuaThongTin = () => {
     confirmAlert({
@@ -25,6 +30,12 @@ export default function ChinhSuaThongTin(props) {
         {
           label: "Có",
           onClick: () => {
+            if(thongTin.soDT===""||thongTin.diaChi===""||thongTin.email===""){
+              dispatch(
+                displayNotify({ message: "Thông tin không được rỗng!", type: "warning" })
+              );
+              return;
+            }
             dispatch(atcChinhSuaThongTinSinhVien(thongTin, props.history))
           },
           className: "btn btn-primary",

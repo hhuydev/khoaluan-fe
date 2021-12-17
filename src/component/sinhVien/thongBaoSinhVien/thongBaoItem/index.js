@@ -4,8 +4,7 @@ import "./style.css";
 export default function ThongBaoSinhVienItem(props) {
   const clickModal =()=>{
     props.handleClickThongBao(props.item)
-  }
-  console.log(props.item);
+  } 
     return (
         <div className="card card-body" >
         <div className="media align-items-center align-items-lg-start text-center text-lg-left flex-column flex-lg-row">
@@ -26,14 +25,14 @@ export default function ThongBaoSinhVienItem(props) {
                 data-target="#myModal"
                 onClick={clickModal}
               >
-                {props.item.tieuDe}
+                {props.item.tieuDe?props.item.tieuDe:''}
               </a>
             </h6>
             <p className="list-inline list-inline-dotted mb-3 mb-lg-2">
               {`${formatDateTime(props.item.ngayTao)}`}
 
             </p>
-            <p className="mb-3">{props.item.noiDung.slice(0,150)}....</p>
+            <p className="mb-3">{props.item.noiDung?(`${props.item.noiDung.slice(0,150)}....`):''}</p>
           </div>
         </div>
       </div>

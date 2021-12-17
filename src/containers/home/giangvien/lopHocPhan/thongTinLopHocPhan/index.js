@@ -15,8 +15,7 @@ export default function ThongTinLopHocPhan(props) {
     return data.lopHocPhanDtos.filter((lop) => {
       return lop.id == id;
     })[0];
-  };
-  console.log(getThongTinLopHoc());
+  }; 
   useEffect(() => {
     dispatch(atcGetSinhViensLopHocPhan(id, 0));
 

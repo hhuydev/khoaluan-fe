@@ -1,38 +1,55 @@
 import React, { useEffect, useState } from "react";
-import { confirmAlert } from "react-confirm-alert";
-import { shallowEqual, useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   atcGetCanhBaoSinhViensLopHoc,
   atcPostCanhBaoSinhViensLopHoc,
 } from "../../../redux/actions/GiangVien";
+import { displayNotify } from "../../../redux/actions/Notify";
 import CanhBaoItem from "./DanhSachCanhBao/CanhBaoItem";
 import "./style.css";
 export default function CanhBaoSinhVien(props) {
-  const { data } = props;
+  const { dataItem, idLopHocPhan } = props;
   const dispatch = useDispatch();
   const [dataCanhBao, setDataCanhBao] = useState({
-    idSinhVien: props.data.id,
-    idGiangVien: localStorage.getItem("id"),
+    idSinhVien: dataItem?dataItem.id:'',
+    idGiangVien: Number.parseInt(localStorage.getItem("id")),
     tieuDe: "",
     noiDung: "",
   });
   const state = useSelector((state) => state.canhBaoSinhVienOfGiangVienReducer);
   useEffect(() => {
-    dispatch(atcGetCanhBaoSinhViensLopHoc(data.id));
-  }, []);
+    if (dataItem) {
+     
+      setDataCanhBao({...dataCanhBao,idSinhVien:Number.parseInt(dataItem.id)}) 
+      dispatch(atcGetCanhBaoSinhViensLopHoc(dataItem.id));
+    }
+  }, [dataItem]);
 
   const onChangeCanhBao = (e) => {
     const { name, value } = e.target;
     setDataCanhBao({ ...dataCanhBao, [name]: value });
   };
 
-  const postCanhBao = (e) => {
-    e.preventDefault();
+  const postCanhBao = (e) => { 
+ 
+    e.preventDefault(); 
+    console.log(dataItem);
+   
+    console.log(dataCanhBao);
     if (
       !window.confirm(
         "Việc gởi cảnh này sẽ gởi sms cho sinh viên và phụ huynh, bạn đã chắc chắn?"
       )
     ) {
+      return;
+    }
+    if (dataCanhBao.tieuDe === "" || dataCanhBao.noiDung === "") {
+      dispatch(
+        displayNotify({
+          message: "tiêu đề và nội dung không được rỗng!",
+          type: "warning",
+        })
+      );
       return;
     }
     dispatch(atcPostCanhBaoSinhViensLopHoc(dataCanhBao));
@@ -97,7 +114,7 @@ export default function CanhBaoSinhVien(props) {
                 aria-labelledby="home-tab"
               >
                 {/* <div className="canh-bao-form"> */}
-                <div className="page-content page-container" id="page-content" >
+                <div className="page-content page-container" id="page-content">
                   <div className="padding">
                     <div className="row">
                       <div className="col-sm-12">

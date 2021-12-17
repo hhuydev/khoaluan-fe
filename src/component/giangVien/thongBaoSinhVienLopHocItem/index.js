@@ -1,9 +1,9 @@
-import {React} from "react";
+import { React } from "react";
 import { confirmAlert } from "react-confirm-alert";
-import { useDispatch, useSelector } from "react-redux";
+import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
+import { useDispatch } from "react-redux";
 import { atcEditDisplayThongBaoSinhViensLopHoc } from "../../../redux/actions/GiangVien";
 import { formatDateTime } from "../../../utils/format/formatValues";
-import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
 
 export default function ThongBaoSinhVienLopHocItem(props) { 
   const xemChiTiet = () => { 
@@ -12,8 +12,7 @@ export default function ThongBaoSinhVienLopHocItem(props) {
   const chinhSua = () => {
     props.handleChinhSuaItem(props.item);
   };
-  const xoa = () => {
-    console.log("xoa");
+  const xoa = () => { 
   };
 
  
@@ -47,8 +46,7 @@ export default function ThongBaoSinhVienLopHocItem(props) {
       className="list-item"
       data-id={13}
       data-item-sortable-id={0}
-      draggable="true"
-      role="option"
+      draggable="true" 
       aria-grabbed="false"
       style={{backgroundColor:`${item.hienThi?'':'#e3f2fd'}`}}
     >

@@ -1,6 +1,5 @@
-import FormData from 'form-data'
-import axiosClient from "./axiosClient";
 import axios from "axios";
+import FormData from 'form-data';
 import { BASE_URL_API } from "./../constants/ApiConstant";
 const DangNhapApi = (params) => { 
   return axios({
@@ -54,3 +53,4 @@ export const changeImgUrlApi = (file) => {
 };
 
 export { DangNhapApi };
+

@@ -30,8 +30,7 @@ export const atcDangNhap = (taiKhoan, history) => {
         dispatch(hideLoading());
         dispatch(displayNotify({message:'Đăng nhập thành công! Chào mừng '+thongTin.hoTen+' đến với trang web',type:'success'}))
       })
-      .catch((err) => {
-        console.log(err);
+      .catch((err) => { 
         // dispatch(DangNhapFailed(err.response.data));
         history.replace("/login");
         dispatch(hideLoading());
@@ -43,8 +42,7 @@ export const atcDangNhap = (taiKhoan, history) => {
 export const checkAuthAtc = (token, id, history) => {
   return (dispatch) => {
     CheckAuthApi({ token: token, id: id })
-      .then((res) => { 
-        console.log(res);
+      .then((res) => {  
         if (res.active === false) {
           history.replace("/");
         }

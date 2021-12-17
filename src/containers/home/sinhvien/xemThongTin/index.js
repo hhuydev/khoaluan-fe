@@ -25,9 +25,14 @@ export default function XemThongTin() {
   };
 
 
+<<<<<<< HEAD
   const handleLuu = () => {
     console.log(imgURl);
     if ((dataImgUrlApi === null)) {
+=======
+  const handleLuu = () => {  
+    if (( dataImgUrlApi === null)) {
+>>>>>>> 4922b06c77c4c7897559ba384167b8f904ba61f8
       return;
     }
     confirmAlert({
