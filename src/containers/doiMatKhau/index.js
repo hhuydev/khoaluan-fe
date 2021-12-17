@@ -27,8 +27,7 @@ export default function DoiMatKhau(props) {
     const{name,value} = e.target;
     setDataPassword({...dataPassword,[name]:value});
   }
-
-  // console.log(getRoleByPathName());
+ 
   const [dataPassword,setDataPassword] = useState({
     id:localStorage.getItem("id"),
     role:getRoleByPathName(),

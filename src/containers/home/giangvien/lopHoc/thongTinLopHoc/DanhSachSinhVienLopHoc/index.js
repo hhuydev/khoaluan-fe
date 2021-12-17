@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import Pagination from "../../../../../../common/Pagination";
 import CanhBaoSinhVien from "../../../../../../component/giangVien/CanhBaoSinhVien";
@@ -17,6 +17,16 @@ export default function DanhSachSinhVienLopHoc(props) {
   const [search, setSearch] = useState("");
   // atcGetSinhViensLopHoc
   const dispatch = useDispatch();
+  const getItem = (id) => {
+    console.log(data);
+    return data.sinhVienLopHocDtos.filter((item) => {
+      return item.id == id;
+    })[0];
+  };
+  const getIdItem = (id) => { 
+    setDataItem(getItem(id));
+    console.log(dataItem);
+  };
   const onChangeSelect = (e) => {
     const { value, name } = e.target; 
     setSelect(value)
@@ -38,7 +48,9 @@ export default function DanhSachSinhVienLopHoc(props) {
       );
     });
   }
-
+  const returnItem = (item)=>{
+    return item;
+  }
   const onSearch = (e) => {
     const { value, name } = e.target;
     setSearch(value);
@@ -117,6 +129,8 @@ export default function DanhSachSinhVienLopHoc(props) {
                     key={item.id}
                     stt={index + 1}
                     item={item}
+                    getIdItem={getIdItem}
+                    returnItem={returnItem}
                   />
                 );
               })
@@ -125,6 +139,12 @@ export default function DanhSachSinhVienLopHoc(props) {
             )}
           </tbody>
         </table>
+        {useMemo(
+        () => (
+          <CanhBaoSinhVien getIdItem={getIdItem}  dataItem={dataItem}/>
+        ),
+        [returnItem]
+      )}
       </div>
       <Pagination data={{index:index,totalPage:totalPage,handelPageClick:handelPageClick}}/>
     

@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux';
-import ThongBaoSinhVienLopHocPhanItem from '../../../../../../../component/giangVien/thongBaoSinhVienLopHocPhanItem';
-import { atcGetThongBaoSinhViensLopHocPhan } from '../../../../../../../redux/actions/GiangVien';
-import './style.css'
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import ThongBaoSinhVienLopHocPhanItem from "../../../../../../../component/giangVien/thongBaoSinhVienLopHocPhanItem";
+import { atcGetThongBaoSinhViensLopHocPhan } from "../../../../../../../redux/actions/GiangVien";
+import "./style.css";
 export default function DanhSachThongBaoLopHocPhan(props) {
   const { data } = props;
   const dispatch = useDispatch();
@@ -20,10 +20,10 @@ export default function DanhSachThongBaoLopHocPhan(props) {
   };
 
   const onChangeSelect = (e) => {
-    const { value, name } = e.target; 
-    setSelect(value)
+    const { value, name } = e.target;
+    setSelect(value);
   };
-  const handleSearch = (data) => { 
+  const handleSearch = (data) => {
     if (select == 3) {
       data = data.filter((item) => {
         return !item.trangThai;
@@ -41,10 +41,10 @@ export default function DanhSachThongBaoLopHocPhan(props) {
     }
 
     return data.filter((item) => {
-      return (
-        item.tieuDe.toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
-        item.noiDung.toLowerCase().indexOf(search.toLowerCase()) !== -1
-      );
+      return item.tieuDe && item.noiDung
+        ? item.tieuDe.toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
+            item.noiDung.toLowerCase().indexOf(search.toLowerCase()) !== -1
+        : "";
     });
   };
 
@@ -58,13 +58,13 @@ export default function DanhSachThongBaoLopHocPhan(props) {
   };
 
   useEffect(() => {
-    if (data) {
+    if (data) { 
       setTotalPage(data.paginationMeta.totalPage);
     }
   }, [data]);
 
-    return (
-        <div className="danh-sach-thong-bao">
+  return (
+    <div className="danh-sach-thong-bao">
       <div className="search">
         <div className="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
           <div className="input-group">
@@ -99,34 +99,32 @@ export default function DanhSachThongBaoLopHocPhan(props) {
         <div className="padding">
           <div className="row">
             {/* <div className="col-md-8"> */}
-              <div className="d-flex justify-content-center">
-                <div
-                  className="list list-row card"
-                  id="sortable"
-                  data-sortable-id={0}
-                  aria-dropeffect="move"
-                >
-                    {data
-                    ? handleSearch(data.thongBaoLopOfGiangViens).map((item) => {
-                        return (
-                          <ThongBaoSinhVienLopHocPhanItem
-                            id={props.id}
-                            item={item}
-                            key={item.id}
-                            handleChinhSuaItem={props.handleChinhSuaItem}
-                          />
-                        );
-                      })
-                    : ""}
-                </div>
+            <div className="d-flex justify-content-center">
+              <div
+                className="list list-row card"
+                id="sortable"
+                data-sortable-id={0}
+                aria-dropeffect="move"
+              >
+                {data
+                  ? handleSearch(data.thongBaoLopOfGiangViens).map((item) => {
+                      return (
+                        <ThongBaoSinhVienLopHocPhanItem
+                          id={props.id}
+                          item={item}
+                          key={item.id}
+                          handleChinhSuaItem={props.handleChinhSuaItem}
+                        />
+                      );
+                    })
+                  : ""}
+              </div>
               {/* </div> */}
             </div>
           </div>
         </div>
       </div>
-      <div className="pagination">
-        
-      </div>
+      <div className="pagination"></div>
     </div>
-    )
+  );
 }

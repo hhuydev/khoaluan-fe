@@ -6,6 +6,7 @@ import {
   atcAddThongBaoSinhViensLopHoc,
   atcEditThongBaoSinhViensLopHoc,
 } from "../../../../../../../redux/actions/GiangVien";
+import { displayNotify } from "../../../../../../../redux/actions/Notify";
 import "./style.css";
 export default function ChinhSuaThongBao(props) {
   const dispatch = useDispatch();
@@ -15,8 +16,7 @@ export default function ChinhSuaThongBao(props) {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setDataThongBao({ ...dataThongBao, [name]: value });
-    // console.log(dataThongBao);
+    setDataThongBao({ ...dataThongBao, [name]: value }); 
   };
   const [isEdit, setIsEdit] = useState(false);
 
@@ -55,8 +55,7 @@ export default function ChinhSuaThongBao(props) {
   };
   useEffect(() => {
     if (itemEdit) {
-      setIsEdit(true);
-      console.log(itemEdit);
+      setIsEdit(true); 
       setDataThongBao(itemEdit);
     }
   }, [itemEdit]);
@@ -70,6 +69,12 @@ export default function ChinhSuaThongBao(props) {
         {
           label: "Có",
           onClick: () => {  
+            if(dataThongBao.noiDung===""||dataThongBao.tieuDe===""){
+              dispatch(
+                displayNotify({ message: "Thông tiêu đề và nội dung không được rỗng!", type: "warning" })
+              );
+              return;
+            }
             dispatch(atcAddThongBaoSinhViensLopHoc(props.id, dataThongBao));
           },
           className: "btn btn-primary",

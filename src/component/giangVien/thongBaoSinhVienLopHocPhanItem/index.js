@@ -13,11 +13,9 @@ export default function ThongBaoSinhVienLopHocPhanItem(props) {
   const chinhSua = () => {
     props.handleChinhSuaItem(props.item);
   };
-  const xoa = () => {
-    console.log("xoa");
+  const xoa = () => { 
   };
-
-  console.log(props.item);
+ 
   const { item } = props;
   const displayThongBao = ()=>{
     confirmAlert({

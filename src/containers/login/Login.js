@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { CheckAuthApi } from '../../api/TaiKhoanApi';
+import { displayNotify } from '../../redux/actions/Notify';
 import { atcDangNhap } from '../../redux/actions/TaiKhoan';
 import './style.css';
 export default function Login(props) {
-  const [taiKhoan, setTaiKhoan] = useState({});
+  const [taiKhoan, setTaiKhoan] = useState({
+    tenDangNhap:'',
+    matKhau:''
+  });
 
   const dispatch = useDispatch();
   const handleInputChange =(e)=>{
@@ -13,8 +17,13 @@ export default function Login(props) {
   }
 
   const onSubmit = (e)=>{
-    e.preventDefault();
-    console.log(taiKhoan);
+    e.preventDefault(); 
+    if(taiKhoan.tenDangNhap===""||taiKhoan.matKhau===""){
+      dispatch(
+        displayNotify({ message: "Tên đăng nhập và mật khẫu không được rỗng!", type: "warning" })
+      );
+      return;
+    }
     dispatch(atcDangNhap(taiKhoan,props.history));
 
     }

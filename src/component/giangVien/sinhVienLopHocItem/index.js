@@ -1,13 +1,15 @@
-import React, { useMemo } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { atcGetCanhBaoSinhViensLopHoc } from "../../../redux/actions/GiangVien";
 import { formatTinhTrangSinhVienText } from "../../../utils/format/formatTinhTrangSinhVien";
-import CanhBaoSinhVien from "../CanhBaoSinhVien";
 
 export default function SinhVienLopHocItem(props) {   
+  console.log(props.item);
     const dispatch = useDispatch();
-  const openModalCanhBao = () => { 
+  const openModalCanhBao = () => {  
+    props.getIdItem(props.item.id)  
     dispatch(atcGetCanhBaoSinhViensLopHoc(props.item.id));
+  
   };
   return (
     <React.Fragment>
@@ -15,11 +17,11 @@ export default function SinhVienLopHocItem(props) {
         <td>{props.stt}</td>
         <td>{props.item.maSV}</td>
         <td>{props.item.hoTen}</td>
-        <td>{props.item.gioiTinh == true ? "Nam" : "Nữ"}</td>
+        <td>{props.item.gioiTinh === true ? "Nam" : "Nữ"}</td>
         <td>{props.item.email}</td>
         <td>{formatTinhTrangSinhVienText(props.item.trangThaiSinhVien)}</td>
         <td>"hoc hanh binh thuong"</td>
-        <td>9</td>
+        <td>{props.item.diemTBTL}</td>
         <td>
           <button
             className="btn btn-link"
@@ -32,7 +34,7 @@ export default function SinhVienLopHocItem(props) {
           </button>
         </td>
       </tr>
-     <CanhBaoSinhVien data = {props.item}/>
+     {/* <CanhBaoSinhVien data = {props.item}/> */}
     </React.Fragment>
   );
 }

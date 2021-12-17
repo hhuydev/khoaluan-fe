@@ -18,8 +18,7 @@ export default function NhapDiem(props) {
   }, [dataItem]);
 
   const onChange = (e) => {
-    const { name, value } = e.target;
-    console.log(name + " " + value);
+    const { name, value } = e.target; 
     if (value >= "0" && value <= "9") {
       setDiem({
         ...diem,
@@ -39,8 +38,7 @@ export default function NhapDiem(props) {
       setTbc("Chưa đủ cột điểm");
     }
     setTbc(tbccc);
-
-    // console.log(tbc);
+ 
   };
   const xemTbc = () => {
     const { tk1, tk2, gk, ck, tk3 } = diem;
@@ -147,13 +145,13 @@ export default function NhapDiem(props) {
               />
             </div>
             <div className="form-group">
-              <label onClick={xemTbc}>Điểm trung bình cộng</label>
+              {/* <label onClick={xemTbc}>Điểm trung bình cộng</label>
               <input
                 type="text"
                 className="form-control"
                 disabled={true}
                 value={getDiem(tbc)}
-              />
+              /> */}
             </div>
           </div>
           <div className="modal-footer">

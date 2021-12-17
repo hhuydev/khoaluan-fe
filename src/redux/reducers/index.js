@@ -15,6 +15,7 @@ import sinhViensLopHocPhanReducer from "./SinhVien/sinhVienLopHocPhanReducer";
 import diemReducer from "./DiemReducer/DiemReducer";
 import ngayNghiSinhVienReducer from "./ngayNghi/ngayNghiSinhVienReducer";
 import donXinNghiHocReducer from "./ngayNghi/donXinNghiHocReducer";
+import donXinNghiHocOfSinhVienReducer from "./ngayNghi/donXinNghiHocOfSinhVienReducer";
  
 const reducer = combineReducers({
   loadingReducer,
@@ -32,7 +33,8 @@ const reducer = combineReducers({
   ngayNghiSinhVienReducer,
   lopHocPhanSinhVienReducer,
   thongBaoSinhVienLopHocPhanReducer,
-  donXinNghiHocReducer
+  donXinNghiHocReducer,
+  donXinNghiHocOfSinhVienReducer
 });
 
 export default reducer;

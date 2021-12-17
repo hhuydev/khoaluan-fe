@@ -22,8 +22,7 @@ export default function BangDiem() {
         </thead>
         <tbody>
           {data ? (
-            data.diemSinhVienDtos.map((item, index) => {
-              console.log(item);
+            data.diemSinhVienDtos.map((item, index) => { 
               return (
                 <tr key={index}>
                   <th scope="row">{index+1}</th>
