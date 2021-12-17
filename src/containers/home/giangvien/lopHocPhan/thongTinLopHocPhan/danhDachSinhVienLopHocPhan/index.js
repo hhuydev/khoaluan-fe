@@ -3,9 +3,11 @@ import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import Pagination from "../../../../../../common/Pagination";
 import SinhVienLopHocPhanItem from "../../../../../../component/giangVien/sinhVienLopHocPhanItem";
 import { atcGetSinhViensLopHocPhan } from "../../../../../../redux/actions/GiangVien";
+import ReactHTMLTableToExcel from 'react-html-table-to-excel';
 import DiemDanh from "./diemDanh";
 import NhapDiem from "./nhapDiem";
 import "./style.css";
+import CanhBaoSinhVien from "../../../../../../component/giangVien/CanhBaoSinhVien";
 export default function DanhSachSinhVienLopHocPhan(props) {
   const [items, setItems] = useState();
   const [totalPage, setTotalPage] = useState(10);
@@ -73,6 +75,9 @@ export default function DanhSachSinhVienLopHocPhan(props) {
       );
     });
   };
+  const returnItem = (item11)=>{ 
+    return item11;
+  }
   return (
     <>
       <div className="danh-sach-sinh-vien">
@@ -118,7 +123,14 @@ export default function DanhSachSinhVienLopHocPhan(props) {
             </select>
           </div>
         </div>
-        <table className="table table-bordered" style={{ textAlign: "center" }}>
+        <ReactHTMLTableToExcel
+                    id="test-table-xls-button"
+                    className="download-table-xls-button"
+                    table="table-to-xls"
+                    filename="tablexls"
+                    sheet="tablexls"
+                    buttonText="Download as XLS"/>
+        <table id="table-to-xls" className="table table-bordered" style={{ textAlign: "center" }}>
           <thead>
             <tr
               style={{
@@ -156,6 +168,7 @@ export default function DanhSachSinhVienLopHocPhan(props) {
                       index={index}
                       getIdItem={getIdItem}
                       getIdSvLhp={getIdSvLhp}
+                      returnItem = {returnItem}
                     />
                   );
                 }
@@ -165,6 +178,15 @@ export default function DanhSachSinhVienLopHocPhan(props) {
             )}
           </tbody>
         </table>
+        {useMemo(
+        () => (
+          <CanhBaoSinhVien  idLopHocPhan={props.id}
+            dataItem={dataItem}
+            idSvLhp={idLhp}/>
+        ),
+        [returnItem]
+      )}
+        
       </div>
       {useMemo(
         () => (

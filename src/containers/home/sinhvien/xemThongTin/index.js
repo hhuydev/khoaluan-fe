@@ -25,8 +25,7 @@ export default function XemThongTin() {
   };
 
 
-  const handleLuu = () => { 
-    console.log(imgURl);
+  const handleLuu = () => {  
     if (( dataImgUrlApi === null)) {
       return;
     }

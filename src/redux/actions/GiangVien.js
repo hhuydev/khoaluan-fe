@@ -344,13 +344,7 @@ export const atcGetCanhBaoSinhViensLopHoc = (idSinhVien) => {
         dispatch(getCanhBaoSinhVienOfGiangVienSuccess(res));
       })
       .catch((err) => {
-        dispatch(getCanhBaoOfGiangVienFailed(err));
-        dispatch(
-          displayNotify({
-            message: "Lấy dữ liệu không thành công! xin load lại trang!",
-            type: "warning",
-          })
-        );
+        dispatch(getCanhBaoOfGiangVienFailed(err)); 
       });
   };
 };

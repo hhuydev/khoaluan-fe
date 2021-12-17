@@ -33,7 +33,7 @@ export default function ThongBao() {
       <div className="container d-flex justify-content-center mt-50 mb-50">
         <div className="row">
           <div className="col-md-10">
-            {data.thongBaoSinhVienDtos? data.thongBaoSinhVienDtos.map((item) => {
+            {data? data.thongBaoSinhVienDtos.map((item) => {
               return (
                 <ThongBaoSinhVienItem handleClickThongBao={handleClickThongBao} item={item} key ={item.id}/>
               );

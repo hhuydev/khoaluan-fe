@@ -12,8 +12,7 @@ export default function LopHocPhan() {
   const [totalPage, setTotalPage] = useState(10);
   const [index, setindex] = useState(0);
   const [dataItem, setDataItem] = useState();
-  const handleClickLopHoc = () => {
-    console.log("");
+  const handleClickLopHoc = () => { 
   }
 
 

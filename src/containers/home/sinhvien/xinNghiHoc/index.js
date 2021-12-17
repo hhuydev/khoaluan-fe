@@ -6,26 +6,32 @@ import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
 
 import { atcSinhVienXinNghiHoc } from "../../../../redux/actions/SinhVien";
 import "./style.css";
+import { FormatIndentDecreaseTwoTone } from "@material-ui/icons";
+import { formatDateTime } from "../../../../utils/format/formatValues";
 export default function XinNghiHoc() {
-  const  dispatch = useDispatch();
+  const dispatch = useDispatch();
   const { data } = useSelector(
     (state) => state.lopHocPhanSinhVienReducer,
     shallowEqual
   );
+  const state = useSelector(
+    (state) => state.donXinNghiHocOfSinhVienReducer,
+    shallowEqual
+  );
   const [dataApi, setDataApi] = useState({
-    id:'',
-    ngayNghi:'',
-    lyDo:''
-  })
+    id: "",
+    ngayNghi: "",
+    lyDo: "",
+  });
 
-  const onChange = (e)=>{
-    const {value,name} = e.target
-    setDataApi({...dataApi,[name]:value})
-  }
+  const onChange = (e) => {
+    const { value, name } = e.target;
+    setDataApi({ ...dataApi, [name]: value });
+  };
 
   useEffect(() => {}, []);
 
-  const subMitData =(e)=>{
+  const subMitData = (e) => {
     e.preventDefault();
     confirmAlert({
       title: "Lưu ý",
@@ -46,10 +52,9 @@ export default function XinNghiHoc() {
           },
           className: "btn btn-primary btn-sm",
         },
-      ] 
-  })
-}
-
+      ],
+    });
+  };
 
   return (
     <div className="don-xin-nghi-hoc">
@@ -91,21 +96,30 @@ export default function XinNghiHoc() {
                         ) : (
                           <option value={0}>...</option>
                         )}
- 
                       </select>
                     </div>
                     <div className="form-group flex-column d-flex">
                       <label className="form-control-label px-3">
                         Ngày nghỉ học <span className="text-danger"> *</span>
                       </label>
-                      <input name='ngayNghi' onChange={onChange} type="date" id="fname"  /> 
+                      <input
+                        name="ngayNghi"
+                        onChange={onChange}
+                        type="date"
+                        id="fname"
+                      />
                     </div>
                   </div>
                   <div className="form-group col-md-6 flex-column d-flex">
                     <label className="form-control-label px-3">
                       Lý do<span className="text-danger"> *</span>
                     </label>
-                    <textarea name='lyDo' onChange={onChange} id="ans"  rows={5} />
+                    <textarea
+                      name="lyDo"
+                      onChange={onChange}
+                      id="ans"
+                      rows={5}
+                    />
                   </div>
                 </div>
 
@@ -127,114 +141,38 @@ export default function XinNghiHoc() {
       </div>
 
       <div className="danh-sach-dơn-nghi-hoc-sinh-vien">
-        <h5 style={{ textAlign: "center" }}>DANH SÁCH ĐƠN NGHỈ HỌC</h5><br></br><br></br>
+        <h5 style={{ textAlign: "center" }}>DANH SÁCH ĐƠN NGHỈ HỌC</h5>
+        <br></br>
+        <br></br>
         <div className="table-wrapper-scroll-y my-custom-scrollbar">
-        <table className="table table table-bordered table-striped mb-0">
-          <thead style={{ backgroundColor: "skyblue" }}>
-            <tr>
-              <th>STT</th>
-              <th>Lớp học phần</th>
-              <th>Ngày nghỉ</th>
-              <th>Lý do</th>
-              <th>Trạng thái</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>HP1</td>
-              <td>20-10-2021</td>
-              <td>Bị ốm</td>
-              <td>Chấp nhận</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>HP1</td>
-              <td>20-10-2021</td>
-              <td>Bị ốm</td>
-              <td>Chấp nhận</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>HP1</td>
-              <td>20-10-2021</td>
-              <td>Bị ốm</td>
-              <td>Chấp nhận</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>HP1</td>
-              <td>20-10-2021</td>
-              <td>Bị ốm</td>
-              <td>Chấp nhận</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>HP1</td>
-              <td>20-10-2021</td>
-              <td>Bị ốm</td>
-              <td>Chấp nhận</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>HP1</td>
-              <td>20-10-2021</td>
-              <td>Bị ốm</td>
-              <td>Chấp nhận</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>HP1</td>
-              <td>20-10-2021</td>
-              <td>Bị ốm</td>
-              <td>Chấp nhận</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>HP1</td>
-              <td>20-10-2021</td>
-              <td>Bị ốm</td>
-              <td>Chấp nhận</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>HP1</td>
-              <td>20-10-2021</td>
-              <td>Bị ốm</td>
-              <td>Chấp nhận</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>HP1</td>
-              <td>20-10-2021</td>
-              <td>Bị ốm</td>
-              <td>Chấp nhận</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>HP1</td>
-              <td>20-10-2021</td>
-              <td>Bị ốm</td>
-              <td>Chấp nhận</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>HP1</td>
-              <td>20-10-2021</td>
-              <td>Bị ốm</td>
-              <td>Chấp nhận</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>HP1</td>
-              <td>20-10-2021</td>
-              <td>Bị ốm</td>
-              <td>Chấp nhận</td>
-            </tr>
-
-          </tbody>
-        </table>
-
+          <table className="table table table-bordered table-striped mb-0">
+            <thead style={{ backgroundColor: "skyblue" }}>
+              <tr>
+                <th>STT</th>
+                <th>Lớp học phần</th>
+                <th>Ngày nghỉ</th>
+                <th>Lý do</th>
+                <th>Trạng thái</th>
+              </tr>
+            </thead>
+            <tbody>
+              {state ? (
+                state.data.map((item,index) => {
+                  return (
+                    <tr key={item.idDonXinNghiHoc}>
+                      <td>{index+1}</td>
+                      <td>{item.tenLopHocPhan}</td>
+                      <td>{formatDateTime(item.ngayNghi)}</td>
+                      <td>{item.noiDung.slice(0,20)}</td>
+                      <td>{item.trangThai?'Được chấp nhận':'đang chờ'}</td>
+                    </tr>
+                  );
+                })
+              ) : (
+                <tr></tr>
+              )}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

@@ -38,8 +38,7 @@ const axiosClient = async () => {
               Authorization: 'Bearer ' + response.data.token,
             };
           })
-          .catch((error) => {
-            console.log(error);
+          .catch((error) => { 
           });
 
         return config;

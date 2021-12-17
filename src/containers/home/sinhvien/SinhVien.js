@@ -6,6 +6,7 @@ import { CheckAuthApi } from "../../../api/TaiKhoanApi";
 import Navbar from "../../../component/navbar";
 import {
   atcGetDiem,
+  atcGetDonXinNghiHoc,
   atcGetLopHocPhanSinhVien,
   atcGetThongBao,
   atcXemThongTinSinhVien,
@@ -44,6 +45,8 @@ export default function SinhVien(props) {
         dispatch(atcGetThongBao(localStorage.getItem("id"),0));
         dispatch(atcGetDiem(localStorage.getItem("id")));
         dispatch(atcGetLopHocPhanSinhVien(localStorage.getItem("id")));
+        dispatch(atcGetDonXinNghiHoc(localStorage.getItem("id")));
+
       })
       .catch((err) => {
         props.history.replace("/login");
