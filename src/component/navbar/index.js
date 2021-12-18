@@ -43,7 +43,7 @@ export default function Navbar(props) {
               <li className="nav-item">
                 <NavLink
                   activeStyle={{
-                    marginTop: "10px",
+                    marginTop: "7px",
                     border: "2px solid darkgray",
                     borderRadius: "10px 10px 0px 0px",
                     borderBottom: "none",
@@ -62,7 +62,7 @@ export default function Navbar(props) {
                   <li className="nav-item" key={index}>
                     <NavLink
                       activeStyle={{
-                        marginTop: "10px",
+                        marginTop: "7px",
                         border: "2px solid darkgray",
                         borderRadius: "10px 10px 0px 0px",
                         borderBottom: "none",

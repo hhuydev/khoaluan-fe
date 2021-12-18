@@ -5,7 +5,7 @@ import { atcImgUrl } from "../../../../redux/actions/TaiKhoan";
 import { confirmAlert } from "react-confirm-alert";
 import { displayNotify } from '../../../../redux/actions/Notify';
 export default function ChinhSuaThongTin(props) {
-  const { data } = useSelector(state => state.sinhVienReducer,shallowEqual)
+  const { data } = useSelector(state => state.sinhVienReducer, shallowEqual)
   const dispatch = useDispatch();
   const [thongTin, setThongTin] = useState({
     soDT: data.soDT,
@@ -14,7 +14,12 @@ export default function ChinhSuaThongTin(props) {
   })
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+<<<<<<< HEAD
+    setThongTin({ ...thongTin, [name]: value });
+    console.log(thongTin);
+=======
     setThongTin({ ...thongTin, [name]: value });  
+>>>>>>> 4922b06c77c4c7897559ba384167b8f904ba61f8
   }
   const handelChinhSuaThongTin = () => {
     confirmAlert({
@@ -44,43 +49,41 @@ export default function ChinhSuaThongTin(props) {
         },
       ],
     });
-  
+
   }
 
   return (
-    <div className="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab" style={{display:!localStorage.getItem("idsv")?'block':'none'}}>
+    <div className="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab" style={{ display: !localStorage.getItem("idsv") ? 'block' : 'none' }}>
       <div className="row">
-        <div className="col-md-6">
+        <div className="col-md-3">
           <label>Email</label>
         </div>
-        <div className="col-md-6">
+        <div className="col-md-9">
           <div className="form-group">
             <input type="text" className="form-control" name="email" placeholder="Nhập email " defaultValue={data.email} onChange={handleInputChange} />
           </div>
         </div>
       </div>
       <div className="row">
-        <div className="col-md-6">
+        <div className="col-md-3">
           <label>Số điện thoại</label>
         </div>
-        <div className="col-md-6">
+        <div className="col-md-9">
           <div className="form-group">
             <input type="text" className="form-control" name="soDT" placeholder="Nhập số điện thoại" defaultValue={data.soDT} onChange={handleInputChange} />
           </div>
         </div>
       </div>
       <div className="row">
-        <div className="col-md-6">
+        <div className="col-md-3">
           <label>Địa chỉ</label>
         </div>
-        <div className="col-md-6">
+        <div className="col-md-9">
           <div className="form-group">
             <input type="text" className="form-control" name="diaChi" placeholder="Nhập địa chỉ" defaultValue={data.diaChi} onChange={handleInputChange} />
           </div>
+          <input type="button" className="profile-save-btn btn-primary" name="btnAddMore" defaultValue="Lưu thông tin" onClick={handelChinhSuaThongTin} />
         </div>
-      </div>
-      <div className="col-md-2">
-        <input type="button" className="profile-save-btn btn-primary" name="btnAddMore" defaultValue="Lưu thông tin" onClick={handelChinhSuaThongTin} />
       </div>
     </div>
 
