@@ -6,47 +6,52 @@ import ThongBaoSinhVienItem from "../../../../component/sinhVien/thongBaoSinhVie
 import { atcGetThongBao } from "../../../../redux/actions/SinhVien";
 
 export default function ThongBao() {
-  const { data } = useSelector((state) => state.thongBaoReducer,shallowEqual);
+  const { data } = useSelector((state) => state.thongBaoReducer, shallowEqual);
   const dispatch = useDispatch();
   const [items, setItems] = useState([]);
-  const [totalPage,setTotalPage] = useState(10);
-  const [index,setindex] = useState(0);
-  const [dataItem,setDataItem] = useState();
+  const [totalPage, setTotalPage] = useState(10);
+  const [index, setindex] = useState(0);
+  const [dataItem, setDataItem] = useState();
 
-  const handleClickThongBao = (data)=>{
+  const handleClickThongBao = (data) => {
     setDataItem(data);
   }
 
 
   const handelPageClick = (page) => {
-    const idget = localStorage.getItem("idsv")?localStorage.getItem("idsv"):localStorage.getItem("id");
-    dispatch(atcGetThongBao(idget,page.selected));  
+    const idget = localStorage.getItem("idsv") ? localStorage.getItem("idsv") : localStorage.getItem("id");
+    dispatch(atcGetThongBao(idget, page.selected));
     setindex(data.paginationMeta.pageNumber)
   };
 
-  useEffect(() => { 
-    setTotalPage(data.paginationMeta.totalPage) 
+  useEffect(() => {
+    setTotalPage(data.paginationMeta.totalPage)
   }, []);
 
   return (
     <div className="thong-bao">
+      <h4 style={{ textAlign: "center", marginBottom: '20px' }}>DANH SÁCH THÔNG BÁO </h4>
       <div className="container d-flex justify-content-center mt-50 mb-50">
         <div className="row">
           <div className="col-md-10">
+<<<<<<< HEAD
+            {data.thongBaoSinhVienDtos ? data.thongBaoSinhVienDtos.map((item) => {
+=======
             {data? data.thongBaoSinhVienDtos.map((item) => {
+>>>>>>> 4922b06c77c4c7897559ba384167b8f904ba61f8
               return (
-                <ThongBaoSinhVienItem handleClickThongBao={handleClickThongBao} item={item} key ={item.id}/>
+                <ThongBaoSinhVienItem handleClickThongBao={handleClickThongBao} item={item} key={item.id} />
               );
-            }):"....."}
-          
-            <Pagination data={{index:index,totalPage:totalPage,handelPageClick:handelPageClick}}/>
-            
+            }) : "....."}
+
+            <Pagination data={{ index: index, totalPage: totalPage, handelPageClick: handelPageClick }} />
+
           </div>
         </div>
       </div>
-      
-      <ModelChiTietThongBaoSinhVien data = {dataItem}/>
+
+      <ModelChiTietThongBaoSinhVien data={dataItem} />
     </div>
-   
+
   );
 }

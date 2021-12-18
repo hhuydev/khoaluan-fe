@@ -6,8 +6,9 @@ export default function BangDiem() {
   const { data } = useSelector((state) => state.diemReducer, shallowEqual);
   return (
     <div className="bangdiem">
-      <table className="table table-bordered">
-        <thead>
+      <h4 style={{ textAlign: 'center', marginBottom: '20px' }}>KẾT QUẢ HỌC TẬP</h4>
+      <table className="table table-bordered" >
+        <thead style={{ backgroundColor: 'skyblue' }}>
           <tr style={{ backgroundColor: 1, textAlign: "center" }}>
             <th scope="col">STT</th>
             <th scope="col">Tên môn học</th>
@@ -25,15 +26,15 @@ export default function BangDiem() {
             data.diemSinhVienDtos.map((item, index) => { 
               return (
                 <tr key={index}>
-                  <th scope="row">{index+1}</th>
+                  <th scope="row">{index + 1}</th>
                   <td>{item.tenMonHoc}</td>
                   <td>{item.tk1}</td>
                   <td>{item.tk2}</td>
                   <td>{item.tk3}</td>
                   <td>{item.gk}</td>
                   <td>{item.ck}</td>
-                  <td>{!item.trangThai?0:item.tbc}</td>
-                  <td>{!item.trangThai?'Học lại':''}</td>
+                  <td>{!item.trangThai ? 0 : item.tbc}</td>
+                  <td>{!item.trangThai ? 'Học lại' : ''}</td>
                 </tr>
               );
             })
@@ -43,7 +44,7 @@ export default function BangDiem() {
 
           <tr>
             <th scope="row">Điểm trung bình: </th>
-            <td colSpan="8">{data?data.diemTongKet:''}</td>
+            <td colSpan="8">{data ? data.diemTongKet : ''}</td>
           </tr>
           <tr>
             <th scope="row">Nhận xét: </th>
