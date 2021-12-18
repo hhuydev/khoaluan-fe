@@ -188,12 +188,12 @@ export default function DanhSachSinhVienLopHocPhan(props) {
       )}
         
       </div>
-      {useMemo(
+      {/* {useMemo(
         () => (
           <NhapDiem dataItem={dataItem} idLopHocPhan={props.id} />
         ),
         [dataItem]
-      )}
+      )} */}
       {useMemo(
         () => (
           <DiemDanh

@@ -78,7 +78,7 @@ export default function SinhVienLopHocPhanItem(props) {
             Cảnh báo
           </button>
           <br></br>
-          <button
+          {/* <button
             className="btn btn-link"
             style={{ color: "skyblue", height: "20px" }}
             data-toggle="modal"
@@ -89,7 +89,7 @@ export default function SinhVienLopHocPhanItem(props) {
           >
             Nhập điểm
           </button>
-          <br />
+          <br /> */}
           <button
             className="btn btn-link"
             data-toggle="modal"
