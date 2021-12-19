@@ -10,7 +10,7 @@ export default function ThongTinchiTietLopHoc(props) {
   };
   return (
     <div
-      className="tab-pane fade"
+      className="tab-pane fade show active"
       id="thongtin"
       role="tabpanel"
       aria-labelledby="thongtin-tab"

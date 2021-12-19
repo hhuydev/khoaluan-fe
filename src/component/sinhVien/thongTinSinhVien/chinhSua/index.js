@@ -14,12 +14,7 @@ export default function ChinhSuaThongTin(props) {
   })
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-<<<<<<< HEAD
-    setThongTin({ ...thongTin, [name]: value });
-    console.log(thongTin);
-=======
     setThongTin({ ...thongTin, [name]: value });  
->>>>>>> 4922b06c77c4c7897559ba384167b8f904ba61f8
   }
   const handelChinhSuaThongTin = () => {
     confirmAlert({

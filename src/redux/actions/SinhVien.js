@@ -47,15 +47,14 @@ export const atcChinhSuaThongTinSinhVien = (data, histrory) => {
     chinhSuaThongTinApi(data)
       .then((res) => {
         dispatch(chinhSuaThongTinSuccess(data))
-        dispatch(hideLoading());
-        histrory.push("/sinhvien/xemthongtin")
+        dispatch(hideLoading()); 
         dispatch(displayNotify({message:'Chỉnh sửa thành công!',type:'success'}));
 
       })
       .catch((err) => {
         dispatch(chinhSuaThongTinFailed(err))
         dispatch(hideLoading());
-        dispatch(displayNotify({message:'Chỉnh sửa thất bại!',type:'success'}));
+        dispatch(displayNotify({message:'Chỉnh sửa thất bại!',type:'warning'}));
 
       });
   };

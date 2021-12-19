@@ -15,8 +15,9 @@
   height: 10%;
 }
 .danh-sach-sinh-vien{
-  margin-top: 100px;
-  border-top: 2px solid black;
+  margin-top: 50px;
+  border:1px solid #e0e0eb;
+  padding: 5%;
 }
 .danh-sach-sinh-vien .emp-profile{
   margin-top: 10px;

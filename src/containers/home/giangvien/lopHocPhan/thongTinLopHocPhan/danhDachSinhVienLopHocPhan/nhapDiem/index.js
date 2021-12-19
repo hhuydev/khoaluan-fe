@@ -145,13 +145,13 @@ export default function NhapDiem(props) {
               />
             </div>
             <div className="form-group">
-              {/* <label onClick={xemTbc}>Điểm trung bình cộng</label>
+              <label onClick={xemTbc}>Điểm trung bình cộng</label>
               <input
                 type="text"
                 className="form-control"
                 disabled={true}
                 value={getDiem(tbc)}
-              /> */}
+              />
             </div>
           </div>
           <div className="modal-footer">

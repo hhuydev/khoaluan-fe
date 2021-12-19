@@ -26,14 +26,9 @@ export default function LopHocPhan() {
     setTotalPage(data.paginationMeta.totalPage)
   }, []);
 
-
-
-
-
-
-
   return (
     <div className="lop-hoc-phan">
+      <h4 style={{textAlign:'center',marginBottom:'30px'}}>DANH SÁCH LỚP HỌC PHẦN</h4>
       <div className='table-lop-hoc-phan'>
       <table className="table table-bordered">
         <thead>

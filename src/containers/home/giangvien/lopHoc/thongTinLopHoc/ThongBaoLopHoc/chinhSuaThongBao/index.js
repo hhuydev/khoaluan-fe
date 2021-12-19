@@ -127,7 +127,7 @@ export default function ChinhSuaThongBao(props) {
             onClick={themThongBao}
             style={{ display: isEdit ? "none" : "block" }}
           >
-            Thêm thông báo
+             Gửi thông báo
           </button>
           &nbsp;&nbsp;&nbsp;
           <button
@@ -145,7 +145,7 @@ export default function ChinhSuaThongBao(props) {
             style={{ display: isEdit ? "block" : "none" }}
             onClick={handleChinhSua}
           >
-            Lưu
+            Gửi thông báo
           </button>
           &nbsp;&nbsp;&nbsp;
           <button

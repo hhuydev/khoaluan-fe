@@ -5,22 +5,20 @@ import "./style.css";
 
 export default function Navbar(props) {
   const { pathname } = props.history.location;
-  const handleLogout = () => {
-    // localStorage.removeItem("id");
-    // localStorage.removeItem("AccessToken");
+  const handleLogout = () => { 
     localStorage.clear();
     props.history.replace("/login");
   };
   const handleChangePassword = () => {
   };
   const getIndex = () => {
-    return `/${pathname.split("/")[1]}/trangchu`;
+    return `/${pathname.split("/")[1]}`;
   };
   return (
     <div className="nav-menu">
       <nav className="navbar navbar-expand-custom navbar-mainbg">
         <NavLink className="navbar-brand navbar-logo" to={getIndex}>
-          Sổ Liên Lạc Điện Tử
+        <i className="fas fa-graduation-cap"></i> Sổ Liên Lạc Điện Tử
         </NavLink>
         <button
           className="navbar-toggler"
@@ -40,27 +38,13 @@ export default function Navbar(props) {
 
             {/* <div> */}
             <div className="menu-item">
-              <li className="nav-item">
-                <NavLink
-                  activeStyle={{
-                    marginTop: "7px",
-                    border: "2px solid darkgray",
-                    borderRadius: "10px 10px 0px 0px",
-                    borderBottom: "none",
-                    fontSize: "16px",
-                    color: "darkturquoise"
-                  }}
-                  className="nav-link active"
-                  to={getIndex}
-                >
-                  Trang chủ
-                </NavLink>
-              </li>
+              
 
               {props.routers.map((router, index) => {
                 return (
                   <li className="nav-item" key={index}>
-                    <NavLink
+                    <NavLink 
+                    exact ={router.exact}
                       activeStyle={{
                         marginTop: "7px",
                         border: "2px solid darkgray",

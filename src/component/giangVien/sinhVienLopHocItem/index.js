@@ -13,15 +13,14 @@ export default function SinhVienLopHocItem(props) {
   };
   return (
     <React.Fragment>
-      <tr style={{backgroundColor:props.item.canhBao?"#ff79b0":""}}>
+      <tr style={{backgroundColor:props.item.canhBao?"#ff99c2":""}}>
         <td>{props.stt}</td>
         <td>{props.item.maSV}</td>
         <td>{props.item.hoTen}</td>
         <td>{props.item.gioiTinh === true ? "Nam" : "Nữ"}</td>
         <td>{props.item.email}</td>
         <td>{formatTinhTrangSinhVienText(props.item.trangThaiSinhVien)}</td>
-        <td>"hoc hanh binh thuong"</td>
-        <td>{props.item.diemTBTL}</td>
+        <td>{Math.round(props.item.diemTBTL * 100) / 100}</td>
         <td>
           <button
             className="btn btn-link"

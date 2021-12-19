@@ -11,7 +11,7 @@ import ThongTinchiTietLopHoc from "./ThongTinChiTietLopHoc";
 export default function ThongTinLopHoc(props) {
   document.title = "Thông tin lớp học "
   const { id } = props.match.params;
-
+  document.title="Lớp học:"+id;
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -23,7 +23,7 @@ export default function ThongTinLopHoc(props) {
     <div className="thong-tin-lop-hoc">
       <div className="container-fluid emp-profile">
         <form method="post">
-          <div className="row">
+          <div className="row" style={{marginTop:'5%'}}>
             <div className="col-md-12">
               <div className="profile-head">
                 <ul className="nav nav-tabs" id="myTab" role="tablist">

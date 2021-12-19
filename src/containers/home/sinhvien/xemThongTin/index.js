@@ -7,6 +7,7 @@ import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import "./style.css";
 export default function XemThongTin() {
+  document.title = "Thông tin sinh viên"
   const [imgURl, setImgURl] = useState(null);
   const [isSave, setIsSave] = useState(false);
   const { data } = useSelector((state) => state.sinhVienReducer, shallowEqual);
@@ -25,14 +26,8 @@ export default function XemThongTin() {
   };
 
 
-<<<<<<< HEAD
-  const handleLuu = () => {
-    console.log(imgURl);
-    if ((dataImgUrlApi === null)) {
-=======
   const handleLuu = () => {  
     if (( dataImgUrlApi === null)) {
->>>>>>> 4922b06c77c4c7897559ba384167b8f904ba61f8
       return;
     }
     confirmAlert({

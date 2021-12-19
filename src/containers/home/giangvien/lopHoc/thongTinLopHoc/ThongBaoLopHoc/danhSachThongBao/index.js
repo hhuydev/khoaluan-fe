@@ -99,7 +99,6 @@ export default function DanhSachThongBao(props) {
       <div className="page-content page-container" id="page-content">
         <div className="padding">
           <div className="row">
-            {/* <div className="col-md-8"> */}
               <div className="d-flex justify-content-center">
                 <div
                   className="list list-row card"
@@ -120,7 +119,6 @@ export default function DanhSachThongBao(props) {
                       })
                     : ""}
                 </div>
-              {/* </div> */}
             </div>
           </div>
         </div>

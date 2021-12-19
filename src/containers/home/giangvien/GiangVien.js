@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router";
 import { BrowserRouter } from "react-router-dom";
 import { CheckAuthApi } from "../../../api/TaiKhoanApi";
+import Footer from "../../../component/footer";
 import Navbar from "../../../component/navbar";
 import { atcGetDanhSachLopHoc, atcGetDanhSachLopHocPhan } from "../../../redux/actions/GiangVien";
 import { GiangVienRoutes } from "../../../routers";
@@ -71,6 +72,7 @@ export default function GiangVien(props) {
           />
 
         </Switch>
+        <Footer/>
     </BrowserRouter>
     </>
   );

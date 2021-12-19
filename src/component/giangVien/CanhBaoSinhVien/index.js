@@ -11,7 +11,7 @@ export default function CanhBaoSinhVien(props) {
   const { dataItem, idLopHocPhan } = props;
   const dispatch = useDispatch();
   const [dataCanhBao, setDataCanhBao] = useState({
-    idSinhVien: dataItem?dataItem.id:'',
+    idSinhVien: dataItem ? dataItem.id : "",
     idGiangVien: Number.parseInt(localStorage.getItem("id")),
     tieuDe: "",
     noiDung: "",
@@ -19,8 +19,10 @@ export default function CanhBaoSinhVien(props) {
   const state = useSelector((state) => state.canhBaoSinhVienOfGiangVienReducer);
   useEffect(() => {
     if (dataItem) {
-     
-      setDataCanhBao({...dataCanhBao,idSinhVien:Number.parseInt(dataItem.id)}) 
+      setDataCanhBao({
+        ...dataCanhBao,
+        idSinhVien: Number.parseInt(dataItem.id),
+      });
       dispatch(atcGetCanhBaoSinhViensLopHoc(dataItem.id));
     }
   }, [dataItem]);
@@ -30,11 +32,10 @@ export default function CanhBaoSinhVien(props) {
     setDataCanhBao({ ...dataCanhBao, [name]: value });
   };
 
-  const postCanhBao = (e) => { 
- 
-    e.preventDefault(); 
+  const postCanhBao = (e) => {
+    e.preventDefault();
     console.log(dataItem);
-   
+
     console.log(dataCanhBao);
     if (
       !window.confirm(
@@ -78,113 +79,73 @@ export default function CanhBaoSinhVien(props) {
                 <span aria-hidden="true">×</span>
               </button>
             </div>
-            <div className="modal-body">
-              <ul className="nav nav-tabs" id="myTab" role="tablist">
-                <li className="nav-item">
-                  <a
-                    className="nav-link active"
-                    id="home-tab"
-                    data-toggle="tab"
-                    href="#danh-sach-canh-bao"
-                    role="tab"
-                    aria-controls="home"
-                    aria-selected="true"
-                  >
-                    Danh sách cảnh báo
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    id="profile-tab"
-                    data-toggle="tab"
-                    href="#tao-canh-bao"
-                    role="tab"
-                    aria-controls="profile"
-                    aria-selected="false"
-                  >
-                    Tạo cảnh báo
-                  </a>
-                </li>
-              </ul>
-              <div
-                className="tab-pane fade show active "
-                id="danh-sach-canh-bao"
-                role="tabpanel"
-                aria-labelledby="home-tab"
-              >
-                {/* <div className="canh-bao-form"> */}
-                <div className="page-content page-container" id="page-content">
-                  <div className="padding">
-                    <div className="row">
-                      <div className="col-sm-12">
-                        <div className="list list-row block">
-                          {state.data
-                            ? state.data.map((item) => {
-                                return (
-                                  <CanhBaoItem item={item} key={item.id} />
-                                );
-                              })
-                            : ""}
+            <div className="modal-body" style={{padding:'3%'}}>
+              <div className="row">
+                <div className="col-md-6" style={{border:'1px solid #e0e0eb', padding:'3%', marginRight:'30px',marginLeft:'20px'}}>
+                    <h6 style={{textAlign:'center'}}>DANH SÁCH CẢNH BÁO</h6>
+                    <div
+                      className="page-content page-container"
+                      id="page-content"
+                    >
+                      <div className="padding">
+                        <div className="row">
+                          <div className="col-sm-12">
+                            <div className="list list-row block">
+                              {state.data
+                                ? state.data.map((item) => {
+                                    return (
+                                      <CanhBaoItem item={item} key={item.id} />
+                                    );
+                                  })
+                                : ""}
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
                 </div>
-                {/* </div> */}
-              </div>
-              <div
-                className="tab-pane fade canh-bao-form"
-                role="tabpanel"
-                aria-labelledby="profile-tab"
-                id="tao-canh-bao"
-              >
-                <form className="form-card" onSubmit={postCanhBao}>
-                  <div className="row justify-content-between text-left">
-                    <div className="form-group col-sm-12 flex-column d-flex">
-                      <label className="form-control-label px-3">
-                        Tiêu đề<span className="text-danger"> *</span>
-                      </label>
-                      <textarea
-                        type="text"
-                        id="fname"
-                        name="tieuDe"
-                        placeholder="Nhập tiêu đề"
-                        rows={3}
-                        onChange={onChangeCanhBao}
-                        defaultValue={""}
-                      />
-                    </div>
-                    <div className="form-group col-sm-12 flex-column d-flex">
-                      <label className="form-control-label px-3">
-                        Nội dung<span className="text-danger"> *</span>
-                      </label>
-                      <textarea
-                        type="text"
-                        id="fname"
-                        name="noiDung"
-                        onChange={onChangeCanhBao}
-                        placeholder="Nhập nội dung"
-                        rows={5}
-                        defaultValue={""}
-                      />
-                    </div>
-                  </div>
-                  <div className="row justify-content-end">
-                    <div
-                      className="form-group col-sm-6"
-                      style={{ display: "flex" }}
-                    >
-                      <button
-                        style={{ marginTop: "1.8%", marginRight: "5%" }}
-                        type="submit"
-                        className="btn-block btn-primary"
-                      >
-                        Lưu
-                      </button>
-                    </div>
-                  </div>
-                </form>
+                <div className="col-md-5" style={{border:'1px solid #e0e0eb', padding:'3%'}}>
+                    <h6 style={{textAlign:'center'}}>TẠO CẢNH BÁO</h6>
+                    <form className="form-card" onSubmit={postCanhBao}>
+                      <div className="row justify-content-between text-left">
+                        <div className="form-group col-sm-12 flex-column d-flex">
+                          <label className="form-control-label px-3">
+                            Tiêu đề<span className="text-danger"> *</span>
+                          </label>
+                          <textarea
+                            type="text"
+                            id="fname"
+                            name="tieuDe"
+                            placeholder="Nhập tiêu đề"
+                            rows={3}
+                            onChange={onChangeCanhBao}
+                            defaultValue={""}
+                          />
+                        </div>
+                        <div className="form-group col-sm-12 flex-column d-flex">
+                          <label className="form-control-label px-3">
+                            Nội dung<span className="text-danger"> *</span>
+                          </label>
+                          <textarea
+                            type="text"
+                            id="fname"
+                            name="noiDung"
+                            onChange={onChangeCanhBao}
+                            placeholder="Nhập nội dung"
+                            rows={5}
+                            defaultValue={""}
+                          />
+                        </div>
+                      </div>
+                          <button
+                            style={{ marginTop: "1.8%", marginLeft: "30%", width:'200px' }}
+                            type="submit"
+                            className="btn-block btn-primary"
+                          >
+                            Gửi cảnh báo
+                          </button>
+                    </form>
+                </div>
               </div>
             </div>
           </div>

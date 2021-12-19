@@ -82,36 +82,15 @@ export default function DonXinNghiHocItem(props) {
     });
   };
   return (
-    <div
-      className="list-item"
-      data-id={13}
-      data-item-sortable-id={0}
-      draggable="true"
-      role="option"
-      aria-grabbed="false"
-      //   style={{backgroundColor:`${item.hienThi?'':'#e3f2fd'}`}}
-    >
-      <div className="flex">
-        <a
-          className="item-author text-color"
-          data-abc="true"
-          onClick={onClickDonNghiHoc}
-        >
-          {`Sinh viên có mã số sinh viên: ${item.maSV}, Họ tên:${
-            item.tenSinhVien
-          }, xin nghỉ ngày ${formatDateTime(item.ngayNghi)}. Hiên tại ${
-            item.trangThai ? "Đã chấp nhận" : "chưa chấp nhận"
-          }`}
-        </a>
-        <div className="item-except text-muted text-sm h-1x">
-          {/* {item.noiDung} */}
-        </div>
-      </div>
-      <div className="no-wrap">
-        <div className="item-date text-muted text-sm d-none d-md-block">
-          {/* {formatDateTime(item.ngayTao)} */}
-        </div>
-      </div>
-    </div>
+    <tr>
+      <td>{props.stt}</td>
+      <td onClick={onClickDonNghiHoc}> <input type="button" className="btn btn-link" value={item.maSV}/></td>
+      <td>{item.tenSinhVien}</td>
+      <td>{formatDateTime(item.ngayNghi)}</td>
+      <td>{item.noiDung}</td>
+      <td>
+      {item.trangThai ? "Đã chấp nhận" : "chưa chấp nhận"}
+      </td>
+    </tr>
   );
 }

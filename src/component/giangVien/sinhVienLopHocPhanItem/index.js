@@ -25,9 +25,8 @@ export default function SinhVienLopHocPhanItem(props) {
   };
   const setColorWarning = () => {
     if (
-      soNgayNghiPhep / 2 + soNgayNghiKhongPhep >= 3 ||
-      diemSinhVienMonHocDto.gk === 0 ||
-      diemSinhVienMonHocDto.ck > 3
+      
+      diemSinhVienMonHocDto.gk === 0  
     ) {
       return false;
     }
@@ -42,7 +41,7 @@ export default function SinhVienLopHocPhanItem(props) {
     <>
       <tr
         style={{
-          backgroundColor: !setColorWarning() ? "#e2f1f8" : "",
+          backgroundColor: !setColorWarning() ? "#ff99c2" : "",
         }}
       >
         <td>{props.index + 1}</td>
@@ -60,7 +59,7 @@ export default function SinhVienLopHocPhanItem(props) {
         <td>{diemSinhVienMonHocDto.gk > 0 ? diemSinhVienMonHocDto.gk : "-"}</td>
         <td>{diemSinhVienMonHocDto.ck > 0 ? diemSinhVienMonHocDto.ck : "-"}</td>
         <td>
-          {Math.round(diemSinhVienMonHocDto.tbc * 100) / 100 >= 0
+          {Math.round(diemSinhVienMonHocDto.tbc * 100) / 100 > 0
             ? Math.round(diemSinhVienMonHocDto.tbc * 100) / 100
             : "-"}
         </td>
@@ -78,7 +77,7 @@ export default function SinhVienLopHocPhanItem(props) {
             Cảnh báo
           </button>
           <br></br>
-          <button
+          {/* <button
             className="btn btn-link"
             style={{ color: "skyblue", height: "20px" }}
             data-toggle="modal"
@@ -88,13 +87,14 @@ export default function SinhVienLopHocPhanItem(props) {
             }}
           >
             Nhập điểm
-          </button>
+          </button> */}
           <br />
           <button
             className="btn btn-link"
             data-toggle="modal"
             data-target="#modalSoNgayNghiPhep"
             onClick={handleDiemDanh}
+            style={{display:diemSinhVienMonHocDto.ck > 0 ?'none':'block'}}
           >
             Điểm danh
           </button>
