@@ -27,6 +27,7 @@ export default function LopHoc() {
 
   return (
     <div className="lop-hoc">
+      <h4 style={{textAlign:'center', marginBottom:'4%'}}>DANH SÁCH LỚP HỌC</h4>
      <div className="lophoc-table">
      <table className="table table-bordered">
         <thead>

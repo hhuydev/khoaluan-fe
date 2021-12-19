@@ -12,7 +12,7 @@ export default function ThongBaoLopHocPhan(props) {
   }
     return (
         <div
-        className="tab-pane fade show"
+        className="tab-pane fade show thong-bao-lop-hoc-phan"
         id="thongbao"
         role="tabpanel"
         aria-labelledby="thongbao-tab"

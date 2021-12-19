@@ -8,7 +8,11 @@ import ThongTinChiTietLopHocPhan from './thongTinChiTietLopHocPhan'
 import './style.css'
 import { shallowEqual } from 'react-redux'
 export default function ThongTinLopHocPhan(props) {
+
   const { id } = props.match.params;
+
+
+  document.title="Lớp học phần:"+id;
   const dispatch = useDispatch();
   const { data } = useSelector((state) => state.lopHocPhanReducer, shallowEqual);
   const getThongTinLopHoc = () => {

@@ -1,7 +1,7 @@
 import { lazy } from "react";
 import TrangChu from "./component/trangChu";
 import SinhVien from "./containers/home/sinhvien/SinhVien";
-import ThongBao from "./containers/home/sinhvien/thongBao"; 
+import ThongBao from "./containers/home/sinhvien/thongBao";
 import XemThongTin from "./containers/home/sinhvien/xemThongTin";
 import XinNghiHoc from "./containers/home/sinhvien/xinNghiHoc";
 import BangDiem from "./containers/home/sinhvien/bangDiem";
@@ -10,7 +10,6 @@ import LopHocPhan from "./containers/home/giangvien/lopHocPhan";
 import LopHoc from "./containers/home/giangvien/lopHoc";
 import GiangVien from "./containers/home/giangvien/GiangVien";
 import PhuHuynh from "./containers/home/phuhuynh/PhuHuynh";
-
 
 const LoginRoutes = [
   {
@@ -24,11 +23,20 @@ const LoginRoutes = [
 
 const SinhVienRoutes = [
   {
+    path: "",
+    name: "Trang chủ",
+    icon: "",
+    component: TrangChu,
+    layout: "/sinhvien",
+    exact :true
+  },
+  {
     path: "/xemthongtin",
     name: "Thông tin cá nhân",
     //   icon: Dashboard,
     component: XemThongTin,
     layout: "/sinhvien",
+    exact :false
   },
   {
     path: "/xinnghihoc",
@@ -36,12 +44,15 @@ const SinhVienRoutes = [
     icon: "",
     component: XinNghiHoc,
     layout: "/sinhvien",
-  }, {
+    exact :false
+  },
+  {
     path: "/bangdiem",
     name: "Kết quả học tập",
     icon: "",
     component: BangDiem,
     layout: "/sinhvien",
+    exact :false
   },
   {
     path: "/thongbao",
@@ -49,41 +60,60 @@ const SinhVienRoutes = [
     icon: <i className="fas fa-bell"></i>,
     component: ThongBao,
     layout: "/sinhvien",
+    exact :false
   },
+];
 
-]
-
-
-
-const GiangVienRoutes = [ 
+const GiangVienRoutes = [
+  {
+    path: "",
+    name: "Trang chủ",
+    icon: "",
+    component: TrangChu,
+    layout: "/giangvien",
+    exact :true
+  },
   {
     path: "/lophocphan",
     name: "Lớp học phần",
     icon: "",
     component: LopHocPhan,
     layout: "/giangvien",
-  }, {
+    exact :false
+  },
+  {
     path: "/lophoc",
     name: "Lớp học",
     icon: "",
     component: LopHoc,
     layout: "/giangvien",
+    exact :false
   },
-
-]
+];
 const PhuHuynhRoutes = [
   {
+    path: "",
+    name: "Trang chủ",
+    icon: "",
+    component: TrangChu,
+    layout: "/phuhuynh",
+    exact :true
+  },
+  {
     path: "/xemthongtin",
-    name: "Thông tin sinh vien",
+    name: "Thông tin sinh viên",
     //   icon: Dashboard,
     component: XemThongTin,
     layout: "/phuhuynh",
-  }, {
+    exact :false
+  },
+  {
     path: "/bangdiem",
     name: "Kết quả học tập",
     icon: "",
     component: BangDiem,
     layout: "/phuhuynh",
+    exact :false
   },
   {
     path: "/thongbao",
@@ -91,14 +121,14 @@ const PhuHuynhRoutes = [
     icon: <i className="fas fa-bell"></i>,
     component: ThongBao,
     layout: "/phuhuynh",
-  }
-]
-
+    exact :false
+  },
+];
 
 const LayoutMain = [
   {
     path: "/sinhvien",
-    component: SinhVien
+    component: SinhVien,
   },
   {
     path: "/giangvien",
@@ -107,13 +137,18 @@ const LayoutMain = [
   },
   {
     path: "/phuhuynh",
-    component: PhuHuynh
+    component: PhuHuynh,
   },
   {
     path: "/login",
-    component: Login
-  }
-]
+    component: Login,
+  },
+];
 
-export { LayoutMain, SinhVienRoutes, LoginRoutes, GiangVienRoutes, PhuHuynhRoutes };
-
+export {
+  LayoutMain,
+  SinhVienRoutes,
+  LoginRoutes,
+  GiangVienRoutes,
+  PhuHuynhRoutes,
+};

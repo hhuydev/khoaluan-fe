@@ -3,6 +3,25 @@ import { shallowEqual, useSelector } from "react-redux";
 import "./style.css";
 
 export default function BangDiem() {
+  document.title = "Kết quả học tập"
+  const trangThai = (diemck,diemgiuaki,diemtbc)=>{
+    if(diemgiuaki<0){
+      return '';
+    }
+    if(diemck<0){
+      return '';
+    }
+    if(diemgiuaki==0){
+      return 'Học lại';
+    }
+    if(diemck==0){
+      return 'Học lại';
+    }
+    if(diemtbc<3){
+      return 'Học lại';
+    }
+    
+  }
   const { data } = useSelector((state) => state.diemReducer, shallowEqual);
   return (
     <div className="bangdiem">
@@ -32,9 +51,9 @@ export default function BangDiem() {
                   <td>{item.tk2}</td>
                   <td>{item.tk3}</td>
                   <td>{item.gk}</td>
-                  <td>{item.ck}</td>
+                  <td>{item.ck>0?item.ck:'-'}</td>
                   <td>{!item.trangThai ? 0 : item.tbc}</td>
-                  <td>{!item.trangThai ? 'Học lại' : ''}</td>
+                  <td>{trangThai(item.ck,item.gk,item.tbc)}</td>
                 </tr>
               );
             })
@@ -44,12 +63,8 @@ export default function BangDiem() {
 
           <tr>
             <th scope="row">Điểm trung bình: </th>
-            <td colSpan="8">{data ? data.diemTongKet : ''}</td>
-          </tr>
-          <tr>
-            <th scope="row">Nhận xét: </th>
-            <td colSpan="8">1</td>
-          </tr>
+            <td colSpan="8">{data ? Math.round(data.diemTongKet * 100) / 100 : ''}</td>
+          </tr> 
         </tbody>
       </table>
     </div>

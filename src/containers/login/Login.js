@@ -5,6 +5,8 @@ import { displayNotify } from '../../redux/actions/Notify';
 import { atcDangNhap } from '../../redux/actions/TaiKhoan';
 import './style.css';
 export default function Login(props) {
+  document.title = "Đăng nhập"
+
   const [taiKhoan, setTaiKhoan] = useState({
     tenDangNhap:'',
     matKhau:''

@@ -1,22 +1,16 @@
 
 
 .danh-sach-don-nghi-hoc{
-    height: 700px;
+    border:1px solid #e0e0eb;
+    padding:0% 10% 10% 10%;
+    height: 400px;
     position: static;
+    width: 94%;
+    margin-left: 3%;
   }
 .danh-sach-don-nghi-hoc .padding {
     padding: 3rem;
   }
-  
-  /* .danh-sach-don-nghi-hoc .card {
-    background: #fff;
-    border-width: 0;
-    border-radius: 0.25rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    margin-bottom: 1.5rem;
-    margin-top: 10px;
-  } */
-  
   .danh-sach-don-nghi-hoc .card {
     /* position: relative; */
     display: flex;

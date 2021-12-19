@@ -115,7 +115,6 @@ export default function DanhSachSinhVienLopHoc(props) {
               <th scope="col">Giới tính</th>
               <th scope="col">Email</th>
               <th scope="col">Tình trạng</th>
-              <th scope="col">Đánh giá rèn luyện</th>
               <th scope="col">Điểm trung bình tích lũy</th>
               <th scope="col">Thao tác</th>
             </tr>
@@ -145,9 +144,11 @@ export default function DanhSachSinhVienLopHoc(props) {
         ),
         [returnItem]
       )}
+
+    <Pagination data={{index:index,totalPage:totalPage,handelPageClick:handelPageClick}}/>
       </div>
-      <Pagination data={{index:index,totalPage:totalPage,handelPageClick:handelPageClick}}/>
-    
+     
+          
     </>
   );
 }

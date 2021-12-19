@@ -6,7 +6,8 @@
   margin-left: 5%;
   border-radius: 0.5rem;
   background: #fff;
-  /* height: 740px; */
+  display: flex;
+  height: 640px;
 }
 .don-xin-nghi-hoc .card {
   width: 100%;
@@ -66,9 +67,8 @@
 .don-xin-nghi-hoc .form-card {
   margin-left: 0%;
 }
-.don-xin-nghi-hoc .danh-sach-dơn-nghi-hoc-sinh-vien {
+.don-xin-nghi-hoc .danh-sach-don-nghi-hoc-sinh-vien {
   padding: 3%;
-  border-top: 3px solid black;
 }
 
 .my-custom-scrollbar {

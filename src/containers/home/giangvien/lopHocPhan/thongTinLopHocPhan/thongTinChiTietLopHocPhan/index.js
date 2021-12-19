@@ -13,7 +13,7 @@ export default function ThongTinChiTietLopHocPhan(props) {
         <div className="col-md-12">
           <div
             className="thong-tin-lop"
-            style={{ marginTop: "-216px", marginLeft: "100px" }}
+            style={{ marginTop: "-216px", marginLeft: "100px"}}
           >
             <div className="info">
               <div className="panel-body bio-graph-info">

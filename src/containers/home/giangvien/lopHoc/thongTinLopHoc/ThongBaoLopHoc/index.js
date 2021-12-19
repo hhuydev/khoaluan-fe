@@ -12,18 +12,17 @@ export default function ThongBaoLopHoc(props) {
 
   return (
     <div
-      className="tab-pane fade show active"
+      className="tab-pane fade show"
       id="thongbao"
       role="tabpanel"
       aria-labelledby="thongbao-tab"
     >
       <div className="container-fluid">
-        <div className="row">
-          <div className="col-md-6">
+        <div className="row" style={{marginLeft:'10px'}}>
+          <div className="col-md-6" style={{border:'1px solid #e0e0eb', padding:'5%', paddingRight:'10px',marginRight:'50px'}}>
             <DanhSachThongBao data={data} handleChinhSuaItem={handleChinhSuaItem} id={props.id}/>
           </div>
-          <div className="col-md-1 between"></div>
-          <div className="col-md-5">
+          <div className="col-md-5" style={{border:'1px solid #e0e0eb', padding:'5%', paddingLeft:'10%'}}>
             <ChinhSuaThongBao id={props.id} itemEdit= {itemEdit}/>
           </div>
         </div>

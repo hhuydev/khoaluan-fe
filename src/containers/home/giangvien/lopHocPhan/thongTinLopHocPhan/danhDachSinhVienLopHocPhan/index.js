@@ -3,7 +3,7 @@ import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import Pagination from "../../../../../../common/Pagination";
 import SinhVienLopHocPhanItem from "../../../../../../component/giangVien/sinhVienLopHocPhanItem";
 import { atcGetSinhViensLopHocPhan } from "../../../../../../redux/actions/GiangVien";
-import ReactHTMLTableToExcel from 'react-html-table-to-excel';
+import ReactHTMLTableToExcel from "react-html-table-to-excel";
 import DiemDanh from "./diemDanh";
 import NhapDiem from "./nhapDiem";
 import "./style.css";
@@ -29,8 +29,8 @@ export default function DanhSachSinhVienLopHocPhan(props) {
     })[0];
   };
   const onChangeSelect = (e) => {
-    const { value, name } = e.target; 
-    setSelect(value)
+    const { value, name } = e.target;
+    setSelect(value);
   };
   const getIdItem = (id) => {
     setDataItem(getItem(id));
@@ -75,62 +75,68 @@ export default function DanhSachSinhVienLopHocPhan(props) {
       );
     });
   };
-  const returnItem = (item11)=>{ 
+  const returnItem = (item11) => {
     return item11;
-  }
+  };
   return (
     <>
       <div className="danh-sach-sinh-vien">
-        <h3 style={{ textAlign: "center", marginTop: "30px" }}>
+        <h3 style={{ textAlign: "center", marginTop: "30px", marginBottom:'40px' }}>
           DANH SÁCH SINH VIÊN{" "}
         </h3>
-        <div className="header-danh-sach-sinh-vien">
-          <div className="search-danh-sach-sinh-vien">
-            <div className="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
-              <div className="input-group">
-                <input
-                  onChange={onSearch}
-                  type="search"
-                  placeholder="Nhập từ khóa cần tìm..."
-                  aria-describedby="button-addon1"
-                  className="form-control border-0 bg-light"
-                />
-                <div className="input-group-append">
-                  <i className="fa fa-search"></i>
+        <div className="container-fluid header-danh-sach-sinh-vien">
+          <div className="row" style={{width:'100%'}}>
+            <div className="search-danh-sach-sinh-vien col-md-6">
+              <div className="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+                <div className="input-group">
+                  <input
+                    onChange={onSearch}
+                    type="search"
+                    placeholder="Nhập từ khóa cần tìm..."
+                    aria-describedby="button-addon1"
+                    className="form-control border-0 bg-light"
+                  />
+                  <div className="input-group-append">
+                    <i className="fa fa-search"></i>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div style={{ width: "100%" }}></div>
-          <div
-            className="selected-danh-sach-sinh-vien"
-            style={{ width: "60%", marginTop: "15px" }}
-          >
-            <select
-              style={{ height: "35px", borderRadius: "1.2rem" }}
-              className="form-select form-select-sm"
-              aria-label=".form-select-sm example"
-              defaultValue={0}
-              onChange = {onChangeSelect}
+            <div
+              className="col-md-6 selected-danh-sach-sinh-vien"
+              style={{ width: "40%", marginTop: "15px" , display:'flex', height:'50px'}}
             >
-              <option value={0}>Tất cả sinh viên</option>
-              <option value={1}>
-                Những sinh viên bị cấm thi
-              </option>
-              <option value={2}>
-                Những sinh viên được dự thi
-              </option>
-            </select>
+              <select
+                style={{ height: "35px", borderRadius: "1.2rem",  marginRight:'20px', marginLeft: "200px"}}
+                className="form-select form-select-sm"
+                aria-label=".form-select-sm example"
+                defaultValue={0}
+                onChange={onChangeSelect}
+              >
+                <option value={0}>Tất cả sinh viên</option>
+                <option value={1}>Những sinh viên bị cấm thi</option>
+                <option value={2}>Những sinh viên được dự thi</option>
+              </select>
+              
+              <ReactHTMLTableToExcel
+                style={{marginTop:'-5px'}}
+                id="test-table-xls-button"
+                className="btn-outline"
+                table="table-to-xls"
+                filename={`LopHocPhan${props.id}`}
+                sheet={`LopHocPhan${props.id}`}
+                buttonText="Tải về"
+              
+              />
+            </div>
           </div>
         </div>
-        <ReactHTMLTableToExcel
-                    id="test-table-xls-button"
-                    className="download-table-xls-button"
-                    table="table-to-xls"
-                    filename="tablexls"
-                    sheet="tablexls"
-                    buttonText="Download as XLS"/>
-        <table id="table-to-xls" className="table table-bordered" style={{ textAlign: "center" }}>
+
+        <table
+          id="table-to-xls"
+          className="table table-bordered"
+          style={{ textAlign: "center" }}
+        >
           <thead>
             <tr
               style={{
@@ -168,7 +174,7 @@ export default function DanhSachSinhVienLopHocPhan(props) {
                       index={index}
                       getIdItem={getIdItem}
                       getIdSvLhp={getIdSvLhp}
-                      returnItem = {returnItem}
+                      returnItem={returnItem}
                     />
                   );
                 }
@@ -179,14 +185,22 @@ export default function DanhSachSinhVienLopHocPhan(props) {
           </tbody>
         </table>
         {useMemo(
-        () => (
-          <CanhBaoSinhVien  idLopHocPhan={props.id}
-            dataItem={dataItem}
-            idSvLhp={idLhp}/>
-        ),
-        [returnItem]
-      )}
-        
+          () => (
+            <CanhBaoSinhVien
+              idLopHocPhan={props.id}
+              dataItem={dataItem}
+              idSvLhp={idLhp}
+            />
+          ),
+          [returnItem]
+        )}
+        <Pagination
+        data={{
+          index: index,
+          totalPage: totalPage,
+          handelPageClick: handelPageClick,
+        }}
+      />
       </div>
       {/* {useMemo(
         () => (
@@ -204,14 +218,6 @@ export default function DanhSachSinhVienLopHocPhan(props) {
         ),
         [dataItem]
       )}
-
-      <Pagination
-        data={{
-          index: index,
-          totalPage: totalPage,
-          handelPageClick: handelPageClick,
-        }}
-      />
     </>
   );
 }

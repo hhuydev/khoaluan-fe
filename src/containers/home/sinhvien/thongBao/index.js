@@ -6,6 +6,7 @@ import ThongBaoSinhVienItem from "../../../../component/sinhVien/thongBaoSinhVie
 import { atcGetThongBao } from "../../../../redux/actions/SinhVien";
 
 export default function ThongBao() {
+  document.title = "Thông báo"
   const { data } = useSelector((state) => state.thongBaoReducer, shallowEqual);
   const dispatch = useDispatch();
   const [items, setItems] = useState([]);
@@ -34,11 +35,7 @@ export default function ThongBao() {
       <div className="container d-flex justify-content-center mt-50 mb-50">
         <div className="row">
           <div className="col-md-10">
-<<<<<<< HEAD
             {data.thongBaoSinhVienDtos ? data.thongBaoSinhVienDtos.map((item) => {
-=======
-            {data? data.thongBaoSinhVienDtos.map((item) => {
->>>>>>> 4922b06c77c4c7897559ba384167b8f904ba61f8
               return (
                 <ThongBaoSinhVienItem handleClickThongBao={handleClickThongBao} item={item} key={item.id} />
               );

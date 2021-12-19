@@ -25,7 +25,7 @@ export default function DonNghiHoc(props) {
     if (data) {
       setTotalPage(data.paginationMeta.totalPage);
     }
-  }, [data]); 
+  }, [data]);
 
   return (
     <div
@@ -34,35 +34,42 @@ export default function DonNghiHoc(props) {
       role="tabpanel"
       aria-labelledby="donnghihoc-tab"
     >
-      <div className="danh-sach-don-nghi-hoc">
-        <div className="page-content page-container" id="page-content">
-          <div className="padding">
-            <div className="row">
-              <div className="d-flex justify-content-center">
-                <div
-                  className="list list-row card"
-                  id="sortable"
-                  data-sortable-id={0}
-                  aria-dropeffect="move"
-                >
-                  {data
-                    ? data.listDonXinNghiHoc.map((item) => {
-                        return <DonXinNghiHocItem key={item.idDonXinNghiHoc} item={item} id={props.id} />;
-                      })
-                    : ""}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="pagination">
-          <Pagination
-            data={{
-              index: index,
-              totalPage: totalPage,
-              handelPageClick: handelPageClick,
-            }}
-          />
+      <div
+        className="danh-sach-don-nghi-hoc"
+        style={{ border: "1px solid #e0e0eb", paddingTop: "40px" }}
+      >
+        <h4 style={{ textAlign: "center" }}>DANH SÁCH ĐƠN NGHỈ HỌC</h4>
+        
+        <div
+          className="table-wrapper-scroll-y my-custom-scrollbar"
+          style={{ height: "300px" }}
+        >
+          <table className="table table table-bordered table-striped mb-0">
+            <thead style={{ backgroundColor: "skyblue" }}>
+              <tr>
+                <th>STT</th>
+                <th>Mã sinh viên</th>
+                <th>Học và tên</th>
+                <th>Ngày nghỉ</th>
+                <th>Lý do</th>
+                <th>Trạng thái</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data
+                ? data.listDonXinNghiHoc.map((item,index) => {
+                    return (
+                      <DonXinNghiHocItem
+                        key={item.idDonXinNghiHoc}
+                        item={item}
+                        stt={index+1}
+                        id={props.id}
+                      />
+                    );
+                  })
+                : <tr></tr>}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
