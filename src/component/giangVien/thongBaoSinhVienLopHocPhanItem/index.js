@@ -52,7 +52,7 @@ export default function ThongBaoSinhVienLopHocPhanItem(props) {
       style={{backgroundColor:`${item.hienThi?'':'#e3f2fd'}`}}
     >
       <div className="flex">
-        <a href="#" className="item-author text-color" data-abc="true">
+        <a  className="item-author text-color" data-abc="true">
           {item.tieuDe.slice(0, 30)}...
         </a>
         <div className="item-except text-muted text-sm h-1x">
@@ -67,7 +67,6 @@ export default function ThongBaoSinhVienLopHocPhanItem(props) {
       <div>
         <div className="item-action dropdown">
           <a
-            href="#"
             data-toggle="dropdown"
             className="text-muted"
             data-abc="true"
@@ -93,9 +92,7 @@ export default function ThongBaoSinhVienLopHocPhanItem(props) {
             className="dropdown-menu dropdown-menu-right bg-black"
             role="menu"
           >
-            <a className="dropdown-item" data-abc="true" onClick={xemChiTiet}>
-              Xem chi tiết
-            </a>
+             
             <a
               className="dropdown-item edit"
               data-abc="true"
@@ -104,9 +101,7 @@ export default function ThongBaoSinhVienLopHocPhanItem(props) {
               Chỉnh sửa
             </a>
 
-            <a className="dropdown-item trash" data-abc="true" onClick={xoa}>
-              Xóa
-            </a>
+          
             {item.hienThi ? (
               <a className="dropdown-item trash" data-abc="true" onClick={displayThongBao}>
                 Ẩn thông báo
@@ -115,7 +110,7 @@ export default function ThongBaoSinhVienLopHocPhanItem(props) {
               <a className="dropdown-item trash" data-abc="true" onClick={displayThongBao}>
                 Hiện thông báo
               </a>
-            )}
+             )} 
           </div>
         </div>
       </div>

@@ -24,8 +24,7 @@ export default function DanhSachSinhVienLopHoc(props) {
     })[0];
   };
   const getIdItem = (id) => { 
-    setDataItem(getItem(id));
-    console.log(dataItem);
+    setDataItem(getItem(id)); 
   };
   const onChangeSelect = (e) => {
     const { value, name } = e.target; 

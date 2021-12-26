@@ -22,6 +22,9 @@ export default function BangDiem() {
     }
     
   }
+  const formatDiem =(diem)=>{
+    return diem>-1?diem:'-';
+  }
   const { data } = useSelector((state) => state.diemReducer, shallowEqual);
   return (
     <div className="bangdiem">
@@ -52,7 +55,7 @@ export default function BangDiem() {
                   <td>{item.tk3}</td>
                   <td>{item.gk}</td>
                   <td>{item.ck>0?item.ck:'-'}</td>
-                  <td>{!item.trangThai ? 0 : item.tbc}</td>
+                  <td>{!item.trangThai ? 0 : formatDiem(item.tbc)}</td>
                   <td>{trangThai(item.ck,item.gk,item.tbc)}</td>
                 </tr>
               );

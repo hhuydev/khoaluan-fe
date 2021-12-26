@@ -17,7 +17,7 @@ export default function DiemDanh(props) {
   }, [dataItem]);
   const dispatch = useDispatch();
   const onDiemDanh = () => { 
-    if(!window.confirm("Bạn chắc chứ!")){return;}  
+    if(!window.confirm("Thêm vào ngày nghỉ học!")){return;}  
     dispatch(atcDiemDanh(dataItem.id,idLopHocPhan,{date:date,phep:phep},props.dataItem.idSvLhp))
   };
   const onChangeDate = (e) => {

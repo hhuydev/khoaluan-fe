@@ -9,6 +9,7 @@ import CanhBaoItem from "./DanhSachCanhBao/CanhBaoItem";
 import "./style.css";
 export default function CanhBaoSinhVien(props) {
   const { dataItem, idLopHocPhan } = props;
+  console.log(dataItem);
   const dispatch = useDispatch();
   const [dataCanhBao, setDataCanhBao] = useState({
     idSinhVien: dataItem ? dataItem.id : "",

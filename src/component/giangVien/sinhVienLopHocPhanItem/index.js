@@ -24,13 +24,7 @@ export default function SinhVienLopHocPhanItem(props) {
     dispatch(atcGetNgayNghiSinhVien(idSvLhp));
   };
   const setColorWarning = () => {
-    if (
-      
-      diemSinhVienMonHocDto.gk === 0  
-    ) {
-      return false;
-    }
-    return true;
+    return true?trangThai:false
   };
   const openModalCanhBao = () => {
     dispatch(atcGetCanhBaoSinhViensLopHoc(props.item.id));

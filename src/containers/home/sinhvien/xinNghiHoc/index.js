@@ -45,11 +45,19 @@ export default function XinNghiHoc() {
         {
           label: "Có",
           onClick: () => {
-            if(new Date(Date.now()).getTime()>new Date(dataApi.ngayNghi).getTime())
+            if(dataApi.ngayNghi==""||new Date(Date.now()).getTime()>=new Date(dataApi.ngayNghi).getTime())
             {
               window.alert("Ngày nghỉ phải lớn hơn ngày hiện tại!")
               return;
             }  
+            if(dataApi.lyDo===""){
+              window.alert("Phải có lý do!")
+              return;
+            }
+            if(dataApi.id==""){
+              window.alert("Chọn lớp học phần!")
+              return;
+            }
             dispatch(atcSinhVienXinNghiHoc(dataApi));
           },
           className: "btn btn-primary",
@@ -118,7 +126,7 @@ export default function XinNghiHoc() {
                         <td>{formatDateTime(item.ngayNghi)}</td>
                         <td>{`${item.noiDung.slice(0,20)}......xem thêm`}</td>
                         <td>
-                          {item.trangThai ? "Được chấp nhận" : "đang chờ"}
+                          {item.trangThai ? "Được chấp nhận" : "Đang chờ"}
                         </td>
                       </tr>
                     );

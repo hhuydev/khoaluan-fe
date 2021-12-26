@@ -2,9 +2,9 @@ import React from "react";
 import student from "./../../assets/img/student.png";
 import teacher from "./../../assets/img/teacher.png";
 import woman from "./../../assets/img/woman.png";
-
+import "./style.css";
 export default function TrangChu(props) {
-  document.title = "Trang chủ"
+  document.title = "Trang chủ";
   return (
     <div className="banner" style={{ paddingLeft: "5%", paddingRight: "5%" }}>
       <div
@@ -57,21 +57,39 @@ export default function TrangChu(props) {
           <span className="sr-only">Next</span>
         </a>
       </div>
-      <div className="gioi-thieu" style={{backgroundColor: "white"}}>
-        <div className="row" >
-            <div className="col-md-12">
-            <h1 style={{textAlign:'center', margin:'5%', color:'blue', fontFamily:'unset'}}>HỆ THỐNG SỔ LIÊN LẠC ĐIỆN TỬ</h1>
-            </div>
+      <div className="gioi-thieu" style={{ backgroundColor: "white" }}>
+        <div className="row">
+          <div className="col-md-12">
+            <marquee
+              style={{
+                fontSize: "50px",
+                color: "#809fff",
+                fontWeight: "1000",
+                margin: "20px",
+              }}
+            >
+              {" "}
+              HỆ THỐNG SỔ LIÊN LẠC ĐIỆN TỬ
+            </marquee>
+          </div>
         </div>
-        <div className="row" style={{padding:'5%', paddingTop:'0%'}}>
+        <div className="row" style={{ padding: "5%", paddingTop: "0%" }}>
           <div className="col-md-4">
             <div className="card">
               <div
                 className="bg-image hover-overlay ripple"
                 data-mdb-ripple-color="light"
-                style={{padding:'5%'}}
+                style={{ padding: "5%" }}
               >
-               <img src={student} style={{marginLeft: 'auto', marginRight: 'auto',width:'70%','display': 'block'}}/>
+                <img
+                  src={student}
+                  style={{
+                    marginLeft: "auto",
+                    marginRight: "auto",
+                    width: "70%",
+                    display: "block",
+                  }}
+                />
                 <a href="#!">
                   <div
                     className="mask"
@@ -80,21 +98,31 @@ export default function TrangChu(props) {
                 </a>
               </div>
               <div className="card-body">
-                <h5 className="card-title" style={{textAlign:'center'}} >Sinh viên</h5>
+                <h5 className="card-title" style={{ textAlign: "center" }}>
+                  Sinh viên
+                </h5>
                 <p className="card-text">
-                -	Đối với sinh viên: Có thể theo dõi tình hình học tập và xin phép nghỉ học...
+                  Có thể theo dõi tình hình học tập và xin phép nghỉ học...
                 </p>
               </div>
             </div>
           </div>
           <div className="col-md-4">
-          <div className="card">
+            <div className="card">
               <div
                 className="bg-image hover-overlay ripple"
                 data-mdb-ripple-color="light"
-                style={{padding:'5%'}}
+                style={{ padding: "5%" }}
               >
-               <img src={teacher} style={{marginLeft: 'auto', marginRight: 'auto',width:'70%','display': 'block'}}/>
+                <img
+                  src={teacher}
+                  style={{
+                    marginLeft: "auto",
+                    marginRight: "auto",
+                    width: "70%",
+                    display: "block",
+                  }}
+                />
                 <a href="#!">
                   <div
                     className="mask"
@@ -103,22 +131,32 @@ export default function TrangChu(props) {
                 </a>
               </div>
               <div className="card-body">
-                <h5 className="card-title" style={{textAlign:'center'}} >Giảng Viên</h5>
+                <h5 className="card-title" style={{ textAlign: "center" }}>
+                  Giảng Viên
+                </h5>
                 <p className="card-text">
-                -	Đối với giáo viên: Điểm danh và theo dõi tình hình học tập và thông báo cho lớp học 
-                hoặc lớp học phần của mình, cảnh báo các sinh viên ....
+                  Điểm danh và theo dõi tình hình học tập và thông báo cho lớp
+                  học hoặc lớp học phần của mình, cảnh báo các sinh viên ....
                 </p>
               </div>
             </div>
           </div>
           <div className="col-md-4">
-          <div className="card">
+            <div className="card">
               <div
                 className="bg-image hover-overlay ripple"
                 data-mdb-ripple-color="light"
-                style={{padding:'5%'}}
+                style={{ padding: "5%" }}
               >
-               <img src={woman} style={{ marginLeft: 'auto', marginRight: 'auto',width:'70%','display': 'block'}}/>
+                <img
+                  src={woman}
+                  style={{
+                    marginLeft: "auto",
+                    marginRight: "auto",
+                    width: "70%",
+                    display: "block",
+                  }}
+                />
                 <a href="#!">
                   <div
                     className="mask"
@@ -127,9 +165,11 @@ export default function TrangChu(props) {
                 </a>
               </div>
               <div className="card-body">
-                <h5 className="card-title" style={{textAlign:'center'}}>Phụ Huynh</h5>
+                <h5 className="card-title" style={{ textAlign: "center" }}>
+                  Phụ Huynh
+                </h5>
                 <p className="card-text">
-                -	Đối với cha mẹ (phụ huynh): Có thể theo dõi được tình học tập của con cái 
+                  Có thể theo dõi được tình học tập của con cái
                 </p>
               </div>
             </div>

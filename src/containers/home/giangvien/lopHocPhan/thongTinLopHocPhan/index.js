@@ -89,7 +89,7 @@ export default function ThongTinLopHocPhan(props) {
             </div>
           </div>
         </form>
-        <div className="container-fluid emp-profile danhsach">
+        <div className="container-fluid danhsach">
           <DanhSachSinhVienLopHocPhan id={id} />
         </div>
       </div>

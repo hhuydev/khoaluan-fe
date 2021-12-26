@@ -17,25 +17,25 @@ export default function ThongTinchiTietLopHoc(props) {
     >
       <div className="row">
         <div className="col-md-12">
-        <div className="thong-tin-lop" style={{marginTop: "-216px" , marginLeft: "100px"}}>
+        <div className="thong-tin-lop" style={{marginTop: "-285px" , marginLeft: "100px"}}>
           <div className="info">
             <div className="panel-body bio-graph-info">
               <div className="row">
                 <div className="bio-row">
                   <p>
-                    <span>Tên lớp </span>
+                    <span>Tên lớp: </span>
                     {getThongTinLopHoc() ? getThongTinLopHoc().tenLop : ""}
                   </p>
                 </div>
                 <div className="bio-row">
                   <p>
-                    <span>Khóa học </span>
+                    <span>Khóa học: </span>
                     {getThongTinLopHoc() ? getThongTinLopHoc().khoaHoc : ""}
                   </p>
                 </div>
                 <div className="bio-row">
                   <p>
-                    <span>Chuyên ngành </span>
+                    <span>Chuyên ngành: </span>
                     {getThongTinLopHoc()
                       ? getThongTinLopHoc().tenChuyenNganh
                       : ""}
@@ -44,7 +44,7 @@ export default function ThongTinchiTietLopHoc(props) {
 
                 <div className="bio-row">
                   <p>
-                    <span>Sỉ số </span>
+                    <span>Sỉ số: </span>
                     {getThongTinLopHoc() ? getThongTinLopHoc().siSo : ""}
                   </p>
                 </div>

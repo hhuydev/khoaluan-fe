@@ -13,39 +13,39 @@ export default function ThongTinChiTietLopHocPhan(props) {
         <div className="col-md-12">
           <div
             className="thong-tin-lop"
-            style={{ marginTop: "-216px", marginLeft: "100px"}}
+            style={{ marginTop: "-266px", marginLeft: "100px"}}
           >
             <div className="info">
               <div className="panel-body bio-graph-info">
                 <div className="row">
                   <div className="bio-row">
                     <p>
-                      <span>Tên lớp </span>
+                      <span>Tên lớp: </span>
                       {tenLopHocPhan}
                     </p>
                   </div>
                   <div className="bio-row">
                     <p>
-                      <span>Học kì </span>
+                      <span>Học kì: </span>
                       {hocKi}
                     </p>
                   </div>
                   <div className="bio-row">
                     <p>
-                      <span>Thứ </span>
+                      <span>Thứ: </span>
                       {thu}
                     </p>
                   </div>
                   <div className="bio-row">
                     <p>
-                      <span>Tên môn học </span>
+                      <span>Tên môn học: </span>
                       {tenMonHoc}
                     </p>
                   </div>
 
                   <div className="bio-row">
                     <p>
-                      <span>Sỉ số </span>
+                      <span>Sỉ số: </span>
                       {siSo}
                     </p>
                   </div>

@@ -124,7 +124,7 @@ export default function ChinhSuaThongBaoLopHocPhan(props) {
             onClick={themThongBao}
             style={{ display: isEdit ? "none" : "block" }}
           >
-            Thêm thông báo
+            Gửi thông báo
           </button>
           &nbsp;&nbsp;&nbsp;
           <button

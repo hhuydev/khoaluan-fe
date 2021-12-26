@@ -341,6 +341,7 @@ export const atcGetCanhBaoSinhViensLopHoc = (idSinhVien) => {
   return (dispatch) => {
     getListCanhBaoSinhVienApi(idSinhVien)
       .then((res) => {
+        console.log(res);
         dispatch(getCanhBaoSinhVienOfGiangVienSuccess(res));
       })
       .catch((err) => {
