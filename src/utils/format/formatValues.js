@@ -2,5 +2,6 @@ import moment from "moment";
 
 
 export const formatDateTime = (dataTime)=>{
-    return  moment.utc(dataTime).format('MM/DD/YYYY'); 
+    const d = new Date(dataTime+(24*3600*1000));
+    return  moment.utc(d).format('DD/MM/YYYY'); 
 }

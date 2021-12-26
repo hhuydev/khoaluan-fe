@@ -92,9 +92,9 @@ export default function ThongBaoSinhVienLopHocItem(props) {
             className="dropdown-menu dropdown-menu-right bg-black"
             role="menu"
           >
-            <a className="dropdown-item" data-abc="true" onClick={xemChiTiet}>
+            {/* <a className="dropdown-item" data-abc="true" onClick={xemChiTiet}>
               Xem chi tiết
-            </a>
+            </a> */}
             <a
               className="dropdown-item edit"
               data-abc="true"
@@ -103,9 +103,9 @@ export default function ThongBaoSinhVienLopHocItem(props) {
               Chỉnh sửa
             </a>
 
-            <a className="dropdown-item trash" data-abc="true" onClick={xoa}>
+            {/* <a className="dropdown-item trash" data-abc="true" onClick={xoa}>
               Xóa
-            </a>
+            </a> */}
             {item.hienThi ? (
               <a className="dropdown-item trash" data-abc="true" onClick={displayThongBao}>
                 Ẩn thông báo

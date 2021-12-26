@@ -202,7 +202,7 @@ export const atcSinhVienXinNghiHoc=(data)=>{
     dispatch(displayLoading());
     postSinhVienXinNghiHocApi(data)
       .then((res) => {
-        dispatch(displayNotify({message:'Xin thành công!',type:'success'}));
+        dispatch(displayNotify({message:'Gửi thành công!',type:'success'}));
         dispatch(atcGetLopHocPhanSinhVien(localStorage.getItem("id")))
         dispatch(atcGetDonXinNghiHoc(localStorage.getItem("id")))
         dispatch(hideLoading());

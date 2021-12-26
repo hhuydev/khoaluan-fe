@@ -66,7 +66,7 @@ export default function DanhSachThongBao(props) {
 
   return (
     <div className="danh-sach-thong-bao">
-      <div className="search">
+      <div className="search" style={{marginBottom:'60px'}}>
         <div className="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
           <div className="input-group">
             <input
@@ -83,7 +83,7 @@ export default function DanhSachThongBao(props) {
           </div>
         </div>
       </div>
-      <div className="selected">
+      {/* <div className="selected">
         <select
           className="form-select form-select-sm"
           aria-label=".form-select-sm example"
@@ -95,7 +95,7 @@ export default function DanhSachThongBao(props) {
           <option value={2}>Thông báo hiển thị</option>
           <option value={3}>Thông báo bị xóa</option>
         </select>
-      </div>
+      </div> */}
       <div className="page-content page-container" id="page-content">
         <div className="padding">
           <div className="row">

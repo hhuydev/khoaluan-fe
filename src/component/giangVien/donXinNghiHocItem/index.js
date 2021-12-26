@@ -45,7 +45,7 @@ export default function DonXinNghiHocItem(props) {
       }. Hiên tại ${
         item.trangThai
           ? "Đã chấp nhận"
-          : "chưa chấp nhận bạn hãy xác nhận cho sinh viên:"
+          : "Chưa chấp nhận bạn hãy xác nhận cho sinh viên:"
       } `,
       buttons: item.trangThai
         ? [
@@ -89,7 +89,7 @@ export default function DonXinNghiHocItem(props) {
       <td>{formatDateTime(item.ngayNghi)}</td>
       <td>{item.noiDung}</td>
       <td>
-      {item.trangThai ? "Đã chấp nhận" : "chưa chấp nhận"}
+      {item.trangThai ? "Đã chấp nhận" : "Chưa chấp nhận"}
       </td>
     </tr>
   );

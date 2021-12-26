@@ -3,11 +3,11 @@ import { useDispatch } from "react-redux";
 import { atcGetCanhBaoSinhViensLopHoc } from "../../../redux/actions/GiangVien";
 import { formatTinhTrangSinhVienText } from "../../../utils/format/formatTinhTrangSinhVien";
 
-export default function SinhVienLopHocItem(props) {   
-  console.log(props.item);
+export default function SinhVienLopHocItem(props) {    
     const dispatch = useDispatch();
   const openModalCanhBao = () => {  
     props.getIdItem(props.item.id)  
+    console.log(props.item.id);
     dispatch(atcGetCanhBaoSinhViensLopHoc(props.item.id));
   
   };

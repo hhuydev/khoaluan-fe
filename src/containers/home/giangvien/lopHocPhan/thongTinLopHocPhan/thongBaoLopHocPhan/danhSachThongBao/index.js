@@ -82,8 +82,8 @@ export default function DanhSachThongBaoLopHocPhan(props) {
           </div>
         </div>
       </div>
-      <div className="selected">
-        <select
+      {/* <div className="selected"> */}
+        {/* <select
           className="form-select form-select-sm"
           aria-label=".form-select-sm example"
           defaultValue={0}
@@ -93,8 +93,8 @@ export default function DanhSachThongBaoLopHocPhan(props) {
           <option value={1}>Thông báo bị ẩn</option>
           <option value={2}>Thông báo hiển thị</option>
           <option value={3}>Thông báo bị xóa</option>
-        </select>
-      </div>
+        </select> */}
+      {/* </div> */}
       <div className="page-content page-container" id="page-content">
         <div className="padding">
           <div className="row">
