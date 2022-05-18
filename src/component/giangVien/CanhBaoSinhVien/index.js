@@ -80,72 +80,88 @@ export default function CanhBaoSinhVien(props) {
                 <span aria-hidden="true">×</span>
               </button>
             </div>
-            <div className="modal-body" style={{padding:'3%'}}>
+            <div className="modal-body" style={{ padding: "3%" }}>
               <div className="row">
-                <div className="col-md-6" style={{border:'1px solid #e0e0eb', padding:'3%', marginRight:'30px',marginLeft:'20px'}}>
-                    <h6 style={{textAlign:'center'}}>DANH SÁCH CẢNH BÁO</h6>
-                    <div
-                      className="page-content page-container"
-                      id="page-content"
-                    >
-                      <div className="padding">
-                        <div className="row">
-                          <div className="col-sm-12">
-                            <div className="list list-row block">
-                              {state.data
-                                ? state.data.map((item) => {
-                                    return (
-                                      <CanhBaoItem item={item} key={item.id} />
-                                    );
-                                  })
-                                : ""}
-                            </div>
+                <div
+                  className="col-md-6"
+                  style={{
+                    border: "1px solid #e0e0eb",
+                    padding: "3%",
+                    marginRight: "30px",
+                    marginLeft: "20px",
+                  }}
+                >
+                  <h6 style={{ textAlign: "center" }}>DANH SÁCH CẢNH BÁO</h6>
+                  <div
+                    className="page-content page-container"
+                    id="page-content"
+                  >
+                    <div className="padding">
+                      <div className="row">
+                        <div className="col-sm-12">
+                          <div className="list list-row block">
+                            {state.data
+                              ? state.data.map((item) => {
+                                  return (
+                                    <CanhBaoItem item={item} key={item.id} />
+                                  );
+                                })
+                              : ""}
                           </div>
                         </div>
                       </div>
                     </div>
+                  </div>
                 </div>
-                <div className="col-md-5" style={{border:'1px solid #e0e0eb', padding:'3%'}}>
-                    <h6 style={{textAlign:'center'}}>TẠO CẢNH BÁO</h6>
-                    <form className="form-card" onSubmit={postCanhBao}>
-                      <div className="row justify-content-between text-left">
-                        <div className="form-group col-sm-12 flex-column d-flex">
-                          <label className="form-control-label px-3">
-                            Tiêu đề<span className="text-danger"> *</span>
-                          </label>
-                          <textarea
-                            type="text"
-                            id="fname"
-                            name="tieuDe"
-                            placeholder="Nhập tiêu đề"
-                            rows={3}
-                            onChange={onChangeCanhBao}
-                            defaultValue={""}
-                          />
-                        </div>
-                        <div className="form-group col-sm-12 flex-column d-flex">
-                          <label className="form-control-label px-3">
-                            Nội dung<span className="text-danger"> *</span>
-                          </label>
-                          <textarea
-                            type="text"
-                            id="fname"
-                            name="noiDung"
-                            onChange={onChangeCanhBao}
-                            placeholder="Nhập nội dung"
-                            rows={5}
-                            defaultValue={""}
-                          />
-                        </div>
+                <div
+                  className="col-md-5"
+                  style={{ border: "1px solid #e0e0eb", padding: "3%" }}
+                >
+                  <h6 style={{ textAlign: "center" }}>TẠO CẢNH BÁO</h6>
+                  <form className="form-card" onSubmit={postCanhBao}>
+                    <div className="row justify-content-between text-left">
+                      <div className="form-group col-sm-12 flex-column d-flex">
+                        <label className="form-control-label px-3">
+                          Tiêu đề<span className="text-danger"> *</span>
+                        </label>
+                        <textarea
+                          type="text"
+                          id="fname"
+                          name="tieuDe"
+                          placeholder="Nhập tiêu đề"
+                          rows={3}
+                          onChange={onChangeCanhBao}
+                          defaultValue={""}
+                        />
                       </div>
-                          <button
-                            style={{ marginTop: "1.8%", marginLeft: "30%", width:'200px' }}
-                            type="submit"
-                            className="btn-block btn-primary"
-                          >
-                            Gửi cảnh báo
-                          </button>
-                    </form>
+                      <div className="form-group col-sm-12 flex-column d-flex">
+                        <label className="form-control-label px-3">
+                          Nội dung<span className="text-danger"> *</span>
+                        </label>
+                        <textarea
+                          type="text"
+                          id="fname"
+                          name="noiDung"
+                          onChange={onChangeCanhBao}
+                          placeholder="Nhập nội dung"
+                          rows={5}
+                        />
+                      </div>
+                    </div>
+                    <button
+                      style={{
+                        marginTop: "1.8%",
+                        marginLeft: "30%",
+                        width: "200px",
+                        backgroundColor: "#88b77b",
+                        color: "white",
+                      }}
+                      type="submit"
+                      className="btn-block btn-primary"
+                    >
+                      Gửi cảnh báo
+                    </button>
+                  </form>
                 </div>
               </div>
             </div>

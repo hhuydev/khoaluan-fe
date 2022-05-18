@@ -16,7 +16,7 @@ export default function ChinhSuaThongBao(props) {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setDataThongBao({ ...dataThongBao, [name]: value }); 
+    setDataThongBao({ ...dataThongBao, [name]: value });
   };
   const [isEdit, setIsEdit] = useState(false);
 
@@ -55,7 +55,7 @@ export default function ChinhSuaThongBao(props) {
   };
   useEffect(() => {
     if (itemEdit) {
-      setIsEdit(true); 
+      setIsEdit(true);
       setDataThongBao(itemEdit);
     }
   }, [itemEdit]);
@@ -68,10 +68,13 @@ export default function ChinhSuaThongBao(props) {
       buttons: [
         {
           label: "Có",
-          onClick: () => {  
-            if(dataThongBao.noiDung===""||dataThongBao.tieuDe===""){
+          onClick: () => {
+            if (dataThongBao.noiDung === "" || dataThongBao.tieuDe === "") {
               dispatch(
-                displayNotify({ message: "Thông tiêu đề và nội dung không được rỗng!", type: "warning" })
+                displayNotify({
+                  message: "Thông tiêu đề và nội dung không được rỗng!",
+                  type: "warning",
+                })
               );
               return;
             }
@@ -125,15 +128,21 @@ export default function ChinhSuaThongBao(props) {
             type="button"
             className="btn btn-primary btn-sm"
             onClick={themThongBao}
-            style={{ display: isEdit ? "none" : "block" }}
+            style={{
+              display: isEdit ? "none" : "block",
+              backgroundColor: "#88b77b",
+            }}
           >
-             Gửi thông báo
+            Gửi thông báo
           </button>
           &nbsp;&nbsp;&nbsp;
           <button
             type="button"
             className="btn btn-primary btn-sm"
-            style={{ display: isEdit ? "none" : "block" }}
+            style={{
+              display: isEdit ? "none" : "block",
+              backgroundColor: "#88b77b",
+            }}
             onClick={handleLamMoi}
           >
             Làm mới
@@ -142,7 +151,10 @@ export default function ChinhSuaThongBao(props) {
           <button
             type="button"
             className="btn btn-primary btn-sm"
-            style={{ display: isEdit ? "block" : "none" }}
+            style={{
+              display: isEdit ? "block" : "none",
+              backgroundColor: "#88b77b",
+            }}
             onClick={handleChinhSua}
           >
             Gửi thông báo
@@ -151,7 +163,10 @@ export default function ChinhSuaThongBao(props) {
           <button
             type="button"
             className="btn btn-primary btn-sm"
-            style={{ display: isEdit ? "block" : "none" }}
+            style={{
+              display: isEdit ? "block" : "none",
+              backgroundColor: "#88b77b",
+            }}
             onClick={() => {
               setIsEdit(false);
               handleLamMoi();

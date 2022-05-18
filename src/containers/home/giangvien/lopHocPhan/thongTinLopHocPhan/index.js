@@ -1,31 +1,35 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { atcGetDonXinNghiHoc, atcGetSinhViensLopHocPhan, atcGetThongBaoSinhViensLopHocPhan } from '../../../../../redux/actions/GiangVien'
-import DanhSachSinhVienLopHocPhan from './danhDachSinhVienLopHocPhan'
-import DonNghiHoc from './donNghiHoc'
-import ThongBaoLopHocPhan from './thongBaoLopHocPhan'
-import ThongTinChiTietLopHocPhan from './thongTinChiTietLopHocPhan'
-import './style.css'
-import { shallowEqual } from 'react-redux'
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  atcGetDonXinNghiHoc,
+  atcGetSinhViensLopHocPhan,
+  atcGetThongBaoSinhViensLopHocPhan,
+} from "../../../../../redux/actions/GiangVien";
+import DanhSachSinhVienLopHocPhan from "./danhDachSinhVienLopHocPhan";
+import DonNghiHoc from "./donNghiHoc";
+import ThongBaoLopHocPhan from "./thongBaoLopHocPhan";
+import ThongTinChiTietLopHocPhan from "./thongTinChiTietLopHocPhan";
+import "./style.css";
+import { shallowEqual } from "react-redux";
 export default function ThongTinLopHocPhan(props) {
-
   const { id } = props.match.params;
 
-
-  document.title="Lớp học phần:"+id;
+  document.title = "Lớp học phần:" + id;
   const dispatch = useDispatch();
-  const { data } = useSelector((state) => state.lopHocPhanReducer, shallowEqual);
+  const { data } = useSelector(
+    (state) => state.lopHocPhanReducer,
+    shallowEqual
+  );
   const getThongTinLopHoc = () => {
     return data.lopHocPhanDtos.filter((lop) => {
       return lop.id == id;
     })[0];
-  }; 
+  };
   useEffect(() => {
     dispatch(atcGetSinhViensLopHocPhan(id, 0));
 
     dispatch(atcGetThongBaoSinhViensLopHocPhan(id, 0));
-    dispatch(atcGetDonXinNghiHoc(localStorage.getItem("id"),id, 0));
-
+    dispatch(atcGetDonXinNghiHoc(localStorage.getItem("id"), id, 0));
   }, []);
   return (
     <div className="thong-tin-lop-hoc-phan">
@@ -44,6 +48,7 @@ export default function ThongTinLopHocPhan(props) {
                       role="tab"
                       aria-controls="thongtin"
                       aria-selected="true"
+                      style={{ color: "#88b77b" }}
                     >
                       Thông tin lớp học
                     </a>
@@ -57,6 +62,7 @@ export default function ThongTinLopHocPhan(props) {
                       role="tab"
                       aria-controls="thongbao"
                       aria-selected="false"
+                      style={{ color: "#88b77b" }}
                     >
                       Thông báo
                     </a>
@@ -70,6 +76,7 @@ export default function ThongTinLopHocPhan(props) {
                       role="tab"
                       aria-controls="donnghihoc"
                       aria-selected="false"
+                      style={{ color: "#88b77b" }}
                     >
                       Đơn xin nghỉ học
                     </a>
@@ -81,10 +88,9 @@ export default function ThongTinLopHocPhan(props) {
           <div className="row">
             <div className="col-md-12">
               <div className="tab-content profile-tab" id="myTabContent">
- 
-                <ThongTinChiTietLopHocPhan thongTin ={getThongTinLopHoc()} />
-                <ThongBaoLopHocPhan  id={id}/>
-                <DonNghiHoc id={id}/> 
+                <ThongTinChiTietLopHocPhan thongTin={getThongTinLopHoc()} />
+                <ThongBaoLopHocPhan id={id} />
+                <DonNghiHoc id={id} />
               </div>
             </div>
           </div>
@@ -94,5 +100,5 @@ export default function ThongTinLopHocPhan(props) {
         </div>
       </div>
     </div>
-  )
+  );
 }

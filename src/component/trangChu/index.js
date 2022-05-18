@@ -13,26 +13,26 @@ export default function TrangChu(props) {
         data-ride="carousel"
       >
         <div className="carousel-inner">
-          <div className="carousel-item active">
+          <div className="carousel-item active" data-interval="2500">
             <img
               style={{ height: "400px" }}
-              src="http://ptchc.iuh.edu.vn/wp-content/uploads/2016/12/WEB.png"
+              src="https://lms.iuh.edu.vn/pluginfile.php/1/theme_academi/slide3image/1641353478/anh5.jpg"
               className="d-block w-100"
               alt="..."
             />
           </div>
-          <div className="carousel-item">
+          <div className="carousel-item" data-interval="2500">
             <img
               style={{ height: "400px" }}
-              src="http://ptchc.iuh.edu.vn/wp-content/uploads/2016/12/QSIUH-1.jpg"
+              src="https://lms.iuh.edu.vn/pluginfile.php/1/theme_academi/slide1image/1641353478/lms-01.jpg"
               className="d-block w-100"
               alt="..."
             />
           </div>
-          <div className="carousel-item">
+          <div className="carousel-item" data-interval="2500">
             <img
               style={{ height: "400px" }}
-              src="http://ptchc.iuh.edu.vn/wp-content/uploads/2016/12/BANNER-2-2-ASU-02-Web.jpg"
+              src="https://lms.iuh.edu.vn/theme/image.php/academi/theme/1641353478/home/slide2"
               className="d-block w-100"
               alt="..."
             />
@@ -60,7 +60,7 @@ export default function TrangChu(props) {
       <div className="gioi-thieu" style={{ backgroundColor: "white" }}>
         <div className="row">
           <div className="col-md-12">
-            <marquee
+            {/* <marquee
               style={{
                 fontSize: "50px",
                 color: "#809fff",
@@ -70,7 +70,7 @@ export default function TrangChu(props) {
             >
               {" "}
               HỆ THỐNG SỔ LIÊN LẠC ĐIỆN TỬ
-            </marquee>
+            </marquee> */}
           </div>
         </div>
         <div className="row" style={{ padding: "5%", paddingTop: "0%" }}>
@@ -98,11 +98,15 @@ export default function TrangChu(props) {
                 </a>
               </div>
               <div className="card-body">
-                <h5 className="card-title" style={{ textAlign: "center" }}>
+                <h5
+                  className="card-title"
+                  style={{ textAlign: "center", color: "#88b77b" }}
+                >
                   Sinh viên
                 </h5>
                 <p className="card-text">
-                  Có thể theo dõi tình hình học tập và xin phép nghỉ học...
+                  Có thể theo dõi kết quả học tập, thông báo từ giáo viên và xin
+                  phép nghỉ học...
                 </p>
               </div>
             </div>
@@ -131,7 +135,10 @@ export default function TrangChu(props) {
                 </a>
               </div>
               <div className="card-body">
-                <h5 className="card-title" style={{ textAlign: "center" }}>
+                <h5
+                  className="card-title"
+                  style={{ textAlign: "center", color: "#88b77b" }}
+                >
                   Giảng Viên
                 </h5>
                 <p className="card-text">
@@ -165,11 +172,14 @@ export default function TrangChu(props) {
                 </a>
               </div>
               <div className="card-body">
-                <h5 className="card-title" style={{ textAlign: "center" }}>
+                <h5
+                  className="card-title"
+                  style={{ textAlign: "center", color: "#88b77b" }}
+                >
                   Phụ Huynh
                 </h5>
                 <p className="card-text">
-                  Có thể theo dõi được tình học tập của con cái
+                  Có thể theo dõi được tình học tập của con em
                 </p>
               </div>
             </div>

@@ -81,11 +81,17 @@ export default function DanhSachSinhVienLopHocPhan(props) {
   return (
     <>
       <div className="danh-sach-sinh-vien">
-        <h3 style={{ textAlign: "center", marginTop: "30px", marginBottom:'40px' }}>
+        <h3
+          style={{
+            textAlign: "center",
+            marginTop: "30px",
+            marginBottom: "40px",
+          }}
+        >
           DANH SÁCH SINH VIÊN{" "}
         </h3>
         <div className="container-fluid header-danh-sach-sinh-vien">
-          <div className="row" style={{width:'100%'}}>
+          <div className="row" style={{ width: "100%" }}>
             <div className="search-danh-sach-sinh-vien col-md-6">
               <div className="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
                 <div className="input-group">
@@ -104,10 +110,20 @@ export default function DanhSachSinhVienLopHocPhan(props) {
             </div>
             <div
               className="col-md-6 selected-danh-sach-sinh-vien"
-              style={{ width: "40%", marginTop: "15px" , display:'flex', height:'50px'}}
+              style={{
+                width: "40%",
+                marginTop: "15px",
+                display: "flex",
+                height: "50px",
+              }}
             >
               <select
-                style={{ height: "35px", borderRadius: "1.2rem",  marginRight:'20px', marginLeft: "200px"}}
+                style={{
+                  height: "35px",
+                  borderRadius: "1.2rem",
+                  marginRight: "20px",
+                  marginLeft: "200px",
+                }}
                 className="form-select form-select-sm"
                 aria-label=".form-select-sm example"
                 defaultValue={0}
@@ -117,16 +133,15 @@ export default function DanhSachSinhVienLopHocPhan(props) {
                 <option value={1}>Những sinh viên bị cấm thi</option>
                 <option value={2}>Những sinh viên được dự thi</option>
               </select>
-              
+
               <ReactHTMLTableToExcel
-                style={{marginTop:'-5px'}}
+                style={{ marginTop: "-5px" }}
                 id="test-table-xls-button"
                 className="btn-outline"
                 table="table-to-xls"
                 filename={`LopHocPhan${props.id}`}
                 sheet={`LopHocPhan${props.id}`}
                 buttonText="Tải về"
-              
               />
             </div>
           </div>
@@ -140,7 +155,7 @@ export default function DanhSachSinhVienLopHocPhan(props) {
           <thead>
             <tr
               style={{
-                backgroundColor: "#b3e0ff",
+                backgroundColor: "#88b77b",
                 textAlign: "center",
               }}
             >
@@ -195,12 +210,12 @@ export default function DanhSachSinhVienLopHocPhan(props) {
           [returnItem]
         )}
         <Pagination
-        data={{
-          index: index,
-          totalPage: totalPage,
-          handelPageClick: handelPageClick,
-        }}
-      />
+          data={{
+            index: index,
+            totalPage: totalPage,
+            handelPageClick: handelPageClick,
+          }}
+        />
       </div>
       {/* {useMemo(
         () => (

@@ -6,12 +6,15 @@ import SinhVienLopHocItem from "../../../../../../component/giangVien/sinhVienLo
 import { atcGetSinhViensLopHoc } from "../../../../../../redux/actions/GiangVien";
 import "./style.css";
 
-export default function DanhSachSinhVienLopHoc(props) { 
+export default function DanhSachSinhVienLopHoc(props) {
   const [items, setItems] = useState([]);
   const [totalPage, setTotalPage] = useState(10);
   const [index, setindex] = useState(0);
   const [dataItem, setDataItem] = useState();
-  const { data } = useSelector((state) => state.sinhViensLopHocReducer,shallowEqual);
+  const { data } = useSelector(
+    (state) => state.sinhViensLopHocReducer,
+    shallowEqual
+  );
   const [select, setSelect] = useState(0);
 
   const [search, setSearch] = useState("");
@@ -23,40 +26,40 @@ export default function DanhSachSinhVienLopHoc(props) {
       return item.id == id;
     })[0];
   };
-  const getIdItem = (id) => { 
-    setDataItem(getItem(id)); 
+  const getIdItem = (id) => {
+    setDataItem(getItem(id));
   };
   const onChangeSelect = (e) => {
-    const { value, name } = e.target; 
-    setSelect(value)
+    const { value, name } = e.target;
+    setSelect(value);
   };
-  const handleSearch = (data) => { 
+  const handleSearch = (data) => {
     if (select == 1) {
       data = data.filter((item) => {
         return item.canhBao;
       });
-    } 
-    if(search===""){
+    }
+    if (search === "") {
       return data;
     }
     return data.filter((item) => {
       return (
         item.hoTen.toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
-        item.email.toLowerCase().indexOf(search.toLowerCase()) !== -1||
+        item.email.toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
         item.maSV.toLowerCase().indexOf(search.toLowerCase()) !== -1
       );
     });
-  }
-  const returnItem = (item)=>{
+  };
+  const returnItem = (item) => {
     return item;
-  }
+  };
   const onSearch = (e) => {
     const { value, name } = e.target;
     setSearch(value);
   };
-  
+
   const handelPageClick = (page) => {
-    dispatch(atcGetSinhViensLopHoc(props.id,page.selected));
+    dispatch(atcGetSinhViensLopHoc(props.id, page.selected));
     setindex(data.paginationMeta.pageNumber);
   };
 
@@ -69,14 +72,16 @@ export default function DanhSachSinhVienLopHoc(props) {
   return (
     <>
       <div className="danh-sach-sinh-vien">
-      <h3 style={{textAlign:"center", marginTop:'30px'}}>DANH SÁCH SINH VIÊN </h3>
+        <h3 style={{ textAlign: "center", marginTop: "30px" }}>
+          DANH SÁCH SINH VIÊN{" "}
+        </h3>
         <div className="header-danh-sach-sinh-vien">
           <div className="search-danh-sach-sinh-vien">
             <div className="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
               <div className="input-group">
                 <input
                   type="search"
-                  onChange = {onSearch}
+                  onChange={onSearch}
                   placeholder="Nhập từ khóa cần tìm..."
                   aria-describedby="button-addon1"
                   className="form-control border-0 bg-light"
@@ -88,15 +93,21 @@ export default function DanhSachSinhVienLopHoc(props) {
             </div>
           </div>
           <div style={{ width: "100%" }}></div>
-          <div className="selected-danh-sach-sinh-vien"  style={{ width: "60%",marginTop:'15px' }}>
-            <select style={{ height:"35px", borderRadius:'1.2rem'}}
+          <div
+            className="selected-danh-sach-sinh-vien"
+            style={{ width: "60%", marginTop: "15px" }}
+          >
+            <select
+              style={{ height: "35px", borderRadius: "1.2rem" }}
               className="form-select form-select-sm"
               aria-label=".form-select-sm example"
               defaultValue={0}
-              onChange = {onChangeSelect}
+              onChange={onChangeSelect}
             >
-              <option  value={0} >Tất cả sinh viên</option>
-              <option  value={1}>Những sinh viên có tình trạng bị cảnh báo</option> 
+              <option value={0}>Tất cả sinh viên</option>
+              <option value={1}>
+                Những sinh viên có tình trạng bị cảnh báo
+              </option>
             </select>
           </div>
         </div>
@@ -104,7 +115,7 @@ export default function DanhSachSinhVienLopHoc(props) {
           <thead>
             <tr
               style={{
-                backgroundColor: "#b3e0ff",
+                backgroundColor: "#88b77b",
                 textAlign: "center",
               }}
             >
@@ -138,16 +149,20 @@ export default function DanhSachSinhVienLopHoc(props) {
           </tbody>
         </table>
         {useMemo(
-        () => (
-          <CanhBaoSinhVien getIdItem={getIdItem}  dataItem={dataItem}/>
-        ),
-        [returnItem]
-      )}
+          () => (
+            <CanhBaoSinhVien getIdItem={getIdItem} dataItem={dataItem} />
+          ),
+          [returnItem]
+        )}
 
-    <Pagination data={{index:index,totalPage:totalPage,handelPageClick:handelPageClick}}/>
+        <Pagination
+          data={{
+            index: index,
+            totalPage: totalPage,
+            handelPageClick: handelPageClick,
+          }}
+        />
       </div>
-     
-          
     </>
   );
 }

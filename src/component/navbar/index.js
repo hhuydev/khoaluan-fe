@@ -5,20 +5,24 @@ import "./style.css";
 
 export default function Navbar(props) {
   const { pathname } = props.history.location;
-  const handleLogout = () => { 
+  const handleLogout = () => {
     localStorage.clear();
     props.history.replace("/login");
   };
-  const handleChangePassword = () => {
-  };
+  const handleChangePassword = () => {};
   const getIndex = () => {
     return `/${pathname.split("/")[1]}`;
   };
+  const handleUnSetCountNotify = () => {
+    localStorage.removeItem("thongbao");
+    console.log(222);
+  };
+  const hasNotify = localStorage.getItem("thongbao");
   return (
     <div className="nav-menu">
       <nav className="navbar navbar-expand-custom navbar-mainbg">
         <NavLink className="navbar-brand navbar-logo" to={getIndex}>
-        <i className="fas fa-graduation-cap"></i> Sổ Liên Lạc Điện Tử
+          <i className="fas fa-graduation-cap"></i> Sổ Liên Lạc Điện Tử
         </NavLink>
         <button
           className="navbar-toggler"
@@ -38,31 +42,35 @@ export default function Navbar(props) {
 
             {/* <div> */}
             <div className="menu-item">
-              
-
               {props.routers.map((router, index) => {
                 return (
                   <li className="nav-item" key={index}>
-                    <NavLink 
-                    exact ={router.exact}
+                    <NavLink
+                      exact={router.exact}
                       activeStyle={{
                         marginTop: "7px",
                         border: "2px solid darkgray",
                         borderRadius: "10px 10px 0px 0px",
                         borderBottom: "none",
                         fontSize: "16px",
-                        color: "darkturquoise"
+                        color: "darkturquoise",
                       }}
                       className="nav-link active"
                       to={router.layout + router.path}
+                      onClick={
+                        router.path === "/thongbao"
+                          ? handleUnSetCountNotify
+                          : ""
+                      }
                     >
                       {router.name}
+                      {/* {hasNotify ? router.icon : ""} */}
                       {router.icon}
                     </NavLink>
                   </li>
                 );
               })}
-              { }
+              {}
             </div>
 
             <div className="dropdown">

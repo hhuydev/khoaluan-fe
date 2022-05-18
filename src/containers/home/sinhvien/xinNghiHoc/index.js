@@ -9,7 +9,7 @@ import "./style.css";
 import { FormatIndentDecreaseTwoTone } from "@material-ui/icons";
 import { formatDateTime } from "../../../../utils/format/formatValues";
 export default function XinNghiHoc() {
-  document.title="Xin nghỉ học"
+  document.title = "Xin nghỉ học";
   const dispatch = useDispatch();
   const { data } = useSelector(
     (state) => state.lopHocPhanSinhVienReducer,
@@ -45,17 +45,20 @@ export default function XinNghiHoc() {
         {
           label: "Có",
           onClick: () => {
-            if(dataApi.ngayNghi==""||new Date(Date.now()).getTime()>=new Date(dataApi.ngayNghi).getTime())
-            {
-              window.alert("Ngày nghỉ phải lớn hơn ngày hiện tại!")
-              return;
-            }  
-            if(dataApi.lyDo===""){
-              window.alert("Phải có lý do!")
+            if (
+              dataApi.ngayNghi == "" ||
+              new Date(Date.now()).getTime() >=
+                new Date(dataApi.ngayNghi).getTime()
+            ) {
+              window.alert("Ngày nghỉ phải lớn hơn ngày hiện tại!");
               return;
             }
-            if(dataApi.id==""){
-              window.alert("Chọn lớp học phần!")
+            if (dataApi.lyDo === "") {
+              window.alert("Phải có lý do!");
+              return;
+            }
+            if (dataApi.id == "") {
+              window.alert("Chọn lớp học phần!");
               return;
             }
             dispatch(atcSinhVienXinNghiHoc(dataApi));
@@ -72,12 +75,11 @@ export default function XinNghiHoc() {
       ],
     });
   };
-  const show =(item)=>{
+  const show = (item) => {
     console.log(item);
     confirmAlert({
       title: "Nội dung",
-      message:
-        item.noiDung,
+      message: item.noiDung,
       buttons: [
         {
           label: "Đóng",
@@ -86,14 +88,13 @@ export default function XinNghiHoc() {
           },
           className: "btn btn-primary",
         },
-        
       ],
     });
-  }
+  };
 
   return (
     <div className="don-xin-nghi-hoc">
-      <div className="col-md-6" style={{ border: "1px solid #e0e0eb" }}>
+      <div className="col-md-8" style={{ border: "1px solid #e0e0eb" }}>
         <div className="danh-sach-don-nghi-hoc-sinh-vien">
           <h5 style={{ textAlign: "center" }}>DANH SÁCH ĐƠN NGHỈ HỌC</h5>
           <br></br>
@@ -103,29 +104,33 @@ export default function XinNghiHoc() {
             style={{ height: "500px" }}
           >
             <table className="table table table-bordered table-striped mb-0">
-              <thead style={{ backgroundColor: "skyblue" }}>
+              <thead
+                style={{ backgroundColor: "#88b77b", textAlign: "center" }}
+              >
                 <tr>
-                  <th>STT</th>
-                  <th>Lớp học phần</th>
-                  <th>Ngày nghỉ</th>
-                  <th>Lý do</th>
-                  <th>Trạng thái</th>
+                  <th style={{ color: "#fff" }}>STT</th>
+                  <th style={{ color: "#fff" }}>Lớp học phần</th>
+                  <th style={{ color: "#fff" }}>Ngày nghỉ</th>
+                  <th style={{ color: "#fff" }}>Lý do</th>
+                  <th style={{ color: "#fff" }}>Trạng thái</th>
                 </tr>
               </thead>
               <tbody>
                 {state ? (
                   state.data.map((item, index) => {
                     return (
-                      <tr key={item.idDonXinNghiHoc} 
-                      
-                      onClick={()=>show(item)}
-                      
-                      >
-                        <td>{index + 1}</td>
-                        <td>{item.tenLopHocPhan}</td>
-                        <td>{formatDateTime(item.ngayNghi)}</td>
-                        <td>{`${item.noiDung.slice(0,20)}......xem thêm`}</td>
-                        <td>
+                      <tr key={item.idDonXinNghiHoc} onClick={() => show(item)}>
+                        <td style={{ textAlign: "center" }}>{index + 1}</td>
+                        <td style={{ textAlign: "center" }}>
+                          {item.tenLopHocPhan}
+                        </td>
+                        <td style={{ textAlign: "center" }}>
+                          {formatDateTime(item.ngayNghi)}
+                        </td>
+                        <td
+                          style={{ textAlign: "center" }}
+                        >{`${item.noiDung.slice(0, 20)}......xem thêm`}</td>
+                        <td style={{ textAlign: "center" }}>
                           {item.trangThai ? "Được chấp nhận" : "Đang chờ"}
                         </td>
                       </tr>
@@ -140,11 +145,11 @@ export default function XinNghiHoc() {
         </div>
       </div>
       <div
-        className="col-md-6"
+        className="col-md-4"
         style={{ marginLeft: "10px", border: "1px solid #e0e0eb" }}
       >
         <h5
-          style={{ textAlign: "center", marginBottom: "10%", marginTop: "1%" }}
+          style={{ textAlign: "center", marginBottom: "10%", marginTop: "3%" }}
         >
           ĐƠN XIN NGHỈ HỌC
         </h5>
@@ -209,7 +214,11 @@ export default function XinNghiHoc() {
               <button
                 type="submit"
                 className="btn-block btn-primary"
-                style={{ width: "30%", marginLeft: "70%" }}
+                style={{
+                  width: "30%",
+                  marginLeft: "70%",
+                  backgroundColor: "#88b77b",
+                }}
               >
                 Gửi đơn
               </button>

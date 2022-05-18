@@ -1,13 +1,16 @@
 import { BASE_URL_API } from "./../constants/ApiConstant";
-import axiosClient from "./axiosClient";
+import axiosClient from "./AxiosClient";
 
 const getLopHocApi = async (page) => {
   // http://localhost:8080/api/solienlacdientu/v1/giangvien/1/danhsachlophoc
   return (await axiosClient(page))({
-    method: 'GET',
-    url: BASE_URL_API + `api/solienlacdientu/v1/giangvien/${localStorage.getItem("id")}/danhsachlophoc`,
-    params: { page: page, size: 10 }
-
+    method: "GET",
+    url:
+      BASE_URL_API +
+      `api/solienlacdientu/v1/giangvien/${localStorage.getItem(
+        "id"
+      )}/danhsachlophoc`,
+    params: { page: page, size: 10 },
   })
     .then((response) => {
       return response;
@@ -20,10 +23,13 @@ const getLopHocApi = async (page) => {
 const getLopHocPhanApi = async (page) => {
   // http://localhost:8080/api/solienlacdientu/v1/giangvien/1/danhsachlophoc
   return (await axiosClient(page))({
-    method: 'GET',
-    url: BASE_URL_API + `api/solienlacdientu/v1/giangvien/${localStorage.getItem("id")}/danhsachlophocphan`,
-    params: { page: page, size: 10 }
-
+    method: "GET",
+    url:
+      BASE_URL_API +
+      `api/solienlacdientu/v1/giangvien/${localStorage.getItem(
+        "id"
+      )}/danhsachlophocphan`,
+    params: { page: page, size: 10 },
   })
     .then((response) => {
       return response;
@@ -33,14 +39,11 @@ const getLopHocPhanApi = async (page) => {
     });
 };
 
-
-
-const getSinhVienLopHocApi = async (idLopHoc,page) => { 
+const getSinhVienLopHocApi = async (idLopHoc, page) => {
   return (await axiosClient(page))({
-    method: 'GET',
+    method: "GET",
     url: BASE_URL_API + `api/solienlacdientu/v1/giangvien/${idLopHoc}/sinhvien`,
-    params: { page: page, size: 5 }
-
+    params: { page: page, size: 5 },
   })
     .then((response) => {
       return response;
@@ -50,13 +53,15 @@ const getSinhVienLopHocApi = async (idLopHoc,page) => {
     });
 };
 
-
-const getThongBaotSinhVienLopHocApi = async (idLopHoc,page) => { 
+const getThongBaotSinhVienLopHocApi = async (idLopHoc, page) => {
   return (await axiosClient(page))({
-    method: 'GET',
-    url: BASE_URL_API + `api/solienlacdientu/v1/giangvien/${localStorage.getItem("id")}/${idLopHoc}/thongbaolop`,
-    params: { page: page, size: 8 }
-
+    method: "GET",
+    url:
+      BASE_URL_API +
+      `api/solienlacdientu/v1/giangvien/${localStorage.getItem(
+        "id"
+      )}/${idLopHoc}/thongbaolop`,
+    params: { page: page, size: 8 },
   })
     .then((response) => {
       return response;
@@ -66,12 +71,15 @@ const getThongBaotSinhVienLopHocApi = async (idLopHoc,page) => {
     });
 };
 
-const addThongBaoLopHocApi = async (idLopHoc,data)=>{
+const addThongBaoLopHocApi = async (idLopHoc, data) => {
   return (await axiosClient())({
-    method: 'POST',
-    url: BASE_URL_API + `api/solienlacdientu/v1/giangvien/${localStorage.getItem("id")}/${idLopHoc}/thongbaolop`, 
-    data:data
-
+    method: "POST",
+    url:
+      BASE_URL_API +
+      `api/solienlacdientu/v1/giangvien/${localStorage.getItem(
+        "id"
+      )}/${idLopHoc}/thongbaolop`,
+    data: data,
   })
     .then((response) => {
       return response;
@@ -79,13 +87,16 @@ const addThongBaoLopHocApi = async (idLopHoc,data)=>{
     .catch((error) => {
       throw error;
     });
-}
-const addThongBaoLopHocPhanApi = async (idLopHocPhan,data)=>{
+};
+const addThongBaoLopHocPhanApi = async (idLopHocPhan, data) => {
   return (await axiosClient())({
-    method: 'POST',
-    url: BASE_URL_API + `api/solienlacdientu/v1/giangvien/${localStorage.getItem("id")}/${idLopHocPhan}/thongbaolophocphan`, 
-    data:data
-
+    method: "POST",
+    url:
+      BASE_URL_API +
+      `api/solienlacdientu/v1/giangvien/${localStorage.getItem(
+        "id"
+      )}/${idLopHocPhan}/thongbaolophocphan`,
+    data: data,
   })
     .then((response) => {
       return response;
@@ -93,15 +104,15 @@ const addThongBaoLopHocPhanApi = async (idLopHocPhan,data)=>{
     .catch((error) => {
       throw error;
     });
-}
+};
 
-
-const editThongBaoLopHocApi = async (idThongBao,data)=>{
+const editThongBaoLopHocApi = async (idThongBao, data) => {
   return (await axiosClient())({
-    method: 'PUT',
-    url: BASE_URL_API + `api/solienlacdientu/v1/giangvien/${idThongBao}/thongbaolop`, 
-    data:data
-
+    method: "PUT",
+    url:
+      BASE_URL_API +
+      `api/solienlacdientu/v1/giangvien/${idThongBao}/thongbaolop`,
+    data: data,
   })
     .then((response) => {
       return response;
@@ -109,15 +120,17 @@ const editThongBaoLopHocApi = async (idThongBao,data)=>{
     .catch((error) => {
       throw error;
     });
-}
+};
 
-
-const getThongBaotSinhVienLopHocPhanApi = async (idLopHoc,page) => { 
+const getThongBaotSinhVienLopHocPhanApi = async (idLopHoc, page) => {
   return (await axiosClient(page))({
-    method: 'GET',
-    url: BASE_URL_API + `api/solienlacdientu/v1/giangvien/${localStorage.getItem("id")}/${idLopHoc}/thongbaolophocphan`,
-    params: { page: page, size: 8 }
-
+    method: "GET",
+    url:
+      BASE_URL_API +
+      `api/solienlacdientu/v1/giangvien/${localStorage.getItem(
+        "id"
+      )}/${idLopHoc}/thongbaolophocphan`,
+    params: { page: page, size: 8 },
   })
     .then((response) => {
       return response;
@@ -127,13 +140,12 @@ const getThongBaotSinhVienLopHocPhanApi = async (idLopHoc,page) => {
     });
 };
 
-
-
-
-const editDisplayThongBaoLopHocApi = async (idThongBao)=>{
+const editDisplayThongBaoLopHocApi = async (idThongBao) => {
   return (await axiosClient())({
-    method: 'PUT',
-    url: BASE_URL_API + `api/solienlacdientu/v1/giangvien/${idThongBao}/thongbaolop/hienthi`,  
+    method: "PUT",
+    url:
+      BASE_URL_API +
+      `api/solienlacdientu/v1/giangvien/${idThongBao}/thongbaolop/hienthi`,
   })
     .then((response) => {
       return response;
@@ -141,14 +153,16 @@ const editDisplayThongBaoLopHocApi = async (idThongBao)=>{
     .catch((error) => {
       throw error;
     });
-}
+};
 
-
-
-const getListCanhBaoSinhVienApi = async (idSinhVien)=>{
+const getListCanhBaoSinhVienApi = async (idSinhVien) => {
   return (await axiosClient())({
-    method: 'GET',
-    url: BASE_URL_API + `api/solienlacdientu/v1/giangvien/${localStorage.getItem("id")}/${idSinhVien}/canhbao`,  
+    method: "GET",
+    url:
+      BASE_URL_API +
+      `api/solienlacdientu/v1/giangvien/${localStorage.getItem(
+        "id"
+      )}/${idSinhVien}/canhbao`,
   })
     .then((response) => {
       return response;
@@ -156,14 +170,13 @@ const getListCanhBaoSinhVienApi = async (idSinhVien)=>{
     .catch((error) => {
       throw error;
     });
-}
+};
 
-
-const guiCanhBaoSinhVienApi = async (data)=>{
+const guiCanhBaoSinhVienApi = async (data) => {
   return (await axiosClient())({
-    method: 'POST',
-    url: BASE_URL_API + `api/solienlacdientu/v1/giangvien/canhbao`,  
-    data:data
+    method: "POST",
+    url: BASE_URL_API + `api/solienlacdientu/v1/giangvien/canhbao`,
+    data: data,
   })
     .then((response) => {
       return response;
@@ -171,14 +184,15 @@ const guiCanhBaoSinhVienApi = async (data)=>{
     .catch((error) => {
       throw error;
     });
-}
+};
 
-
-const getSinhVienLopHocPhanApi = async (idLopHocPhan,page)=>{
+const getSinhVienLopHocPhanApi = async (idLopHocPhan, page) => {
   return (await axiosClient())({
-    method: 'GET',
-    url: BASE_URL_API + `api/solienlacdientu/v1/giangvien/${idLopHocPhan}/lophocphan/sinhvien`,  
-    params: { page: page, size: 10 }
+    method: "GET",
+    url:
+      BASE_URL_API +
+      `api/solienlacdientu/v1/giangvien/${idLopHocPhan}/lophocphan/sinhvien`,
+    params: { page: page, size: 10 },
   })
     .then((response) => {
       return response;
@@ -186,14 +200,16 @@ const getSinhVienLopHocPhanApi = async (idLopHocPhan,page)=>{
     .catch((error) => {
       throw error;
     });
-}
+};
 ///{idBangDiem}/monhoc/bangdiem
 
-const putBangDiemSinhVienMonHocApi = async (idBangDiem,data)=>{
+const putBangDiemSinhVienMonHocApi = async (idBangDiem, data) => {
   return (await axiosClient())({
-    method: 'PUT',
-    url: BASE_URL_API + `api/solienlacdientu/v1/giangvien/${idBangDiem}/monhoc/bangdiem`,   
-    data:data
+    method: "PUT",
+    url:
+      BASE_URL_API +
+      `api/solienlacdientu/v1/giangvien/${idBangDiem}/monhoc/bangdiem`,
+    data: data,
   })
     .then((response) => {
       return response;
@@ -201,14 +217,15 @@ const putBangDiemSinhVienMonHocApi = async (idBangDiem,data)=>{
     .catch((error) => {
       throw error;
     });
-}
+};
 
-
-const diemDanhApi = async (idSinhVien,idLopHocPhan,data)=>{
+const diemDanhApi = async (idSinhVien, idLopHocPhan, data) => {
   return (await axiosClient())({
-    method: 'POST',
-    url: BASE_URL_API + `api/solienlacdientu/v1/giangvien/${idSinhVien}/${idLopHocPhan}/diemdanh`,   
-    data:data
+    method: "POST",
+    url:
+      BASE_URL_API +
+      `api/solienlacdientu/v1/giangvien/${idSinhVien}/${idLopHocPhan}/diemdanh`,
+    data: data,
   })
     .then((response) => {
       return response;
@@ -216,15 +233,14 @@ const diemDanhApi = async (idSinhVien,idLopHocPhan,data)=>{
     .catch((error) => {
       throw error;
     });
-}
+};
 
-
-
-
-const getNgayNghiSinhVienApi = async (idSinhVienLopHocPhan)=>{
+const getNgayNghiSinhVienApi = async (idSinhVienLopHocPhan) => {
   return (await axiosClient())({
-    method: 'GET',
-    url: BASE_URL_API + `api/solienlacdientu/v1/giangvien/${idSinhVienLopHocPhan}/ngaynghis`,    
+    method: "GET",
+    url:
+      BASE_URL_API +
+      `api/solienlacdientu/v1/giangvien/${idSinhVienLopHocPhan}/ngaynghis`,
   })
     .then((response) => {
       return response;
@@ -232,12 +248,12 @@ const getNgayNghiSinhVienApi = async (idSinhVienLopHocPhan)=>{
     .catch((error) => {
       throw error;
     });
-}
+};
 
-const xoaNgayNghiSinhVienApi = async (id)=>{
+const xoaNgayNghiSinhVienApi = async (id) => {
   return (await axiosClient())({
-    method: 'DELETE',
-    url: BASE_URL_API + `api/solienlacdientu/v1/giangvien/ngaynghis/${id}`,    
+    method: "DELETE",
+    url: BASE_URL_API + `api/solienlacdientu/v1/giangvien/ngaynghis/${id}`,
   })
     .then((response) => {
       return response;
@@ -245,14 +261,15 @@ const xoaNgayNghiSinhVienApi = async (id)=>{
     .catch((error) => {
       throw error;
     });
-}
+};
 
-
-const getDonXinNghiHocApi = async (idGiangVien,idLopHocPhan,page)=>{
+const getDonXinNghiHocApi = async (idGiangVien, idLopHocPhan, page) => {
   return (await axiosClient())({
-    method: 'GET',
-    url: BASE_URL_API + `api/solienlacdientu/v1/giangvien/${idGiangVien}/${idLopHocPhan}/list-donxinnghihoc`,
-    params: { page: page, size: 10 }
+    method: "GET",
+    url:
+      BASE_URL_API +
+      `api/solienlacdientu/v1/giangvien/${idGiangVien}/${idLopHocPhan}/list-donxinnghihoc`,
+    params: { page: page, size: 10 },
   })
     .then((response) => {
       return response;
@@ -260,12 +277,14 @@ const getDonXinNghiHocApi = async (idGiangVien,idLopHocPhan,page)=>{
     .catch((error) => {
       throw error;
     });
-}
+};
 
-const chapNhanDonXinNghiHocApi = async (idGiangVien,idDonNghiHoc)=>{
+const chapNhanDonXinNghiHocApi = async (idGiangVien, idDonNghiHoc) => {
   return (await axiosClient())({
-    method: 'PUT',
-    url: BASE_URL_API + `api/solienlacdientu/v1/giangvien/donnghihoc/${idGiangVien}/${idDonNghiHoc}`, 
+    method: "PUT",
+    url:
+      BASE_URL_API +
+      `api/solienlacdientu/v1/giangvien/donnghihoc/${idGiangVien}/${idDonNghiHoc}`,
   })
     .then((response) => {
       return response;
@@ -273,7 +292,7 @@ const chapNhanDonXinNghiHocApi = async (idGiangVien,idDonNghiHoc)=>{
     .catch((error) => {
       throw error;
     });
-}
+};
 
 export {
   getLopHocApi,
@@ -293,5 +312,5 @@ export {
   getThongBaotSinhVienLopHocPhanApi,
   addThongBaoLopHocPhanApi,
   getDonXinNghiHocApi,
-  chapNhanDonXinNghiHocApi
+  chapNhanDonXinNghiHocApi,
 };

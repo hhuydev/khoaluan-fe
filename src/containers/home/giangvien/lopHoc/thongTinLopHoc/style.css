@@ -25,7 +25,7 @@
   margin-top: 6%;
 }
 
-.thong-tin-lop-hoc .emp-profile{
+.thong-tin-lop-hoc .emp-profile {
   margin-left: 10px;
   margin-top: 0px;
 }
@@ -86,7 +86,7 @@
 }
 .profile-head .nav-tabs .nav-link.active {
   border: none;
-  border-bottom: 2px solid #0062cc;
+  border-bottom: 2px solid #88b77b;
 }
 .profile-work {
   padding: 14%;
@@ -182,4 +182,3 @@
 .bio-desk h4.purple {
   color: #caa3da;
 }
-

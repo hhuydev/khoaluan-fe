@@ -9,9 +9,9 @@ import "./style.css";
 import ThongBaoLopHoc from "./ThongBaoLopHoc";
 import ThongTinchiTietLopHoc from "./ThongTinChiTietLopHoc";
 export default function ThongTinLopHoc(props) {
-  document.title = "Thông tin lớp học "
+  document.title = "Thông tin lớp học ";
   const { id } = props.match.params;
-  document.title="Lớp học:"+id;
+  document.title = "Lớp học:" + id;
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -23,7 +23,7 @@ export default function ThongTinLopHoc(props) {
     <div className="thong-tin-lop-hoc">
       <div className="container-fluid emp-profile">
         <form method="post">
-          <div className="row" style={{marginTop:'5%'}}>
+          <div className="row" style={{ marginTop: "5%" }}>
             <div className="col-md-12">
               <div className="profile-head">
                 <ul className="nav nav-tabs" id="myTab" role="tablist">
@@ -36,6 +36,7 @@ export default function ThongTinLopHoc(props) {
                       role="tab"
                       aria-controls="thongtin"
                       aria-selected="true"
+                      style={{ color: "#88b77b" }}
                     >
                       Thông tin lớp học
                     </a>
@@ -49,6 +50,7 @@ export default function ThongTinLopHoc(props) {
                       role="tab"
                       aria-controls="thongbao"
                       aria-selected="false"
+                      style={{ color: "#88b77b" }}
                     >
                       Thông báo
                     </a>
@@ -66,9 +68,11 @@ export default function ThongTinLopHoc(props) {
             </div>
           </div>
         </form>
-        <div className="container-fluid emp-profile danhsach" style={{marginTop:'1=20px'}}>
-          
-          <DanhSachSinhVienLopHoc id={id}/>
+        <div
+          className="container-fluid emp-profile danhsach"
+          style={{ marginTop: "1=20px" }}
+        >
+          <DanhSachSinhVienLopHoc id={id} />
         </div>
       </div>
     </div>

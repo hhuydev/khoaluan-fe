@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
-import { useDispatch } from 'react-redux';
-import { atcAddThongBaoSinhViensLopHocPhan, atcEditThongBaoSinhViensLopHocPhan } from '../../../../../../../redux/actions/GiangVien';
-import { displayNotify } from '../../../../../../../redux/actions/Notify';
-import './style.css'
+import { useDispatch } from "react-redux";
+import {
+  atcAddThongBaoSinhViensLopHocPhan,
+  atcEditThongBaoSinhViensLopHocPhan,
+} from "../../../../../../../redux/actions/GiangVien";
+import { displayNotify } from "../../../../../../../redux/actions/Notify";
+import "./style.css";
 export default function ChinhSuaThongBaoLopHocPhan(props) {
   const dispatch = useDispatch();
   const { itemEdit, id } = props;
@@ -14,7 +17,7 @@ export default function ChinhSuaThongBaoLopHocPhan(props) {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setDataThongBao({ ...dataThongBao, [name]: value }); 
+    setDataThongBao({ ...dataThongBao, [name]: value });
   };
   const [isEdit, setIsEdit] = useState(false);
 
@@ -53,7 +56,7 @@ export default function ChinhSuaThongBaoLopHocPhan(props) {
   };
   useEffect(() => {
     if (itemEdit) {
-      setIsEdit(true); 
+      setIsEdit(true);
       setDataThongBao(itemEdit);
     }
   }, [itemEdit]);
@@ -66,10 +69,13 @@ export default function ChinhSuaThongBaoLopHocPhan(props) {
       buttons: [
         {
           label: "Có",
-          onClick: () => {  
-            if(dataThongBao.noiDung===""||dataThongBao.tieuDe===""){
+          onClick: () => {
+            if (dataThongBao.noiDung === "" || dataThongBao.tieuDe === "") {
               dispatch(
-                displayNotify({ message: "Thông tiêu đề và nội dung không được rỗng!", type: "warning" })
+                displayNotify({
+                  message: "Thông tiêu đề và nội dung không được rỗng!",
+                  type: "warning",
+                })
               );
               return;
             }
@@ -122,7 +128,10 @@ export default function ChinhSuaThongBaoLopHocPhan(props) {
             type="button"
             className="btn btn-primary btn-sm"
             onClick={themThongBao}
-            style={{ display: isEdit ? "none" : "block" }}
+            style={{
+              display: isEdit ? "none" : "block",
+              backgroundColor: "#88b77b",
+            }}
           >
             Gửi thông báo
           </button>
@@ -130,7 +139,10 @@ export default function ChinhSuaThongBaoLopHocPhan(props) {
           <button
             type="button"
             className="btn btn-primary btn-sm"
-            style={{ display: isEdit ? "none" : "block" }}
+            style={{
+              display: isEdit ? "none" : "block",
+              backgroundColor: "#88b77b",
+            }}
             onClick={handleLamMoi}
           >
             Làm mới

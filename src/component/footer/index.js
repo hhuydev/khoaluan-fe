@@ -1,23 +1,34 @@
 import React from "react";
-import './style.css'
+import "./style.css";
 export default function Footer() {
   return (
     <footer>
       <div className="row justify-content-center mb-0 pt-5 pb-0 row-2 px-3">
         <div className="col-12">
           <div className="row row-2">
-            <div className="col-sm-3 text-md-center">
-              <h5>
-                <span> 
+            <div className="col-sm-3 ">
+              {/* <h5>
+                <span>
                   <i className="fa fa-firefox text-light" aria-hidden="true" />
                 </span>
                 <b>Sổ liên lạc điện tử</b>
-              </h5>
+              </h5> */}
+              <img
+                style={{ width: "100%", height: "100px" }}
+                src="https://media.iuh.edu.vn/Media/2_sviuh/Images/iuh7313e0f8-4-e.png"
+                id="icon"
+                alt="User Icon"
+              />
             </div>
-             
+
             <div className="col-sm-3 my-sm-0 mt-5">
               <ul className="list-unstyled">
-                <li className="mt-0">Sinh viên</li>
+                <li
+                  className="mt-0"
+                  style={{ fontSize: "24px", color: "#f60" }}
+                >
+                  Sinh viên
+                </li>
                 <li>Xem thông tin</li>
                 <li>Xem thông báo</li>
                 <li>Gửi đơn xin phép nghỉ học</li>
@@ -25,21 +36,29 @@ export default function Footer() {
             </div>
             <div className="col-sm-3 my-sm-0 mt-5">
               <ul className="list-unstyled">
-                <li className="mt-0">Giảng viên</li>
+                <li
+                  className="mt-0"
+                  style={{ fontSize: "24px", color: "#f60" }}
+                >
+                  Giảng viên
+                </li>
                 <li>Điểm danh</li>
                 <li>Xem danh sách lớp và lớp học phần</li>
                 <li>Tạo thông báo</li>
                 <li>Tạo cảnh báo và gởi sms phụ huynh</li>
-                
               </ul>
             </div>
             <div className="col-sm-3 my-sm-0 mt-5">
               <ul className="list-unstyled">
-                <li className="mt-0">Phụ huynh</li>
+                <li
+                  className="mt-0"
+                  style={{ fontSize: "24px", color: "#f60" }}
+                >
+                  Phụ huynh
+                </li>
                 <li>Xem thông tin sinh viên</li>
                 <li>Xem điểm sinh viên</li>
-                <li>Xem thông báo sinh viên</li> 
-                 
+                <li>Xem thông báo sinh viên</li>
               </ul>
             </div>
           </div>
@@ -47,7 +66,7 @@ export default function Footer() {
       </div>
       <div className="row justify-content-center mt-0 pt-0 row-1 mb-0 px-sm-3 px-2">
         <div className="col-12">
-          <div className="row my-4 row-1 no-gutters">
+          {/* <div className="row my-4 row-1 no-gutters">
             <div className="col-sm-3 col-auto text-center">
               <small>ⒸSổ liên lạc</small>
             </div>
@@ -73,6 +92,9 @@ export default function Footer() {
                 </span>
               </small>{" "}
             </div>
+          </div> */}
+          <div className="col-auto text-center mt-20">
+            <span>Copyright © 2022 - Phát triển bởi Huy - Quốc</span>
           </div>
         </div>
       </div>

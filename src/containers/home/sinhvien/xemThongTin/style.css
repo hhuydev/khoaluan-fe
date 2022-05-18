@@ -48,7 +48,7 @@
   font-weight: 600;
   color: white;
   cursor: pointer;
-  background-color: #398feb;
+  background-color: #88b77b;
   margin-left: 60%;
 }
 .profile .proile-rating {
@@ -70,7 +70,7 @@
 }
 .profile .profile-head .nav-tabs .nav-link.active {
   border: none;
-  border-bottom: 2px solid #0062cc;
+  border-bottom: 2px solid #88b77b;
 }
 .profile .profile-work {
   padding: 14%;
@@ -111,13 +111,13 @@
 .profile .btn_img button {
   margin-right: 10%;
   width: 50px;
-  background-color: steelblue;
+  background-color: #88b77b;
   border-radius: 1.5rem;
   color: white;
 }
 
 .profile .nav-link.active {
-  color: #0062cc;
+  color: #88b77b;
 }
 .profile .nav-link {
   color: black;

@@ -1,19 +1,21 @@
 import React from "react";
 
 export default function ThongTinChiTietLopHocPhan(props) {
-  const { id, tenLopHocPhan, idMonHoc, tenMonHoc, siSo,hocKi,thu } = props.thongTin;
+  const { id, tenLopHocPhan, idMonHoc, tenMonHoc, siSo, hocKi, thu } =
+    props.thongTin;
   return (
     <div
       className="tab-pane fade show active"
       id="thongtin"
       role="tabpanel"
       aria-labelledby="thongtin-tab"
+      style={{ color: "#88b77b" }}
     >
       <div className="row">
         <div className="col-md-12">
           <div
             className="thong-tin-lop"
-            style={{ marginTop: "-266px", marginLeft: "100px"}}
+            style={{ marginTop: "-240px", marginLeft: "100px" }}
           >
             <div className="info">
               <div className="panel-body bio-graph-info">

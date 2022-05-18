@@ -17,7 +17,7 @@
 }
 
 .don-xin-nghi-hoc .blue-text {
-  color: #00bcd4;
+  color: #88b77b;
 }
 
 .don-xin-nghi-hoc .form-control-label {
@@ -41,7 +41,7 @@
   -moz-box-shadow: none !important;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
-  border: 1px solid #00bcd4;
+  border: 1px solid #88b77b;
   outline-width: 0;
   font-weight: 400;
 }
@@ -75,7 +75,7 @@
   position: relative;
   height: 200px;
   overflow: auto;
-  }
-  .table-wrapper-scroll-y {
+}
+.table-wrapper-scroll-y {
   display: block;
-  }
+}

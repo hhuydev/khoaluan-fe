@@ -24,7 +24,7 @@ export default function SinhVienLopHocPhanItem(props) {
     dispatch(atcGetNgayNghiSinhVien(idSvLhp));
   };
   const setColorWarning = () => {
-    return true?trangThai:false
+    return true ? trangThai : false;
   };
   const openModalCanhBao = () => {
     dispatch(atcGetCanhBaoSinhViensLopHoc(props.item.id));
@@ -88,7 +88,9 @@ export default function SinhVienLopHocPhanItem(props) {
             data-toggle="modal"
             data-target="#modalSoNgayNghiPhep"
             onClick={handleDiemDanh}
-            style={{display:diemSinhVienMonHocDto.ck > 0 ?'none':'block'}}
+            style={{
+              display: diemSinhVienMonHocDto.ck > 0 ? "none" : "block",
+            }}
           >
             Điểm danh
           </button>

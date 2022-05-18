@@ -28,7 +28,7 @@ const SinhVienRoutes = [
     icon: "",
     component: TrangChu,
     layout: "/sinhvien",
-    exact :true
+    exact: true,
   },
   {
     path: "/xemthongtin",
@@ -36,7 +36,7 @@ const SinhVienRoutes = [
     //   icon: Dashboard,
     component: XemThongTin,
     layout: "/sinhvien",
-    exact :false
+    exact: false,
   },
   {
     path: "/xinnghihoc",
@@ -44,7 +44,7 @@ const SinhVienRoutes = [
     icon: "",
     component: XinNghiHoc,
     layout: "/sinhvien",
-    exact :false
+    exact: false,
   },
   {
     path: "/bangdiem",
@@ -52,15 +52,16 @@ const SinhVienRoutes = [
     icon: "",
     component: BangDiem,
     layout: "/sinhvien",
-    exact :false
+    exact: false,
   },
   {
     path: "/thongbao",
     name: "",
+    // icon: <i className="fas fa-bell">{localStorage.getItem("thongbao")}</i>,
     icon: <i className="fas fa-bell"></i>,
     component: ThongBao,
     layout: "/sinhvien",
-    exact :false
+    exact: false,
   },
 ];
 
@@ -71,7 +72,7 @@ const GiangVienRoutes = [
     icon: "",
     component: TrangChu,
     layout: "/giangvien",
-    exact :true
+    exact: true,
   },
   {
     path: "/lophocphan",
@@ -79,15 +80,15 @@ const GiangVienRoutes = [
     icon: "",
     component: LopHocPhan,
     layout: "/giangvien",
-    exact :false
+    exact: false,
   },
   {
     path: "/lophoc",
-    name: "Lớp học",
+    name: "Lớp chủ nhiệm",
     icon: "",
     component: LopHoc,
     layout: "/giangvien",
-    exact :false
+    exact: false,
   },
 ];
 const PhuHuynhRoutes = [
@@ -97,7 +98,7 @@ const PhuHuynhRoutes = [
     icon: "",
     component: TrangChu,
     layout: "/phuhuynh",
-    exact :true
+    exact: true,
   },
   {
     path: "/xemthongtin",
@@ -105,7 +106,7 @@ const PhuHuynhRoutes = [
     //   icon: Dashboard,
     component: XemThongTin,
     layout: "/phuhuynh",
-    exact :false
+    exact: false,
   },
   {
     path: "/bangdiem",
@@ -113,7 +114,7 @@ const PhuHuynhRoutes = [
     icon: "",
     component: BangDiem,
     layout: "/phuhuynh",
-    exact :false
+    exact: false,
   },
   {
     path: "/thongbao",
@@ -121,7 +122,7 @@ const PhuHuynhRoutes = [
     icon: <i className="fas fa-bell"></i>,
     component: ThongBao,
     layout: "/phuhuynh",
-    exact :false
+    exact: false,
   },
 ];
 
