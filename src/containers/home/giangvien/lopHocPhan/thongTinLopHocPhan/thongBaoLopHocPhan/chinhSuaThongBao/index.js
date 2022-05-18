@@ -151,7 +151,10 @@ export default function ChinhSuaThongBaoLopHocPhan(props) {
           <button
             type="button"
             className="btn btn-primary btn-sm"
-            style={{ display: isEdit ? "block" : "none" }}
+            style={{
+              display: isEdit ? "block" : "none",
+              backgroundColor: "#88b77b",
+            }}
             onClick={handleChinhSua}
           >
             Lưu
@@ -160,7 +163,10 @@ export default function ChinhSuaThongBaoLopHocPhan(props) {
           <button
             type="button"
             className="btn btn-primary btn-sm"
-            style={{ display: isEdit ? "block" : "none" }}
+            style={{
+              display: isEdit ? "block" : "none",
+              backgroundColor: "#88b77b",
+            }}
             onClick={() => {
               setIsEdit(false);
               handleLamMoi();

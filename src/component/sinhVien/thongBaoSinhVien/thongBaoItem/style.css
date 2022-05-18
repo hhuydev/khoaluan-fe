@@ -15,6 +15,16 @@
 .thong-bao .col-md-10 {
   margin-left: 9%;
 }
+
+.canh-bao .card-body {
+  border: 2px solid red;
+  border-radius: 0.5rem;
+  margin-bottom: 1%;
+  width: 900px;
+  height: 170px;
+  margin-left: -7%;
+}
+
 .thong-bao .card-body {
   border: 2px solid #88b77b;
   border-radius: 0.5rem;
