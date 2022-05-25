@@ -135,13 +135,13 @@ export default function DanhSachSinhVienLopHocPhan(props) {
               </select>
 
               <ReactHTMLTableToExcel
-                style={{ marginTop: "-5px" }}
+                style={{ backgroundColor: "#88b77b", color: "pink" }}
                 id="test-table-xls-button"
                 className="btn-outline"
                 table="table-to-xls"
                 filename={`LopHocPhan${props.id}`}
                 sheet={`LopHocPhan${props.id}`}
-                buttonText="Tải về"
+                buttonText="Tải"
               />
             </div>
           </div>

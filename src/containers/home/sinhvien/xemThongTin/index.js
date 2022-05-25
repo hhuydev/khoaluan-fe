@@ -4,16 +4,22 @@ import ChinhSuaThongTin from "../../../../component/sinhVien/thongTinSinhVien/ch
 import ThongTinSinhVien from "../../../../component/sinhVien/thongTinSinhVien/thongTin";
 import { atcImgUrl } from "../../../../redux/actions/TaiKhoan";
 import { confirmAlert } from "react-confirm-alert";
+import axios from "axios";
+import { BASE_URL_API } from "../../../../constants/ApiConstant";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import "./style.css";
+
 export default function XemThongTin() {
-  document.title = "Thông tin sinh viên"
+  document.title = "Thông tin sinh viên";
   const [imgURl, setImgURl] = useState(null);
+
   const [isSave, setIsSave] = useState(false);
-  const { data } = useSelector((state) => state.sinhVienReducer, shallowEqual);
   const [img, setImg] = useState("");
   const [dataImgUrlApi, setDataImgUrlApi] = useState(null);
+
+  const { data } = useSelector((state) => state.sinhVienReducer, shallowEqual);
   const dispatch = useDispatch();
+
   const onChange = (e) => {
     const file = URL.createObjectURL(e.target.files[0]);
     setImg(file);
@@ -25,15 +31,13 @@ export default function XemThongTin() {
     setImg(data.imgUrl);
   };
 
-
-  const handleLuu = () => {  
-    if (( dataImgUrlApi === null)) {
+  const handleLuu = () => {
+    if (dataImgUrlApi === null) {
       return;
     }
     confirmAlert({
       title: "Lưu ý",
-      message:
-        "Bạn có muốn chỉnh sửa avatar! ",
+      message: "Bạn có muốn chỉnh sửa avatar! ",
       buttons: [
         {
           label: "Có",
@@ -51,7 +55,6 @@ export default function XemThongTin() {
         },
       ],
     });
-
   };
   useEffect(() => {
     setImg(data.imgUrl);
@@ -59,13 +62,17 @@ export default function XemThongTin() {
   return (
     <div className="profile">
       <div className="container emp-profile">
-
         <form method="post">
           <div className="row">
             <div className="col-md-4">
               <div className="profile-img">
                 <img src={img} className="img" alt="Cinque Terre" />
-                <div className="file btn btn-lg btn-primary" style={{ display: !localStorage.getItem("idsv") ? '' : 'none' }}>
+                <div
+                  className="file btn btn-lg btn-primary"
+                  style={{
+                    display: !localStorage.getItem("idsv") ? "" : "none",
+                  }}
+                >
                   Chỉnh sửa
                   <input type="file" name="file" onChange={onChange} />
                 </div>
@@ -115,7 +122,11 @@ export default function XemThongTin() {
                       role="tab"
                       aria-controls="profile"
                       aria-selected="false"
-                      style={{ display: !localStorage.getItem("idsv") ? 'block' : 'none' }}
+                      style={{
+                        display: !localStorage.getItem("idsv")
+                          ? "block"
+                          : "none",
+                      }}
                     >
                       Chỉnh sửa thông tin
                     </a>
@@ -125,8 +136,7 @@ export default function XemThongTin() {
             </div>
           </div>
           <div className="row">
-            <div className="col-md-4">
-            </div>
+            <div className="col-md-4"></div>
             <div className="col-md-8">
               <div className="tab-content profile-tab" id="myTabContent">
                 {useMemo(
